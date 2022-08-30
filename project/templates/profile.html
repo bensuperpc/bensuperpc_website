@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <div class="container text-center">
+        <h1>{% block title %} Welcome, {{ name }}! {% endblock %}</h1>
+    </div>
+    <div class="row py-lg-1 text-center">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Profiles settings</h1>
+            <p class="lead text-muted">You can change your settings on this page but not now :D</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

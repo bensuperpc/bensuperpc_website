@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+        "title": "Dockcross",
+        "description": "Dockcross contributing to the project",
+        "from_github": true,
+        "user": "dockcross",
+        "repository": "dockcross",
+        "file": "CONTRIBUTING.md"
+    },
+    {
+        "title": "Scripts",
+        "description": "Scripts project",
+        "from_github": true,
+        "user": "bensuperpc",
+        "repository": "scripts",
+        "file": "README.md"
+    }
+  ]
+}

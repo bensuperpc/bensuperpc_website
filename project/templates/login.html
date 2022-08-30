@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="text-center container">
+    <div class="column is-4 is-offset-4">
+        <h3 class="title">Login</h3>
+        <div class="box">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" action="/login">
+                <!-- Email -->
+                <div class="form-outline mb-4">
+                    <input type="email" placeholder="Your email" class="form-control" name="email" />
+                </div>
+
+                <!-- Password -->
+                <div class="form-outline mb-4">
+                    <input type="password" placeholder="Your password" class="form-control" name="password" />
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="formremember" name="remember"
+                                checked />
+                            <label class="form-check-label" for="formremember"> Remember me </label>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <a class="disable" href="#!">Forgot password?</a>
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                <div class="text-center">
+                    <p>Not a member? <a href="{{ url_for('auth.signup') }}">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

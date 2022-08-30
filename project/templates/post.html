@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <div class="text-center container">
+        <h1>{% block title %} {{ post['title'] }} {% endblock %}</h1>
+    </div>
+    <div class="row py-lg-1">
+        <div class="col-lg-12 col-md-16 mx-auto">
+            <span class="badge bg-secondary">{{ post['created'] }}</span>
+            <span class="badge bg-secondary">{{ post['updated'] }}</span>
+            <h4>
+                <p>{{ post['summarize'] }}</p>
+            </h4>
+            <hr>
+            <p>{{ post['content'] |safe }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

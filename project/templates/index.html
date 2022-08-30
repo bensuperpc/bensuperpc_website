@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="text-center container">
+    <div class="container">
+        <h1 class="text-center">{% block title %} Welcome to Bensuperpc's website {% endblock %}</h1>
+    </div>
+    <div class="row py-lg-1">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <!-- <h1 class="fw-light">Introduction</h1>-->
+            <p class="lead text-muted">The website is still in <b>alpha</b>, there may still be a lot of things that don't work.
+                You can contribute to this free and open source project by sending a pull request to this
+                <a href="https://github.com/bensuperpc/bensuperpc_website">repository</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
