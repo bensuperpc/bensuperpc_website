@@ -15,6 +15,14 @@
         "user": "bensuperpc",
         "repository": "scripts",
         "file": "README.md"
-    }
+    },
+    {
+      "title": "GitHub profile",
+      "description": "My gitHub profile",
+      "from_github": true,
+      "user": "bensuperpc",
+      "repository": "bensuperpc",
+      "file": "README.md"
+  }
   ]
 }

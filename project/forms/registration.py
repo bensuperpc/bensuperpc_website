@@ -1,19 +1,17 @@
-from wtforms import BooleanField, Form, PasswordField, StringField, validators
+from flask_wtf import FlaskForm
+from wtforms import BooleanField, PasswordField, StringField, SubmitField, validators
 
-class RegistrationForm(Form):
+
+class RegistrationForm(FlaskForm):
     username = StringField(
         "Username",
         [
             validators.Length(min=4, max=256),
             validators.DataRequired(),
-            validators.Regexp(
-                regex=r"^[a-zA-Z0-9_.-]+$",
-                message="Password must contain only letters, numbers, underscores",
-            ),
         ],
     )
     email = StringField(
-        "Email Address", [validators.Length(min=6, max=128), validators.DataRequired()]
+        "Email Address", [validators.DataRequired(), validators.Email()]
     )
     password = PasswordField(
         "New Password",
@@ -25,3 +23,4 @@ class RegistrationForm(Form):
     )
     confirm = PasswordField("Repeat Password")
     accept_tos = BooleanField("I accept the TOS", [validators.DataRequired()])
+    submit = SubmitField("Register")

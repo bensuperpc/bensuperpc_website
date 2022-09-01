@@ -14,6 +14,7 @@
             {% endwith %}
 
             <form method=post>
+                {{ form.csrf_token }}
                 <div class="form-outline mb-4">
                     {{ form.username(class="form-control", placeholder="username here", type="name") }}
                 </div>
@@ -31,7 +32,10 @@
                     <label class="form-check-label" for="formaccept_tos">
                         I accept the <a href="#!">terms of service</a>
                 </p>
-                <p><input type=submit value=Register></p>
+                <!--<p><input type=submit value=Register></p>-->
+                <div class="form-outline mb-4">
+                    {{ form.submit(class="btn btn-primary", value="Register") }}
+                </div>
             </form>
         </div>
     </div>

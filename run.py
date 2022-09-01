@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
         # Add new articles for testing
         data = {}
-        with open("project/static/data/article.json") as json_file:
+        with open("project/static/data/article.json", encoding="UTF-8") as json_file:
             data = json.load(json_file)
 
         for item in data["articles"]:
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
         # Add mutuals for testing
         data = {}
-        with open("project/static/data/mutual.json") as json_file:
+        with open("project/static/data/mutual.json", encoding="UTF-8") as json_file:
             data = json.load(json_file)
 
         for item in data["mutuals"]:

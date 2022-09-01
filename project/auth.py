@@ -1,42 +1,41 @@
-import loguru as logger
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
+from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from . import db
+from .forms.login import LoginForm
 from .forms.registration import RegistrationForm
 from .models import User
 
 auth = Blueprint("auth", __name__)
 
 
-@auth.route("/login")
+@auth.route("/login", methods=["GET", "POST"])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for("main.profile"))
-    return render_template("login.html")
+    form = LoginForm(request.form)
 
+    if form.validate_on_submit():
+        password = form.password.data
+        email = form.email.data
 
-@auth.route("/login", methods=["POST"])
-def login_post():
-    email = request.form.get("email")
-    password = request.form.get("password")
-    remember = True if request.form.get("remember") else False
+        user = User.query.filter_by(email=email).first()
+        if not user or not check_password_hash(user.password, password):
+            flash("Invalid username or password")
+            return redirect(url_for("auth.login"), form=form)
+        login_user(user, remember=form.remember_me.data)
+        logger.info(f"{user.name} logged in")
+        return redirect(url_for("main.index"))
 
-    user = User.query.filter_by(email=email).first()
-
-    if not user or not check_password_hash(user.password, password):
-        flash("Please check your password and try again.")
-        return redirect(url_for("auth.login"))
-
-    login_user(user, remember=remember)
-    return redirect(url_for("main.profile"))
+    return render_template("login.html", form=form)
 
 
 @auth.route("/signup", methods=["GET", "POST"])
 def signup():
     form = RegistrationForm(request.form)
-    if request.method == "POST" and form.validate():
+
+    # validate_on_submit() check request.method == "POST"
+    if form.validate_on_submit():
         email = form.email.data
         name = form.username.data
         password = form.password.data

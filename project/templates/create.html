@@ -3,24 +3,21 @@
 {% block content %}
 <h1>{% block title %} Create a New Post {% endblock %}</h1>
 
-<form method="post">
-    <div class="mb-3">
-        <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Post title" class="form-control"
-            value="{{ request.form['title'] }}"></input>
-    </div>
-    <div class="mb-3">
-        <label for="summarize">Summarize</label>
-        <textarea name="summarize" placeholder="Post summarize"
-            class="form-control">{{ request.form['summarize'] }}</textarea>
-    </div>
-    <div class="mb-3">
-        <label for="content">Content</label>
-        <textarea name="content" placeholder="Post content"
-            class="form-control">{{ request.form['content'] }}</textarea>
-    </div>
-    <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+<section class="container">
+    <form method=post>
+        {{ form.csrf_token }}
+        <div class="form-outline mb-4">
+            {{ form.title(class="form-control", placeholder="Post title", type="text") }}
+        </div>
+        <div class="form-outline mb-4">
+            {{ form.summary(class="form-control", placeholder="Post summarize", type="text") }}
+        </div>
+        <div class="form-outline mb-4">
+            {{ form.content(class="form-control", placeholder="Post content", type="text") }}
+        </div>
+        <div class="form-outline mb-4">
+            {{ form.submit(class="btn btn-primary", value="Save") }}
+        </div>
+    </form>
+</section>
 {% endblock %}

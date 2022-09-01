@@ -1,5 +1,4 @@
 import flask_sqlalchemy as sqlalchemy
-import loguru as logger
 import markdown
 from flask import (
     Blueprint,
@@ -11,35 +10,37 @@ from flask import (
     url_for,
 )
 from flask_login import current_user, login_required
+from loguru import logger
 from werkzeug.exceptions import abort
 
 from . import db
+from .forms.post import PostForm
 from .models import Post
 
 article = Blueprint("article", __name__)
 
 
-@article.route("/create", methods=("GET", "POST"))
+@article.route("/post/create", methods=("GET", "POST"))
 @login_required
 def create():
-    if request.method == "POST":
-        title = request.form["title"]
-        content = request.form["content"]
-        summarize = request.form["summarize"]
+    form = PostForm(request.form)
 
-        if not title:
-            flash("Title is required!")
-        else:
-            post = Post(title=title, content=content, summarize=summarize)
-            db.session.add(post)
-            db.session.commit()
-            flash('"{}" was successfully created!'.format(post.title))
-            return redirect(url_for("main.article"))
+    if form.validate_on_submit():
 
-    return render_template("create.html")
+        title = form.title.data
+        summary = form.summary.data
+        content = form.content.data
+
+        post = Post(title=title, content=content, summarize=summary)
+        db.session.add(post)
+        db.session.commit()
+        flash('"{}" was successfully created!'.format(post.title))
+        return redirect(url_for("main.article"))
+
+    return render_template("create.html", form=form)
 
 
-@article.route("/<int:post_id>")
+@article.route("/post/<int:post_id>")
 def post(post_id):
     post = Post.query.get_or_404(post_id)
     if post is None:
@@ -61,7 +62,7 @@ def post(post_id):
     return render_template("post.html", post=post)
 
 
-@article.route("/<int:id>/edit", methods=("GET", "POST"))
+@article.route("/post/<int:id>/edit", methods=("GET", "POST"))
 @login_required
 def edit(id):
     post = Post.query.get_or_404(id)
@@ -69,26 +70,25 @@ def edit(id):
     if post is None:
         abort(404)
 
-    if request.method == "POST":
-        title = request.form["title"]
-        content = request.form["content"]
-        summarize = request.form["summarize"]
-        updated = sqlalchemy.func.now()
+    form = PostForm(request.form)
 
-        if not title:
-            flash("Title is required!")
-        else:
-            post.title = title
-            post.content = content
-            post.summarize = summarize
-            db.session.commit()
-            flash('"{}" was successfully edited!'.format(post.title))
-            return redirect(url_for("main.article"))
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.content = form.content.data
+        post.summarize = form.summary.data
+        post.updated = db.func.now()
+        db.session.commit()
+        flash('"{}" was successfully edited!'.format(post.title))
+        return redirect(url_for("main.article"))
 
-    return render_template("edit.html", post=post)
+    form.title.data = post.title
+    form.content.data = post.content
+    form.summary.data = post.summarize
+
+    return render_template("edit.html", form=form, post=post)
 
 
-@article.route("/<int:id>/delete", methods=("POST",))
+@article.route("/post/<int:id>/delete", methods=("POST",))
 @login_required
 def delete(id):
 

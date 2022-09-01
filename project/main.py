@@ -1,9 +1,4 @@
-# main.py
-
-import imp
 import os
-from asyncio.log import logger
-from turtle import update
 
 from flask import (
     Blueprint,
@@ -15,9 +10,9 @@ from flask import (
     url_for,
 )
 from flask_login import current_user, login_required
+from loguru import logger
 from werkzeug.exceptions import abort
 
-from . import db
 from .models import Mutual, Post
 
 if __name__ == "__main__":
@@ -31,12 +26,6 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def index():
     return render_template("index.html")
-
-
-@main.route("/profile")
-@login_required
-def profile():
-    return render_template("profile.html", name=current_user.name)
 
 
 @main.route("/mutual")
@@ -58,6 +47,7 @@ def about():
 @main.route("/article")
 def article():
     posts = Post.query.all()
+    logger.info(posts)
     return render_template("article.html", posts=posts)
 
 
