@@ -7,15 +7,47 @@
     </div>
     <div class="row py-lg-1">
         <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">The beginning</h1>
-            <p class="lead text-muted">I love computers since my childhood.</p>
-            <!-- <a href="{{ url_for('static', filename= 'media/music/bad_apple.mp3') }}" class="btn btn-primary my-2">Download</a> -->
-            <!-- 
-            <p>
-                <a href="#" class="btn btn-primary my-2">wikipedia</a>
-                <a href="#" class="btn btn-secondary my-2">Twitter</a>
-            </p>
-            -->
+            <div class="card shadow-sm">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="card-body">
+                        <p class="card-text fw-bold">Musics</p>
+                        <div class="list-group">
+                            {% for file in musics %}
+                            <a href="{{ url_for('main.upload_music', filename=file) }}"
+                                class="list-group-item list-group-item-action">{{ file }}</a>
+                            {% endfor %}
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button"
+                                aria-disabled="true">Download all musics</a>
+                        </div>
+                        <br>
+                        <p class="card-text fw-bold">Images</p>
+                        <div class="list-group">
+                            {% for file in images %}
+                            <a href="{{ url_for('main.upload_image', filename=file) }}"
+                                class="list-group-item list-group-item-action">{{ file }}</a>
+                            {% endfor %}
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button"
+                                aria-disabled="true">Download all images</a>
+                        </div>
+                        <br>
+                        <p class="card-text fw-bold">Videos</p>
+                        <div class="list-group">
+                            {% for file in videos %}
+                            <a href="{{ url_for('main.upload_video', filename=file) }}"
+                                class="list-group-item list-group-item-action">{{ file }}</a>
+                            {% endfor %}
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button"
+                                aria-disabled="true">Download all videos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
