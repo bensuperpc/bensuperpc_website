@@ -2,7 +2,7 @@
 
 ## _My new website (WIP)_
 
-[![bensuperpc_website](https://github.com/bensuperpc/bensuperpc_website/actions/workflows/base.yml/badge.svg)]
+[![bensuperpc_website](https://github.com/bensuperpc/bensuperpc_website/actions/workflows/base.yml/badge.svg)](https://github.com/bensuperpc/bensuperpc_website/actions/workflows/base.yml)
 
 ## About
 

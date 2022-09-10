@@ -6,8 +6,8 @@ from github3 import GitHub
 from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from project import create_app, db
-from project.db import Mutual, Post, User
+from project import create_app
+from project.db import Mutual, Post, User, db
 
 if __name__ == "__main__":
     load_dotenv()
