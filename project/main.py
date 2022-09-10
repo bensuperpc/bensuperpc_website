@@ -34,6 +34,11 @@ def index():
     return render_template("index.html")
 
 
+
+@main.route("/linktree")
+def linktree():
+    return render_template("linktree.html")
+
 @main.route("/mutual")
 def mutual():
     mutuals = Mutual.query.all()

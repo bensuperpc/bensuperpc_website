@@ -14,14 +14,19 @@
         integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha384-fZCoUih8XsaUZnNDOiLqnby1tMJ0sE7oBbNk2Xxf5x8Z4SvNQ9j83vFMa/erbVrV" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+
     <!-- For general style -->
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <!-- For code style in article -->
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style_code.css') }}">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename= 'favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename= 'favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename= 'favicon/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename= 'favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename= 'favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename= 'favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename= 'favicon/site.webmanifest') }}">
 
     <title>{% block title %} {% endblock %}</title>
@@ -48,7 +53,7 @@
             </li>
             <li class="nav-item"><a href="https://www.youtube.com/c/bensuperpc"
                     class="nav-link px-2 text-muted">Youtube</a></li>
-            <li class="nav-item"><a href="{{ url_for('main.about')}}" class="nav-link px-2 text-muted">About</a>
+            <li class="nav-item"><a href="mailto:bensuperpc@gmail.com" class="nav-link px-2 text-muted">Mail</a>
             </li>
         </ul>
     </footer>
