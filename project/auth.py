@@ -5,7 +5,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from . import db
+from .db import db
 from .db import User
 from .forms.login import LoginForm
 from .forms.registration import RegistrationForm

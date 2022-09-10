@@ -13,8 +13,8 @@ from flask_login import current_user, login_required
 from loguru import logger
 from werkzeug.exceptions import abort
 
-from . import db
-from .db import Post
+# from . import db
+from .db import Post, db
 from .forms.post import PostForm
 
 article = Blueprint(
@@ -29,9 +29,17 @@ article = Blueprint(
 @article.route("/post/create", methods=("GET", "POST"))
 @login_required
 def create():
+
     form = PostForm(request.form)
 
     if form.validate_on_submit():
+
+        if current_user.admin is False:
+            flash("Sorry, you don't have permission to create a post.")
+            logger.warning(
+                f"User {current_user.name} ({current_user.email}) tried to create a post"
+            )
+            return render_template("create.html", form=form)
 
         title = form.title.data
         summary = form.summary.data
@@ -79,6 +87,14 @@ def edit(id):
     form = PostForm(request.form)
 
     if form.validate_on_submit():
+
+        if current_user.admin is False:
+            flash("Sorry, you don't have permission to edit a post.")
+            logger.warning(
+                f"User {current_user.name} ({current_user.email}) tried to edit a post"
+            )
+            return render_template("edit.html", form=form, post=post)
+
         post.title = form.title.data
         post.content = form.content.data
         post.summarize = form.summary.data
@@ -101,6 +117,10 @@ def delete(id):
     post = Post.query.get_or_404(id)
     if post is None:
         abort(404)
+
+    if current_user.admin is False:
+        flash("Sorry, you don't have permission to delete a post.")
+        return redirect(url_for("main.article"))
 
     db.session.delete(post)
     db.session.commit()

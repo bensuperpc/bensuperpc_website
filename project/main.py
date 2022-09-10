@@ -34,10 +34,10 @@ def index():
     return render_template("index.html")
 
 
-
 @main.route("/linktree")
 def linktree():
     return render_template("linktree.html")
+
 
 @main.route("/mutual")
 def mutual():
@@ -56,9 +56,14 @@ def article():
     logger.info(posts)
     return render_template("article.html", posts=posts)
 
-@main.route('/favicon.ico') 
-def favicon(): 
-    return send_from_directory(os.path.join(main.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@main.route("/favicon.ico")
+def favicon():
+    return send_from_directory(
+        os.path.join(main.root_path, "static"),
+        "favicon.ico",
+        mimetype="image/vnd.microsoft.icon",
+    )
 
 
 @main.route("/share")

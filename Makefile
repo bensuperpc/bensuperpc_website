@@ -46,10 +46,19 @@ lint:
 linkcheck:
 	linkchecker http://127.0.0.1:5000
 
-.PHONY: docker
-docker:
+.PHONY: docker-start
+docker-start:
 	docker build -t flash_server .
-	docker run -p 5000:5000 flash_server
+	docker run -d -p 5000:5000 -v "$(shell pwd):/usr/src/app" --name flash_server flash_server
+
+.PHONY: docker-stop
+docker-stop:
+	docker stop flash_server
+	docker rm flash_server
+
+.PHONY: docker-logs
+docker-logs:
+	docker logs flash_server
 
 .PHONY: clean
 clean:

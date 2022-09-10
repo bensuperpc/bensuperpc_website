@@ -10,6 +10,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(128))
     name = db.Column(db.String(256))
     admin = db.Column(db.Boolean, default=False)
+    # can_whrite = db.Column(db.Boolean, default=False)
 
     def set_password(self, password):
         self.password = generate_password_hash(password, method="sha512")

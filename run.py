@@ -48,7 +48,7 @@ if __name__ == "__main__":
                 logger.info("Added post")
 
         # Add new users for testing
-        new_user = User(
+        new_user_admin = User(
             email="admin@admin.net",
             name="admin",
             password=generate_password_hash("admin", method="sha512"),
@@ -58,7 +58,21 @@ if __name__ == "__main__":
             bool(db.session.query(User).filter_by(email="admin@admin.net").first())
             is False
         ):
-            db.session.add(new_user)
+            db.session.add(new_user_admin)
+            db.session.commit()
+            logger.info("Added user")
+
+        new_user_base = User(
+            email="base@base.net",
+            name="base",
+            password=generate_password_hash("base", method="sha512"),
+            admin=False,
+        )
+        if (
+            bool(db.session.query(User).filter_by(email="base@base.net").first())
+            is False
+        ):
+            db.session.add(new_user_base)
             db.session.commit()
             logger.info("Added user")
 

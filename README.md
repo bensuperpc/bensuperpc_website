@@ -79,11 +79,25 @@ And go to: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost
 
 ### Run with docker
 
+Start the website with:
+
 ```sh
-make docker-run
+make docker-start
 ```
 
 And go to: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000/](http://localhost:5000/)
+
+Stop the website with:
+
+```sh
+make docker-stop
+```
+
+Get the logs with:
+
+```sh
+make docker-logs
+```
 
 ## Build with
 
