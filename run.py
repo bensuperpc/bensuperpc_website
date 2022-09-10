@@ -7,7 +7,7 @@ from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from project import create_app, db
-from project.models import Mutual, Post, User
+from project.db import Mutual, Post, User
 
 if __name__ == "__main__":
     load_dotenv()

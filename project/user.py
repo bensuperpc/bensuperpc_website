@@ -14,7 +14,7 @@ from loguru import logger
 from werkzeug.exceptions import abort
 
 from . import db
-from .models import User
+from .db import User
 
 user = Blueprint("user", __name__)
 

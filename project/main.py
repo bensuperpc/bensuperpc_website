@@ -13,12 +13,18 @@ from flask_login import current_user, login_required
 from loguru import logger
 from werkzeug.exceptions import abort
 
-from .models import Mutual, Post
+from .db import Mutual, Post
 
 if __name__ == "__main__":
     logger.info("main.py")
 
-main = Blueprint("main", __name__)
+main = Blueprint(
+    "main",
+    __name__,
+    template_folder="templates",
+    static_folder="static",
+    static_url_path="/",
+)
 
 
 @main.route("/index")

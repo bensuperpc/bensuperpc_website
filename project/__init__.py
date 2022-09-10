@@ -1,17 +1,15 @@
 from flask import Flask
 from flask_login import LoginManager
-from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 from loguru import logger
 
-db = SQLAlchemy()
-csrf = CSRFProtect()
-
 from .article import article as article_blueprint
 from .auth import auth as auth_blueprint
+from .db import Mutual, Post, User, db
 from .main import main as main_blueprint
-from .models import User
 from .user import user as user_blueprint
+
+csrf = CSRFProtect()
 
 
 def create_app(SECRET_KEY=None):

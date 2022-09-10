@@ -26,7 +26,7 @@
         {% include 'navbar.html' %}
     </header>
     <main>
-        <div class=" p-5">
+        <div class="p-5">
             {% for message in get_flashed_messages() %}
             <div class="alert alert-danger">{{ message }}</div>
             {% endfor %}

@@ -1,14 +1,22 @@
+from sys import prefix
+
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from . import db
+from .db import User
 from .forms.login import LoginForm
 from .forms.registration import RegistrationForm
-from .models import User
 
-auth = Blueprint("auth", __name__)
+auth = Blueprint(
+    "auth",
+    __name__,
+    template_folder="templates",
+    static_folder="static",
+    static_url_path="/",
+)
 
 
 @auth.route("/login", methods=["GET", "POST"])

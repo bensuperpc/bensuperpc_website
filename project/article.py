@@ -14,10 +14,16 @@ from loguru import logger
 from werkzeug.exceptions import abort
 
 from . import db
+from .db import Post
 from .forms.post import PostForm
-from .models import Post
 
-article = Blueprint("article", __name__)
+article = Blueprint(
+    "article",
+    __name__,
+    template_folder="templates",
+    static_folder="static",
+    static_url_path="/",
+)
 
 
 @article.route("/post/create", methods=("GET", "POST"))

@@ -42,6 +42,10 @@ lint:
 	find . -name '*.py' -exec python -m pylint {} \;
 	find . -name '*.py' -exec python -m flake8 --select=DUO {} \;
 
+.PHONY: linkcheck
+linkcheck:
+	linkchecker http://127.0.0.1:5000
+
 .PHONY: docker
 docker:
 	docker build -t flash_server .
