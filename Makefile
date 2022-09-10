@@ -18,11 +18,18 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-PYTHON := python3
+PYTHON := python
 
 .PHONY: install
 install:
 	$(PYTHON) -m pip install -r requirements.txt
+
+.PHONY: venv
+venv:
+	$(PYTHON) -m venv venv_dev
+	@echo "Run: 'source ./venv_dev/bin/activate' to activate venv"
+	@echo "Run: 'make install' to install the requirements INSIDE the venv"
+	@echo "Run: 'deactivate ./venv_dev/bin/deactivate' to deactivate venv"
 
 .PHONY: run
 run:

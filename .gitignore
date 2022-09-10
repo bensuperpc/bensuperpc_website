@@ -3,3 +3,4 @@ database.db
 OLD/*
 project/db.sqlite
 .env
+venv_dev/*
