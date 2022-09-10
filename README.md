@@ -11,9 +11,9 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [x] Login system
 - [x] Post system (with markdown)
 - [x] Share files system
-- [o] Comment system
-- [o] Contact system
-- [o] https and config file
+- [ ] Comment system
+- [ ] Contact system
+- [ ] https and config file
 
 ## Screenshots
 
