@@ -4,3 +4,6 @@ OLD/*
 project/db.sqlite
 .env
 venv_dev/*
+project/__init__.py
+cert.pem
+key.pem

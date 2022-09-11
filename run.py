@@ -9,6 +9,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from project import create_app
 from project.db import Mutual, Post, User, db
 
+from flask import request, redirect
+
 if __name__ == "__main__":
     load_dotenv()
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -101,4 +103,4 @@ if __name__ == "__main__":
                 db.session.commit()
                 logger.info("Added mutual")
 
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True, ssl_context=("cert.pem", "key.pem"))

@@ -40,10 +40,10 @@ def create_app(SECRET_KEY=None):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+    
+    app.register_blueprint(main_blueprint)
 
     app.register_blueprint(auth_blueprint)
-
-    app.register_blueprint(main_blueprint)
 
     app.register_blueprint(user_blueprint)
 

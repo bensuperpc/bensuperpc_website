@@ -24,13 +24,6 @@ PYTHON := python
 install:
 	$(PYTHON) -m pip install -r requirements.txt
 
-.PHONY: venv
-venv:
-	$(PYTHON) -m venv venv_dev
-	@echo "Run: 'source ./venv_dev/bin/activate' to activate venv"
-	@echo "Run: 'make install' to install the requirements INSIDE the venv"
-	@echo "Run: 'deactivate ./venv_dev/bin/deactivate' to deactivate venv"
-
 .PHONY: run
 run:
 	$(PYTHON) run.py
@@ -53,6 +46,10 @@ lint:
 linkcheck:
 	linkchecker http://127.0.0.1:5000
 
+.PHONY: certificate
+certificate:
+	openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365 -subj "/C=US/ST=France/L=Nantes/O=Bensuperpc/OU=Org/CN=localhost"
+
 .PHONY: docker-start
 docker-start:
 	docker build -t flash_server .
@@ -66,6 +63,13 @@ docker-stop:
 .PHONY: docker-logs
 docker-logs:
 	docker logs flash_server
+
+.PHONY: venv
+venv:
+	$(PYTHON) -m venv venv_dev
+	@echo "Run: 'source ./venv_dev/bin/activate' to activate venv"
+	@echo "Run: 'make install' to install the requirements INSIDE the venv"
+	@echo "Run: 'deactivate ./venv_dev/bin/deactivate' to deactivate venv"
 
 .PHONY: clean
 clean:

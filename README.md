@@ -28,7 +28,7 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [Git](https://git-scm.com/)
 - [Github token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
-### Clone
+### Clone and config
 
 Clone this repository to your local machine using:
 
@@ -61,6 +61,12 @@ _Note: You can generate a secret key with the following command:_
 python -c 'import secrets; print(secrets.token_urlsafe(32))'
 ```
 
+Generate the certificate:
+
+```sh
+make certificate
+```
+
 ### Run
 
 Now you can run the website with:
@@ -69,13 +75,7 @@ Now you can run the website with:
 make run
 ```
 
-And go to: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000/](http://localhost:5000/)
-
-## Docker
-
-### Requirements (for docker)
-
-- [Docker](https://www.docker.com/)
+And go to: [https://127.0.0.1:5000/](https://127.0.0.1:5000/) or [https://localhost:5000/](https://localhost:5000/)
 
 ### Run with docker
 
@@ -85,7 +85,7 @@ Start the website with:
 make docker-start
 ```
 
-And go to: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000/](http://localhost:5000/)
+And go to: [https://127.0.0.1:5000/](https://127.0.0.1:5000/) or [https://localhost:5000/](https://localhost:5000/)
 
 Stop the website with:
 
