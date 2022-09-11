@@ -19,7 +19,7 @@ sqlalchemy-utils
 
 loguru
 
-dotenv
+python-dotenv
 
 isort
 black
