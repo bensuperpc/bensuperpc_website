@@ -1,11 +1,21 @@
 body {
-    padding-top: 2.0rem;
+  padding-top: 2rem;
 }
 
 i {
-    color: lightgray;
+  color: lightgray;
 }
 
-table, th, td {
-    border:1px solid black;
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-scale {
+  transition: all 0.2s ease;
 }

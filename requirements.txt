@@ -19,7 +19,7 @@ sqlalchemy-utils
 
 loguru
 
-python-dotenv
+dotenv
 
 isort
 black
@@ -34,3 +34,5 @@ flake8
 github3.py
 
 linkchecker
+
+numpy

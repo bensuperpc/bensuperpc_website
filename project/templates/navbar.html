@@ -34,6 +34,7 @@
                         <li><a class="dropdown-item" href="https://github.com/bensuperpc">github</a></li>
                         <li><a class="dropdown-item" href="https://twitter.com/Bensuperpc">Twitter</a></li>
                         <li><a class="dropdown-item" href="https://www.youtube.com/c/bensuperpc">Youtube</a></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/User:Bensuperpc">Wikipedia</a>
                         </li>
                     </ul>
@@ -41,10 +42,6 @@
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('article.create')}}">New article</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="{{url_for('article.create')}}">New article</a>
                 </li>
                 {% endif %}
             </ul>
