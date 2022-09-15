@@ -46,7 +46,7 @@ def user_info(user_id):
 
 @user.route("/user/<int:user_id>/enable_administrator", methods=["GET"])
 @login_required
-def enable_moderation(user_id):
+def enable_administrator(user_id):
     if not current_user.admin:
         flash("You don't have the permission to change user status", "danger")
         abort(403)
@@ -57,7 +57,26 @@ def enable_moderation(user_id):
     user.admin = True
     db.session.commit()
     flash("User can now moderate", "success")
-    return redirect(url_for("user.user_info"))
+    return redirect(url_for("user.user_panel"))
+
+@user.route("/user/<int:user_id>/disable_administrator", methods=["GET"])
+@login_required
+def disable_administrator(user_id):
+    if not current_user.admin:
+        flash("You don't have the permission to change user status", "danger")
+        abort(403)
+    
+    if current_user.id == user_id:
+        flash("You can't disable your own administrator status", "danger")
+        return redirect(url_for("user.user_panel"))
+
+    user = db.session.query(User).get(user_id)
+    if user is None:
+        abort(404)
+    user.admin = False
+    db.session.commit()
+    flash("User can no longer moderate", "success")
+    return redirect(url_for("user.user_panel"))
 
 
 @user.route("/user")

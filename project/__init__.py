@@ -98,7 +98,8 @@ def create_app(SECRET_KEY=None):
                 db.session.commit()
                 logger.info("Added post")
 
-        # Add new users for testing
+        # Add new users only for testing
+        logger.warning("Adding admin user only for testing")
         new_user_admin = User(
             email="admin@admin.net",
             name="admin",
@@ -114,6 +115,7 @@ def create_app(SECRET_KEY=None):
             db.session.commit()
             logger.info("Added user")
 
+        logger.warning("Adding base user only for testing")
         new_user_base = User(
             email="base@base.net",
             name="base",

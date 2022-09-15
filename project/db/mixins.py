@@ -2,7 +2,6 @@ from sqlalchemy import orm
 
 from . import db
 
-
 @orm.declarative_mixin
 class IdMixin:
     id = db.Column(db.Integer, primary_key=True)
