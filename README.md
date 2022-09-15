@@ -15,7 +15,7 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [x] Share files system
 - [ ] Comment system
 - [ ] Contact system
-- [ ] https and config file
+- [x] https and config file
 
 ## Screenshots
 
