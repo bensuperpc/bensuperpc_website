@@ -51,8 +51,8 @@ pip install -r requirements.txt
 Set the environment variables:
 
 ```sh
-echo "GITHUB_TOKEN=<Your github token>" >> .env
-echo "SECRET_KEY=<Your secret key>" >> .env
+echo "GITHUB_TOKEN=<Your github token>" >> project/.env
+echo "SECRET_KEY=<Your secret key>" >> project/.env
 ```
 
 _Note: You can generate a secret key with the following command:_

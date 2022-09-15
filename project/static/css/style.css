@@ -1,5 +1,6 @@
 body {
   padding-top: 2rem;
+  background-color: #eee;
 }
 
 i {
@@ -19,3 +20,5 @@ td {
 .hover-scale {
   transition: all 0.2s ease;
 }
+
+

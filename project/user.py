@@ -44,6 +44,22 @@ def user_info(user_id):
     return render_template("profile.html", name=current_user.name)
 
 
+@user.route("/user/<int:user_id>/enable_administrator", methods=["GET"])
+@login_required
+def enable_moderation(user_id):
+    if not current_user.admin:
+        flash("You don't have the permission to change user status", "danger")
+        abort(403)
+
+    user = db.session.query(User).get(user_id)
+    if user is None:
+        abort(404)
+    user.admin = True
+    db.session.commit()
+    flash("User can now moderate", "success")
+    return redirect(url_for("user.user_info"))
+
+
 @user.route("/user")
 @login_required
 def user_panel():

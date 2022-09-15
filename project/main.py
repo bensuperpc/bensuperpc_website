@@ -39,6 +39,11 @@ def linktree():
     return render_template("linktree.html")
 
 
+@main.route("/curriculum_vitae")
+def curriculum_vitae():
+    return render_template("curriculum_vitae.html")
+
+
 @main.route("/mutual")
 def mutual():
     mutuals = Mutual.query.all()
