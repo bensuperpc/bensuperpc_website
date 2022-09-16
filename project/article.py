@@ -41,6 +41,8 @@ def panel():
 @login_required
 def create():
 
+    logger.debug(f"User {current_user.name} ({current_user.email}) is creating a post")
+
     form = PostForm(request.form)
     form.is_published.checked = True
 
@@ -70,9 +72,17 @@ def create():
 
 @article.route("/post/<int:post_id>")
 def post(post_id):
+    
     post = Post.query.get_or_404(post_id)
+    
     if post is None:
+        flash("Post not found")
         abort(404)
+
+    if post.is_published is False and current_user.admin is False:
+        flash("Post is not published")
+        redirect(url_for("article.panel"))
+
     if post.is_markdown:
         post.content = markdown.markdown(
             post.content,
@@ -89,31 +99,36 @@ def post(post_id):
             ],
         )
 
-    if post.is_published is False:
-        flash("Post not found")
-        abort(404)
-
     return render_template("post.html", post=post)
 
 
 @article.route("/post/<int:id>/edit", methods=("GET", "POST"))
 @login_required
 def edit(id):
+    logger.debug(f"User {current_user.name} ({current_user.email}) is editing post {id}")
+    if current_user.admin is False:
+        flash("Sorry, you don't have permission to edit a post.")
+        return redirect(url_for("article.panel"))
+
+
     post = Post.query.get_or_404(id)
 
     if post is None:
+        flash("Post not found")
         abort(404)
 
     form = PostForm(request.form)
 
     if form.validate_on_submit():
 
+        """
         if current_user.admin is False:
             flash("Sorry, you don't have permission to edit a post.")
             logger.warning(
                 f"User {current_user.name} ({current_user.email}) tried to edit a post"
             )
             return render_template("edit.html", form=form, post=post)
+        """
 
         post.title = form.title.data
         post.content = form.content.data
@@ -133,14 +148,15 @@ def edit(id):
 @article.route("/post/<int:id>/delete", methods=("POST",))
 @login_required
 def delete(id):
-
-    post = Post.query.get_or_404(id)
-    if post is None:
-        abort(404)
+    logger.debug(f"User {current_user.name} ({current_user.email}) is deleting post {id}")
 
     if current_user.admin is False:
         flash("Sorry, you don't have permission to delete a post.")
         return redirect(url_for("article.panel"))
+
+    post = Post.query.get_or_404(id)
+    if post is None:
+        abort(404)
 
     db.session.delete(post)
     db.session.commit()

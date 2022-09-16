@@ -77,5 +77,6 @@ def signup():
 @auth.route("/logout")
 @login_required
 def logout():
+    logger.debug(f"User {current_user.name} ({current_user.email}) logged out")
     logout_user()
     return redirect(url_for("main.index"))
