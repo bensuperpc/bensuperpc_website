@@ -14,7 +14,8 @@ from loguru import logger
 from werkzeug.exceptions import abort
 
 # from . import db
-from .db import Comment, Post, db
+from .db import Comment, Post, User, db
+from .forms.comment import CommentForm
 from .forms.post import PostForm
 
 article = Blueprint(
@@ -76,8 +77,10 @@ def create():
     return render_template("create.html", form=form)
 
 
-@article.route("/post/<int:post_id>")
+@article.route("/post/<int:post_id>", methods=("GET", "POST"))
 def post(post_id):
+
+    form = CommentForm(request.form)
 
     post = Post.query.get_or_404(post_id)
 
@@ -108,7 +111,26 @@ def post(post_id):
     logger.debug(
         f"User {current_user.name} ({current_user.email}) is viewing post {post_id}"
     )
-    return render_template("post.html", post=post)
+    if form.validate_on_submit():
+
+        post = Post.query.get_or_404(post_id)
+        user = User.query.get_or_404(current_user.id)
+
+        comment = Comment(
+            content=form.content.data,
+            post=post,
+            user=user,
+        )
+
+        db.session.add(comment)
+        db.session.commit()
+        flash("Comment was successfully created!")
+        logger.debug(
+            f"User {current_user.name} ({current_user.email}) is creating comment for post {post_id}"
+        )
+        return redirect(url_for("article.post", post_id=post_id))
+
+    return render_template("post.html", post=post, form=form)
 
 
 @article.route("/post/<int:id>/edit", methods=("GET", "POST"))
@@ -130,16 +152,6 @@ def edit(id):
     form = PostForm(request.form)
 
     if form.validate_on_submit():
-
-        """
-        if current_user.admin is False:
-            flash("Sorry, you don't have permission to edit a post.")
-            logger.warning(
-                f"User {current_user.name} ({current_user.email}) tried to edit a post"
-            )
-            return render_template("edit.html", form=form, post=post)
-        """
-
         post.title = form.title.data
         post.content = form.content.data
         post.summarize = form.summary.data
@@ -174,3 +186,45 @@ def delete(id):
     db.session.commit()
     flash('"{}" was successfully deleted!'.format(post.title))
     return redirect(url_for("article.panel"))
+
+
+@article.route("/comments/<int:comment_id>/delete", methods=("GET",))
+@login_required
+def delete_comment(comment_id):
+    if current_user.admin is False:
+        flash("Sorry, you don't have permission to delete a comment.")
+        return redirect(url_for("article.panel"))
+
+    comment = Comment.query.get_or_404(comment_id)
+
+    post_id = comment.post_id
+
+    if comment.status == 2:
+        flash("Comment is already deleted.")
+        return redirect(url_for("article.post", post_id=post_id))
+
+    comment.status = 2
+
+    # db.session.delete(comment)
+    db.session.commit()
+    flash("Comment was successfully deleted!")
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is deleting comment {comment_id}"
+    )
+    return redirect(url_for("article.post", post_id=post_id))
+
+
+@article.route("/comments/<int:comment_id>/edit", methods=("GET", "POST"))
+@login_required
+def edit_comment(comment_id):
+    if current_user.admin is False:
+        flash("Sorry, you don't have permission to edit a comment.")
+        return redirect(url_for("article.panel"))
+
+    comment = Comment.query.get_or_404(comment_id)
+    db.session.commit()
+    flash("Comment was successfully edited!")
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is editing comment {comment_id}"
+    )
+    return redirect(url_for("article.post", post_id=comment.post_id))

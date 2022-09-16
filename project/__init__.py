@@ -165,7 +165,8 @@ def create_app(SECRET_KEY=None):
         #logger.warning("Adding comments only for testing")
         for article in Post.query.all():
             for user in User.query.all():
-                content = str(f"This is a comment for {article.title} from {user.name}")
+                content = str(
+                    f"This is a comment for {article.title} from {user.name}")
 
                 comment = Comment(
                     content=content,
@@ -174,8 +175,6 @@ def create_app(SECRET_KEY=None):
                 )
 
                 db.session.add(comment)
-                #db.session.add(article)
-                #db.session.add(user)
                 db.session.commit()
                 logger.info("Added comment")
         return app
