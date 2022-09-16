@@ -12,6 +12,7 @@ from flask import (
 from flask_login import current_user, login_required
 from loguru import logger
 from werkzeug.exceptions import abort
+import random
 
 from .db import Mutual, Post
 
@@ -48,6 +49,7 @@ def curriculum_vitae():
 @main.route("/mutual")
 def mutual():
     mutuals = Mutual.query.all()
+    random.shuffle(mutuals)
     return render_template("mutual.html", mutuals=mutuals)
 
 
