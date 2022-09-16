@@ -8,13 +8,14 @@ from flask_paranoid import Paranoid
 from flask_wtf.csrf import CSRFProtect
 from github3 import GitHub
 from loguru import logger
+from sqlalchemy import select
 from werkzeug.security import check_password_hash, generate_password_hash
 
 # Import all blueprint
 from .admin import admin as admin_blueprint
 from .article import article as article_blueprint
 from .auth import auth as auth_blueprint
-from .db import Mutual, Post, User, db
+from .db import Comment, Mutual, Post, User, db
 from .main import main as main_blueprint
 from .user import user as user_blueprint
 
@@ -159,4 +160,22 @@ def create_app(SECRET_KEY=None):
                 db.session.add(mutual)
                 db.session.commit()
                 logger.info("Added mutual")
+
+        # Add comments for testing
+        #logger.warning("Adding comments only for testing")
+        for article in Post.query.all():
+            for user in User.query.all():
+                content = str(f"This is a comment for {article.title} from {user.name}")
+
+                comment = Comment(
+                    content=content,
+                    post=article,
+                    user=user,
+                )
+
+                db.session.add(comment)
+                #db.session.add(article)
+                #db.session.add(user)
+                db.session.commit()
+                logger.info("Added comment")
         return app

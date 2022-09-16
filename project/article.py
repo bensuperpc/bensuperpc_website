@@ -14,7 +14,7 @@ from loguru import logger
 from werkzeug.exceptions import abort
 
 # from . import db
-from .db import Post, db
+from .db import Comment, Post, db
 from .forms.post import PostForm
 
 article = Blueprint(
@@ -61,7 +61,13 @@ def create():
         is_markdown = form.is_markdown.data
         is_published = form.is_published.data
 
-        post = Post(title=title, content=content, summarize=summary, is_markdown=is_markdown, is_published=is_published)
+        post = Post(
+            title=title,
+            content=content,
+            summarize=summary,
+            is_markdown=is_markdown,
+            is_published=is_published,
+        )
         db.session.add(post)
         db.session.commit()
         flash('"{}" was successfully created!'.format(post.title))
@@ -72,9 +78,9 @@ def create():
 
 @article.route("/post/<int:post_id>")
 def post(post_id):
-    
+
     post = Post.query.get_or_404(post_id)
-    
+
     if post is None:
         flash("Post not found")
         abort(404)
@@ -99,17 +105,21 @@ def post(post_id):
             ],
         )
 
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is viewing post {post_id}"
+    )
     return render_template("post.html", post=post)
 
 
 @article.route("/post/<int:id>/edit", methods=("GET", "POST"))
 @login_required
 def edit(id):
-    logger.debug(f"User {current_user.name} ({current_user.email}) is editing post {id}")
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is editing post {id}"
+    )
     if current_user.admin is False:
         flash("Sorry, you don't have permission to edit a post.")
         return redirect(url_for("article.panel"))
-
 
     post = Post.query.get_or_404(id)
 
@@ -148,7 +158,9 @@ def edit(id):
 @article.route("/post/<int:id>/delete", methods=("POST",))
 @login_required
 def delete(id):
-    logger.debug(f"User {current_user.name} ({current_user.email}) is deleting post {id}")
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is deleting post {id}"
+    )
 
     if current_user.admin is False:
         flash("Sorry, you don't have permission to delete a post.")

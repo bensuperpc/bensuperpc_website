@@ -1,4 +1,5 @@
 import os
+import random
 
 from flask import (
     Blueprint,
@@ -12,7 +13,6 @@ from flask import (
 from flask_login import current_user, login_required
 from loguru import logger
 from werkzeug.exceptions import abort
-import random
 
 from .db import Mutual, Post
 

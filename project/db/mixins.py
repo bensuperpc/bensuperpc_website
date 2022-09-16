@@ -11,4 +11,4 @@ class IdMixin:
 @orm.declarative_mixin
 class TimedMixin:
     created = db.Column(db.DateTime, default=db.func.now())
-    updated = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
+    updated = db.Column(db.DateTime, default=db.func.now())

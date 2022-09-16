@@ -28,11 +28,13 @@ def profile(user_id=None):
     if user_id is None:
         user = User.query.get_or_404(current_user.id)
         logger.info(
-            f"User {current_user.name} ({current_user.email}) is viewing their profile")
+            f"User {current_user.name} ({current_user.email}) is viewing their profile"
+        )
     else:
         user = User.query.get_or_404(user_id)
         logger.info(
-            f"User {current_user.name} ({current_user.email}) is viewing {user.name}'s profile")
+            f"User {current_user.name} ({current_user.email}) is viewing {user.name}'s profile"
+        )
 
     # Remove password from user
     user.password = None
@@ -100,7 +102,8 @@ def disable_administrator(user_id):
 @login_required
 def user_panel():
     logger.debug(
-        f"User {current_user.name} ({current_user.email}) logged access user panel")
+        f"User {current_user.name} ({current_user.email}) logged access user panel"
+    )
 
     if current_user.admin is False:
         flash("Sorry, you don't have permission to see user list.")

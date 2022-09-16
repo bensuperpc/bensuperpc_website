@@ -18,7 +18,9 @@ admin = Blueprint(
 @admin.route("/admin")
 @login_required
 def main_admin():
-    logger.debug(f"User {current_user.name} ({current_user.email}) is viewing the admin page")
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is viewing the admin page"
+    )
     if current_user.admin is False:
         flash("Sorry, you don't have permission to access the admin panel.")
         logger.warning(
