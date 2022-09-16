@@ -1,41 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="">
+    <div class="">
+        <h1 class="text-center">{% block title %} My friends {% endblock %}</h1>
+    </div>
 
-<div class="container">
-    <h1 class="text-center">{% block title %} My friends {% endblock %}</h1>
-</div>
-
-<div class="album py-5">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
-            {% for mutual in mutuals %}
-            <div class="col">
-                <div class="card hover-scale shadow-sm">
-                    <img src="{{ mutual['picture_url'] }}" width="100%" height="100%" class="img-fluid"
-                        alt="{{ mutual['name'] }}">
-                    <div class="card-body">
-                        <p class="card-text text-center"><b>{{ mutual['name'] }}</b></p>
-                        <p class="card-text">{{ mutual['describe'] }}</p>
-                        <div class="d-flex justify-content-around">
-                            {% if mutual['twitter_url']|length %}
-                            <a href="{{ mutual['twitter_url'] }}"><i class="fa-brands fa-twitter fa-2xl" style="color: #55acee;"></i></a>
-                            {% endif %}
-                            {% if mutual['github_url']|length %}
-                            <a href="{{ mutual['github_url'] }}"><i class="fa-brands fa-github fa-2xl" style="color: #333333;"></i></a>
-                            {% endif %}
-                            {% if mutual['discord_url']|length %}
-                            <a href="{{ mutual['discord_url'] }}"><i class="fa-brands fa-discord fa-2xl" style="color: #7289da;"></i></a> 
-                            {% endif %}
-                            {% if mutual['website_url']|length %}
-                            <a href="{{ mutual['website_url'] }}"><i class="fa-solid fa-link fa-2xl"></i></a>
-                            {% endif %}
+    <div class="album py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+                {% for mutual in mutuals %}
+                <div class="col">
+                    <div class="card hover-scale shadow-sm">
+                        <img src="{{ mutual['picture_url'] }}" width="100%" height="100%" class="img-fluid"
+                            alt="{{ mutual['name'] }}">
+                        <div class="card-body">
+                            <p class="card-text text-center"><b>{{ mutual['name'] }}</b></p>
+                            <p class="card-text">{{ mutual['describe'] }}</p>
+                            <div class="d-flex justify-content-around">
+                                {% if mutual['twitter_url']|length %}
+                                <a href="{{ mutual['twitter_url'] }}"><i class="fa-brands fa-twitter fa-2xl"
+                                        style="color: #55acee;"></i></a>
+                                {% endif %}
+                                {% if mutual['github_url']|length %}
+                                <a href="{{ mutual['github_url'] }}"><i class="fa-brands fa-github fa-2xl"
+                                        style="color: #333333;"></i></a>
+                                {% endif %}
+                                {% if mutual['discord_url']|length %}
+                                <a href="{{ mutual['discord_url'] }}"><i class="fa-brands fa-discord fa-2xl"
+                                        style="color: #7289da;"></i></a>
+                                {% endif %}
+                                {% if mutual['website_url']|length %}
+                                <a href="{{ mutual['website_url'] }}"><i class="fa-solid fa-link fa-2xl"></i></a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
+</section>
 {% endblock %}

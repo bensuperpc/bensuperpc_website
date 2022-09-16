@@ -1,38 +1,49 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div class="container">
-    <h1 class="text-center">{% block title %} Article {% endblock %}</h1>
-</div>
-
-<div class="album py-5">
+<section class="">
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <div class="row pt-5">
+            <div class="col-12">
+                <h3 class="border-bottom mb-4">{% block title %} Article {% endblock %}</h3>
+            </div>
+        </div>
+        <div class="row">
             {% for post in posts %}
-            <div class="col">
+            <div class="col-lg-3 mb-3 d-flex align-items-stretch">
                 <div class="card hover-scale shadow-sm">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Bensuperpc_cat.jpg" width="100%" height="100%" class="img-fluid" alt="Cat">
-                    <div class="card-body">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Bensuperpc_cat.jpg" width="100%"
+                        height="100%" class="img-fluid" alt="Cat">
+                    <!--<div class="card-header"></div>-->
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">{{ post['title'] }}</h6>
                         <p class="card-text">{{ post['summarize'] }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a class="btn btn-secondary" href="{{ url_for('article.post', post_id=post['id']) }}" role="button">View</a>
-                                {% if current_user.is_authenticated %}
-                                <a class="btn btn-secondary" href="{{ url_for('article.edit', id=post['id']) }}" role="button">Edit</a>
-                                <a class="btn btn-secondary disabled" href="{{ url_for('article.delete', id=post['id']) }}" role="button">Delete</a>
-                                {% else %}
-                                <a class="btn btn-secondary disabled" href="{{ url_for('article.edit', id=post['id']) }}" role="button">Edit</a>
-                                <a class="btn btn-secondary disabled" href="{{ url_for('article.delete', id=post['id']) }}" role="button">Delete</a>
-                                {% endif %}
-                            </div>
-                            <small class="text-muted">{{ post['created'] }}</small>
+
+                        <div class="btn-group mt-auto">
+                            <a class="btn btn-secondary" href="{{ url_for('article.post', post_id=post['id']) }}"
+                                role="button">View</a>
+                            {% if current_user.is_authenticated %}
+                            <a class="btn btn-secondary" href="{{ url_for('article.edit', id=post['id']) }}"
+                                role="button">Edit</a>
+                            <a class="btn btn-secondary disabled"
+                                href="{{ url_for('article.delete', id=post['id']) }}" role="button">Delete</a>
+                            {% else %}
+                            <a class="btn btn-secondary disabled"
+                                href="{{ url_for('article.edit', id=post['id']) }}" role="button">Edit</a>
+                            <a class="btn btn-secondary disabled"
+                                href="{{ url_for('article.delete', id=post['id']) }}" role="button">Delete</a>
+                            {% endif %}
                         </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ post['created'] }}
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-</div>
+</section>
+
+
 {% endblock %}

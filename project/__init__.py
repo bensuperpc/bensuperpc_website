@@ -20,10 +20,12 @@ from .user import user as user_blueprint
 
 
 def create_app(SECRET_KEY=None):
-    load_dotenv()
 
-    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-    SECRET_KEY = os.getenv("SECRET_KEY")
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    load_dotenv(os.path.join(basedir, '.env'))
+
+    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+    SECRET_KEY = os.environ.get("SECRET_KEY")
 
     app = Flask(__name__)
 
@@ -86,6 +88,7 @@ def create_app(SECRET_KEY=None):
                 title=item["title"],
                 content=content,
                 summarize=item["description"],
+                is_markdown=True,
             )
             logger.debug(f"{post.title} added")
 

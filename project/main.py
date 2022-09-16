@@ -29,6 +29,7 @@ main = Blueprint(
 
 @main.route("/index")
 @main.route("/main")
+@main.route("/", subdomain="release")
 @main.route("/")
 def index():
     return render_template("index.html")
@@ -53,13 +54,6 @@ def mutual():
 @main.route("/about")
 def about():
     return render_template("about.html")
-
-
-@main.route("/article")
-def article():
-    posts = Post.query.all()
-    logger.info(posts)
-    return render_template("article.html", posts=posts)
 
 
 @main.route("/favicon.ico")

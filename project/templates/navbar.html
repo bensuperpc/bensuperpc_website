@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{ url_for('main.linktree')}}">Linktree</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ url_for('main.article')}}">Article</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('article.panel')}}">Article</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('main.mutual')}}">Mutual</a>
@@ -43,6 +43,12 @@
                     </ul>
                 </li>
                 {% if current_user.is_authenticated %}
+                
+                {% if current_user.admin %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('user.user_panel')}}">User panel</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('article.create')}}">New article</a>
                 </li>

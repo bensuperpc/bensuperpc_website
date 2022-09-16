@@ -17,6 +17,14 @@
         "file": "README.md"
     },
     {
+      "title": "GTA SA cheat finder",
+      "description": "Find alternative cheat code in Grand Theft Auto San Andreas (2004) by bruteforce",
+      "from_github": true,
+      "user": "bensuperpc",
+      "repository": "GTA_SA_cheat_finder",
+      "file": "README.md"
+  },
+    {
       "title": "GitHub profile",
       "description": "My gitHub profile",
       "from_github": true,

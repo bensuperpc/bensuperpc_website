@@ -6,16 +6,31 @@
 <section class="container">
     <form method=post>
         {{ form.csrf_token }}
-        <div class="form-outline mb-4">
+        <div class="mb-4">
             {{ form.title(class="form-control", placeholder="Post title", type="text") }}
         </div>
-        <div class="form-outline mb-4">
+        <div class="mb-4">
             {{ form.summary(class="form-control", placeholder="Post summarize", type="text") }}
         </div>
-        <div class="form-outline mb-4">
+        <div class="mb-4">
             {{ form.content(class="form-control", placeholder="Post content", type="text") }}
         </div>
-        <div class="form-outline mb-4">
+
+        <div class="form-check mb-2">
+            {{ form.is_published(class="form-check-input", placeholder="Post is_published", type="checkbox") }}
+            <label class="form-check-label" for="flexCheckDefault">
+                Is published
+            </label>
+        </div>
+
+        <div class="form-check mb-2">
+            {{ form.is_markdown(class="form-check-input", placeholder="Post is_markdown", type="checkbox") }}
+            <label class="form-check-label" for="flexCheckDefault">
+                Is markdown format
+            </label>
+        </div>
+
+        <div class="mb-2">
             {{ form.submit(class="btn btn-primary", value="Save") }}
         </div>
     </form>
