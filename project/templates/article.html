@@ -16,7 +16,7 @@
                         height="100%" class="img-fluid" alt="Cat">
                     <!--<div class="card-header"></div>-->
                     <div class="card-body d-flex flex-column">
-                        <h6 class="card-title">{{ post['title'] }}</h6>
+                        <h5 class="card-title">{{ post['title'] }}</h5>
                         <p class="card-text">{{ post['summarize'] }}</p>
 
                         <div class="btn-group mt-auto">
@@ -25,13 +25,13 @@
                             {% if current_user.is_authenticated %}
                             <a class="btn btn-secondary" href="{{ url_for('article.edit', id=post['id']) }}"
                                 role="button">Edit</a>
-                            <a class="btn btn-secondary disabled"
-                                href="{{ url_for('article.delete', id=post['id']) }}" role="button">Delete</a>
+                            <a class="btn btn-secondary disabled" href="{{ url_for('article.delete', id=post['id']) }}"
+                                role="button">Delete</a>
                             {% else %}
-                            <a class="btn btn-secondary disabled"
-                                href="{{ url_for('article.edit', id=post['id']) }}" role="button">Edit</a>
-                            <a class="btn btn-secondary disabled"
-                                href="{{ url_for('article.delete', id=post['id']) }}" role="button">Delete</a>
+                            <a class="btn btn-secondary disabled" href="{{ url_for('article.edit', id=post['id']) }}"
+                                role="button">Edit</a>
+                            <a class="btn btn-secondary disabled" href="{{ url_for('article.delete', id=post['id']) }}"
+                                role="button">Delete</a>
                             {% endif %}
                         </div>
                     </div>
