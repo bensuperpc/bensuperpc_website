@@ -13,9 +13,12 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [x] Login system
 - [x] Post system (with markdown)
 - [x] Share files system
-- [ ] Comment system
+- [x] Comment system
 - [ ] Contact system
 - [x] https and config file
+- [ ] Youtube integration
+- [ ] Email integration
+- [ ] RSS integration
 
 ## Screenshots
 
