@@ -5,7 +5,7 @@ from wtforms import (
     StringField,
     SubmitField,
     TextAreaField,
-    validators,
+    validators
 )
 
 

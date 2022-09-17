@@ -1,7 +1,7 @@
-from . import db
+from . import IdMixin, db
 
 
-class Mutual(db.Model):
+class Mutual(IdMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), unique=True)
     describe = db.Column(db.Text)

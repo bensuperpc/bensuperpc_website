@@ -31,6 +31,10 @@ def login():
             flash("Invalid username or password")
             return redirect(url_for("auth.login"), form=form)
         login_user(user, remember=form.remember_me.data)
+
+        #user.connect_count += 1
+        #db.session.commit()
+
         logger.info(f"{user.name} logged in")
         return redirect(url_for("main.index"))
 

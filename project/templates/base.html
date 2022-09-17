@@ -33,11 +33,11 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <header>
+    <header class="site-header sticky-top py-1">
         {% include 'navbar.html' %}
     </header>
     <main>
-        <div class="p-5">
+        <div class="mt-5">
             {% for message in get_flashed_messages() %}
             <div class="alert alert-danger">{{ message }}</div>
             {% endfor %}
@@ -45,7 +45,7 @@
             {% block content %} {% endblock %}
         </div>
     </main>
-    <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-3 border-top mt-auto">
+    <footer class="bd-footer d-flex flex-wrap justify-content-around align-items-center py-3 my-3 border-top mt-auto">
         <p class="mb-0 text-muted">Bensuperpc 2022</p>
         <ul class="nav">
             <li class="nav-item"><a href="https://github.com/Bensuperpc" class="nav-link px-2 text-muted">Github</a>

@@ -7,7 +7,7 @@ from flask import (
     render_template,
     request,
     send_from_directory,
-    url_for,
+    url_for
 )
 from flask_login import current_user, login_required
 from loguru import logger
@@ -32,7 +32,7 @@ def panel():
     posts = Post.query.all()
 
     # Remove unpublished posts
-    if current_user.admin is False:
+    if current_user.is_authenticated is False or current_user.admin is False:
         posts = [post for post in posts if post.is_published]
 
     return render_template("article.html", posts=posts)
@@ -108,9 +108,10 @@ def post(post_id):
             ],
         )
 
-    logger.debug(
-        f"User {current_user.name} ({current_user.email}) is viewing post {post_id}"
-    )
+    if current_user.is_authenticated is True:
+        logger.debug(
+            f"User {current_user.name} ({current_user.email}) is viewing post {post_id}"
+        )
     if form.validate_on_submit():
 
         post = Post.query.get_or_404(post_id)

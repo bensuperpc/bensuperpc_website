@@ -1,7 +1,13 @@
 from ipaddress import summarize_address_range
 
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, SubmitField, TextAreaField, validators
+from wtforms import (
+    BooleanField,
+    StringField,
+    SubmitField,
+    TextAreaField,
+    validators
+)
 
 
 class PostForm(FlaskForm):

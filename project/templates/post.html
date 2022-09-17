@@ -54,7 +54,8 @@
                         </div>
                         <hr class="my-0" />
                         {% endfor %}
-                        <div>
+                        {% if current_user.is_authenticated %}
+                        <div class="">
                             <form method=post>
                                 <div class="container py-3 border-0">
                                     {{ form.csrf_token }}
@@ -76,6 +77,11 @@
                                 </div>
                             </form>
                         </div>
+                        {% else %}
+                        <div class="">
+                            <p>You need to login</p>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

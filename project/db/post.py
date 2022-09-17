@@ -13,3 +13,9 @@ class Post(IdMixin, TimedMixin, db.Model):
     is_published = db.Column(db.Boolean, default=True)
 
     comments = db.relationship("Comment", back_populates="post")
+
+    #def comment_count(self):
+    #    return len(self.comments)
+
+    def __repr__(self):
+        return f"<Post {self.title}>"
