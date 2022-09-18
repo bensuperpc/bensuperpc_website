@@ -16,7 +16,9 @@ class User(TimedMixin, IdMixin, UserMixin, db.Model):
 
     comments = db.relationship("Comment", back_populates="user")
 
-    connect_count = db.Column(db.Integer, default=0)
+    posts = db.relationship("Post", back_populates="user")
+
+    connect = db.Column(db.Integer, default=0)
 
     def set_password(self, password):
         self.password = generate_password_hash(password, method="sha512")
@@ -24,11 +26,17 @@ class User(TimedMixin, IdMixin, UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    #def comment_count(self):
-    #    return len(self.comments)
+    def comment_count(self):
+        return len(self.comments)
+
+    def post_count(self):
+        return len(self.posts)
     
+    def connect_count(self):
+        return self.connect
+
     def is_admin(self):
         return self.admin
-    
+
     def __repr__(self):
         return f"<User {self.name}>"

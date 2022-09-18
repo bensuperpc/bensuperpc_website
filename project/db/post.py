@@ -14,7 +14,16 @@ class Post(IdMixin, TimedMixin, db.Model):
 
     comments = db.relationship("Comment", back_populates="post")
 
-    #def comment_count(self):
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User", back_populates="posts")
+
+    def author(self):
+        if self.user:
+            return self.user.username
+        else:
+            return "Anonymous"
+
+    # def comment_count(self):
     #    return len(self.comments)
 
     def __repr__(self):

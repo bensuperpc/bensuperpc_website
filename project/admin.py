@@ -29,6 +29,8 @@ def main_admin():
         return redirect(url_for("main.index"))
 
     return render_template("admin.html")
+
+
 # https://getbootstrap.com/docs/5.2/examples/dashboard/
 @admin.route("/dashboard")
 @login_required

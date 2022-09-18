@@ -80,15 +80,21 @@ def create_app(SECRET_KEY=None):
 
         for item in data["articles"]:
 
-            # if item["from_github"] == True:
-            content = gh.repository(item["user"], item["repository"]).file_contents(
-                item["file"]
-            )
-            content = content.decoded.decode("utf-8")
+            content = None
+
+            if item["from_github"] == True:
+                content = gh.repository(item["user"], item["repository"]).file_contents(
+                    item["file"]
+                )
+                content = content.decoded.decode("utf-8")
+            else:
+                content = item["content"]
+                
             post = Post(
                 title=item["title"],
                 content=content,
                 summarize=item["description"],
+                #picture_url=item["picture_url"],
                 is_markdown=True,
             )
             logger.debug(f"{post.title} added")
