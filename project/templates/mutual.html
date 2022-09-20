@@ -3,7 +3,7 @@
 {% block content %}
 <section class="">
     <div class="container">
-        <div class="row pt-5">
+        <div class="row">
             <div class="col-12">
                 <h3 class="border-bottom mb-4">{% block title %} Mutual (Randomize) {% endblock %}</h3>
             </div>
@@ -32,6 +32,10 @@
                             {% if mutual['discord_url']|length %}
                             <a href="{{ mutual['discord_url'] }}"><i class="fa-brands fa-discord fa-2xl"
                                     style="color: #7289da;"></i></a>
+                            {% endif %}
+                            {% if mutual['youtube_url']|length %}
+                            <a href="{{ mutual['youtube_url'] }}"><i class="fa-brands fa-youtube fa-2xl"
+                                    style="color: #FF0000;"></i></a>
                             {% endif %}
                             {% if mutual['website_url']|length %}
                             <a href="{{ mutual['website_url'] }}"><i class="fa-solid fa-link fa-2xl"

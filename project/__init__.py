@@ -80,15 +80,21 @@ def create_app(SECRET_KEY=None):
 
         for item in data["articles"]:
 
-            # if item["from_github"] == True:
-            content = gh.repository(item["user"], item["repository"]).file_contents(
-                item["file"]
-            )
-            content = content.decoded.decode("utf-8")
+            content = None
+
+            if item["from_github"] == True:
+                content = gh.repository(item["user"], item["repository"]).file_contents(
+                    item["file"]
+                )
+                content = content.decoded.decode("utf-8")
+            else:
+                content = item["content"]
+
             post = Post(
                 title=item["title"],
                 content=content,
                 summarize=item["description"],
+                # picture_url=item["picture_url"],
                 is_markdown=True,
             )
             logger.debug(f"{post.title} added")
@@ -103,37 +109,29 @@ def create_app(SECRET_KEY=None):
                 logger.info("Added post")
 
         # Add new users only for testing
-        logger.warning("Adding admin user only for testing")
-        new_user_admin = User(
-            email="admin@admin.net",
-            name="admin",
-            password=generate_password_hash("admin", method="sha512"),
-            admin=True,
-        )
-        if (
-            bool(db.session.query(User).filter_by(
-                email="admin@admin.net").first())
-            is False
-        ):
-            db.session.add(new_user_admin)
-            db.session.commit()
-            logger.info("Added user")
+        logger.warning("Adding users, only for testing/dev !")
+        data = {}
+        with open("project/static/data/user.json", encoding="UTF-8") as json_file:
+            data = json.load(json_file)
 
-        logger.warning("Adding base user only for testing")
-        new_user_base = User(
-            email="base@base.net",
-            name="base",
-            password=generate_password_hash("base", method="sha512"),
-            admin=False,
-        )
-        if (
-            bool(db.session.query(User).filter_by(
-                email="base@base.net").first())
-            is False
-        ):
-            db.session.add(new_user_base)
-            db.session.commit()
-            logger.info("Added user")
+        for item in data["users"]:
+            new_user = User(
+                email=item["email"],
+                name=item["name"],
+                password=generate_password_hash(
+                    item["password"], method="sha512"),
+                admin=item["admin"],
+                picture_url=item["picture_url"],
+            )
+
+            if (
+                bool(db.session.query(User).filter_by(
+                    email=item["email"]).first())
+                is False
+            ):
+                db.session.add(new_user)
+                db.session.commit()
+                logger.info(f"{new_user.name} added")
 
         # Add mutuals for testing
         data = {}
@@ -174,7 +172,15 @@ def create_app(SECRET_KEY=None):
                     user=user,
                 )
 
-                db.session.add(comment)
-                db.session.commit()
-                logger.info("Added comment")
+                if (
+                    bool(db.session.query(Comment).filter_by(
+                        content=content).first())
+                    is False
+                ):
+                    logger.info(f"Added comment for {article.title}")
+
+                    db.session.add(comment)
+                    db.session.commit()
+                    logger.info("Added comment")
+
         return app

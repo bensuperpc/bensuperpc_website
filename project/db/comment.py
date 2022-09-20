@@ -13,3 +13,6 @@ class Comment(IdMixin, TimedMixin, db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     user = db.relationship("User", back_populates="comments")
+
+    def author(self):
+        return self.user.username

@@ -6,13 +6,14 @@
         <h1>{% block title %} {{ post['title'] }} {% endblock %}</h1>
     </div>
     <div class="container">
-        <div class="border-bottom">
+        <div class="border-bottom border-2">
             <span class="badge bg-secondary">{{ post['created'] }}</span>
             <span class="badge bg-secondary">{{ post['updated'] }}</span>
-            <h4>
-                <p>{{ post['summarize'] }}</p>
-            </h4>
-            <hr>
+
+            <div class="d-flex justify-content-between border-bottom border-2">
+                <h4>{{ post.summarize }}</h4>
+                <h6>{{ post.author() }}</h6>
+            </div>
             <p>{{ post['content'] |safe }}</p>
         </div>
 
@@ -79,7 +80,8 @@
                         </div>
                         {% else %}
                         <div class="">
-                            <p>You need to login</p>
+                            <p class="ms-4">You need to <a href="{{ url_for('auth.login') }}">login</a> to comment.
+                            </p>
                         </div>
                         {% endif %}
                     </div>
