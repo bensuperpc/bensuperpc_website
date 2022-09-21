@@ -98,6 +98,26 @@ def disable_administrator(user_id):
     return redirect(url_for("user.user_panel"))
 
 
+@user.route("/user/<int:user_id>/delete", methods=["GET"])
+@login_required
+def delete_user(user_id):
+    if not current_user.admin:
+        flash("You don't have the permission to delete users", "danger")
+        abort(403)
+
+    if current_user.id == user_id:
+        flash("You can't delete your own account", "danger")
+        return redirect(url_for("user.user_panel"))
+
+    user = db.session.query(User).get(user_id)
+    if user is None:
+        abort(404)
+    db.session.delete(user)
+    db.session.commit()
+    flash("User deleted", "success")
+    return redirect(url_for("user.user_panel"))
+
+
 @user.route("/user")
 @login_required
 def user_panel():

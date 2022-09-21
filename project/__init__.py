@@ -16,6 +16,7 @@ from .admin import admin as admin_blueprint
 from .article import article as article_blueprint
 from .auth import auth as auth_blueprint
 from .db import Comment, Mutual, Post, User, db
+from .letter import letter as letter_blueprint
 from .main import main as main_blueprint
 from .user import user as user_blueprint
 
@@ -80,6 +81,8 @@ def create_app():
     app.register_blueprint(article_blueprint)
 
     app.register_blueprint(admin_blueprint)
+
+    app.register_blueprint(letter_blueprint)
 
     logger.debug(f"{app.name} is running on {app.config['ENV']}")
 

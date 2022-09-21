@@ -34,7 +34,7 @@
                     <a class="nav-link" href="{{ url_for('main.about')}}">About me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.contact')}}">Contact</a>
+                    <a class="nav-link" href="{{ url_for('letter.contact')}}">Contact</a>
                 </li>
                 <!--
                 <li class="nav-item dropdown">
@@ -53,14 +53,17 @@
                 </li>
                 -->
                 {% if current_user.is_authenticated %}
-                
+
                 {% if current_user.admin %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('user.user_panel')}}">User panel</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('admin.dashboard')}}">Dashbord</a>
-                </li>                
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('letter.letters')}}">Letter</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('article.create')}}">New article</a>
                 </li>

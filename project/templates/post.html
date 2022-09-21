@@ -12,7 +12,7 @@
 
             <div class="d-flex justify-content-between border-bottom border-2">
                 <h4>{{ post.summarize }}</h4>
-                <h6>{{ post.author() }}</h6>
+                <h6>By: <b>{{ post.author() }}</b></h6>
             </div>
             <p>{{ post['content'] |safe }}</p>
         </div>

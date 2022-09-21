@@ -14,6 +14,8 @@ class User(TimedMixin, IdMixin, UserMixin, db.Model):
     )
     admin = db.Column(db.Boolean, default=False)
 
+    last_connect = db.Column(db.DateTime, default=None)
+
     comments = db.relationship("Comment", back_populates="user")
 
     posts = db.relationship("Post", back_populates="user")

@@ -33,6 +33,9 @@ def login():
         login_user(user, remember=form.remember_me.data)
 
         user.connect += 1
+
+        user.last_connect = db.func.current_timestamp()
+
         db.session.commit()
 
         logger.info(f"{user.name} logged in")

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="border-bottom mb-4">{% block title %} Read letter {% endblock %}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h4 class="border-bottom mb-4">Your letter N° <b>{{ letter['id'] }}</b> </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p><strong>Email:</strong> {{ letter['email'] }}</p>
+                <p><strong>Title:</strong> {{ letter['title'] }} </p>
+                <p><strong>Message:</strong> {{ letter['message'] }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -70,24 +70,6 @@ def favicon():
     )
 
 
-@main.route("/contact", methods=["GET", "POST"])
-def contact():
-    form = ContactForm()
-    if form.validate_on_submit():
-        flash("Thanks for contacting me!", "success")
-        logger.info(f"Email: {form.email.data}: {form.message.data}")
-
-        letter = Letter(
-            email=form.email.data,
-            message=form.message.data,
-        )
-        db.session.add(letter)
-        db.session.commit()
-
-        return redirect(url_for("main.index"))
-    return render_template("contact.html", form=form)
-
-
 @main.route("/share")
 def share():
     musics_path = os.path.join(main.root_path, "static/media/music/")

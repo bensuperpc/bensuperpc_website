@@ -4,7 +4,7 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
 from loguru import logger
 
-from .db import db, Letter, Mutual, Post, Comment, User
+from .db import Comment, Letter, Mutual, Post, User, db
 
 admin = Blueprint(
     "admin",
@@ -56,4 +56,15 @@ def dashboard():
     mutuals_count = Mutual.query.count()
     logger.info(f"Mutuals count: {mutuals_count}")
 
-    return render_template("dashboard.html", users_count=users_count, posts_count=posts_count, comments_count=comments_count, letters_count=letters_count, mutuals_count=mutuals_count)
+    unread_letters_count = Letter.query.filter_by(is_read=False).count()
+    logger.info(f"Unread letters: {unread_letters_count}")
+
+    return render_template(
+        "dashboard.html",
+        users_count=users_count,
+        posts_count=posts_count,
+        comments_count=comments_count,
+        letters_count=letters_count,
+        mutuals_count=mutuals_count,
+        unread_letters_count=unread_letters_count,
+    )
