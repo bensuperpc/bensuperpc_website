@@ -17,8 +17,7 @@
         integrity="sha384-SOnAn/m2fVJCwnbEYgD4xzrPtvsXdElhOVvR8ND1YjB5nhGNwwf7nBQlhfAwHAZC" crossorigin="anonymous">
 
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">-->
-
-    <!--<link rel="stylesheet" href="https://raw.githubusercontent.com/ChartsCSS/charts.css/release/1.0.0/dist/charts.min.css"
+    <!--<link rel="stylesheet" href="https://gitcdn.link/cdn/ChartsCSS/charts.css/release/1.0.0/dist/charts.min.css"
         integrity="sha384-ArXsQwuo1wiEssj5B6/nUSROho6SugPIQnh3Oq4jt2JeFqk8NamQXRO5zGcpKcr5" crossorigin="anonymous">-->
 
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
@@ -45,9 +44,19 @@
     </header>
     <main>
         <div class="mt-5">
-            {% for message in get_flashed_messages() %}
-            <div class="alert alert-danger">{{ message }}</div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            {% if category == 'message' %}
+            <div class="alert alert-warning" role="alert">{{ message }}</div>
+            {% else %}
+            <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+            {% endif %}
             {% endfor %}
+            {% endif %}
+            {% endwith %}
+
 
             {% block content %} {% endblock %}
         </div>
@@ -61,7 +70,7 @@
             </li>
             <li class="nav-item"><a href="https://www.youtube.com/c/bensuperpc"
                     class="nav-link px-2 text-muted">Youtube</a></li>
-            <li class="nav-item"><a href="mailto:bensuperpc@gmail.com" class="nav-link px-2 text-muted">Mail</a>
+            <li class="nav-item"><a href="{{ url_for('main.contact')}}" class="nav-link px-2 text-muted">Contact</a>
             </li>
         </ul>
     </footer>

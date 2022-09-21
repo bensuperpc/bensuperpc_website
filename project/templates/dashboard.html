@@ -4,13 +4,53 @@
 
 <section class="">
     <div class="container">
-        <div class="row pt-5">
+        <div class="row">
             <div class="col-12">
                 <h3 class="border-bottom mb-4">{% block title %} Dashboard {% endblock %}</h3>
             </div>
         </div>
-        <div class="">
-            
+        <div class="row">
+            <div class="col-4 p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">User count</h5>
+                        <p class="card-text"> There are <b>{{ users_count }}</b> users in the database.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Mutual count</h5>
+                        <p class="card-text"> There are <b>{{ mutuals_count }}</b> mutuals in the database.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Posts count</h5>
+                        <p class="card-text"> There are <b>{{ posts_count }}</b> posts in the database.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Comments count</h5>
+                        <p class="card-text"> There are <b>{{ comments_count }}</b> comments in the database.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Letters count</h5>
+                        <p class="card-text"> There are <b>{{ letters_count }}</b> letters in the database.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

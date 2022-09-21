@@ -9,10 +9,10 @@
                 <h3 class="border-bottom mb-4">{% block title %} User panel {% endblock %}</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-cols-4">
             {% for user in users %}
-            <div class="col-lg-3 mb-3 d-flex align-items-stretch">
-                <div class="card hover-scale shadow-sm">
+            <div class="col p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
                     <img src="{{ user['picture_url'] }}" width="100%"
                         height="100%" class="img-fluid" alt="Cat">
                     <!--<div class="card-header"></div>-->

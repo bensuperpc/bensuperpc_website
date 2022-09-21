@@ -50,7 +50,7 @@ def create():
     if form.validate_on_submit():
 
         if current_user.admin is False:
-            flash("Sorry, you don't have permission to create a post.")
+            flash("Sorry, you don't have permission to create a post.", "danger")
             logger.warning(
                 f"User {current_user.name} ({current_user.email}) tried to create a post"
             )
@@ -71,7 +71,7 @@ def create():
         )
         db.session.add(post)
         db.session.commit()
-        flash('"{}" was successfully created!'.format(post.title))
+        flash('"{}" was successfully created!'.format(post.title), "success")
         return redirect(url_for("article.panel"))
 
     return render_template("create.html", form=form)
@@ -89,7 +89,7 @@ def post(post_id):
         abort(404)
 
     if post.is_published is False and current_user.admin is False:
-        flash("Post is not published")
+        flash("Post is not published", "danger")
         redirect(url_for("article.panel"))
 
     if post.is_markdown:
@@ -125,7 +125,7 @@ def post(post_id):
 
         db.session.add(comment)
         db.session.commit()
-        flash("Comment was successfully created!")
+        flash("Comment was successfully created!", "success")
         logger.debug(
             f"User {current_user.name} ({current_user.email}) is creating comment for post {post_id}"
         )
@@ -141,7 +141,7 @@ def edit(id):
         f"User {current_user.name} ({current_user.email}) is editing post {id}"
     )
     if current_user.admin is False:
-        flash("Sorry, you don't have permission to edit a post.")
+        flash("Sorry, you don't have permission to edit a post.", "danger")
         return redirect(url_for("article.panel"))
 
     post = Post.query.get_or_404(id)
@@ -158,7 +158,7 @@ def edit(id):
         post.summarize = form.summary.data
         post.updated = db.func.now()
         db.session.commit()
-        flash('"{}" was successfully edited!'.format(post.title))
+        flash('"{}" was successfully edited!'.format(post.title), "success")
         return redirect(url_for("article.panel"))
 
     form.title.data = post.title
@@ -185,7 +185,7 @@ def delete(id):
 
     db.session.delete(post)
     db.session.commit()
-    flash('"{}" was successfully deleted!'.format(post.title))
+    flash('"{}" was successfully deleted!'.format(post.title), "success")
     return redirect(url_for("article.panel"))
 
 
@@ -201,14 +201,14 @@ def delete_comment(comment_id):
     post_id = comment.post_id
 
     if comment.status == 2:
-        flash("Comment is already deleted.")
+        flash("Comment is already deleted.", "danger")
         return redirect(url_for("article.post", post_id=post_id))
 
     comment.status = 2
 
     # db.session.delete(comment)
     db.session.commit()
-    flash("Comment was successfully deleted!")
+    flash("Comment was successfully deleted!", "success")
     logger.debug(
         f"User {current_user.name} ({current_user.email}) is deleting comment {comment_id}"
     )
@@ -219,12 +219,12 @@ def delete_comment(comment_id):
 @login_required
 def edit_comment(comment_id):
     if current_user.admin is False:
-        flash("Sorry, you don't have permission to edit a comment.")
+        flash("Sorry, you don't have permission to edit a comment.", "danger")
         return redirect(url_for("article.panel"))
 
     comment = Comment.query.get_or_404(comment_id)
     db.session.commit()
-    flash("Comment was successfully edited!")
+    flash("Comment was successfully edited!", "success")
     logger.debug(
         f"User {current_user.name} ({current_user.email}) is editing comment {comment_id}"
     )

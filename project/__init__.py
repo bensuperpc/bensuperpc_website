@@ -20,7 +20,7 @@ from .main import main as main_blueprint
 from .user import user as user_blueprint
 
 
-def create_app(SECRET_KEY=None):
+def create_app():
 
     basedir = os.path.abspath(os.path.dirname(__file__))
     load_dotenv(os.path.join(basedir, '.env'))
@@ -31,16 +31,24 @@ def create_app(SECRET_KEY=None):
     app = Flask(__name__)
 
     app.config["SECRET_KEY"] = SECRET_KEY
+
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    # app.config['UPLOAD_FOLDER'] = 'uploads'
+
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16MB
+    app.config['UPLOAD_FOLDER'] = 'uploads'
+
+    app.config["REMEMBER_COOKIE_SECURE"] = True
+    app.config["REMEMBER_COOKIE_NAME"] = "remember_token_bensuperpc_website"
+    #app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
+    
 
     db.init_app(app)
     logger.debug("App DB initialized")
 
     # Cookie protection
     paranoid = Paranoid(app)
-    paranoid.redirect_view = "/"
+    paranoid.redirect_view = "auth.login"
 
     # CSRF protection
     csrf = CSRFProtect()
@@ -50,11 +58,18 @@ def create_app(SECRET_KEY=None):
     # Login manager
     login_manager = LoginManager()
     login_manager.login_view = "auth.login"
+    #login_manager.refresh_view = "accounts.reauthenticate"
+    #login_manager.anonymous_user = MyAnonymousUser
+    login_manager.session_protection = None # Panaroid
     login_manager.init_app(app)
 
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+    
+    #@login_manager.unauthorized_handler
+    # def unauthorized():
+    #    return redirect("/login")
 
     app.register_blueprint(main_blueprint)
 
@@ -172,15 +187,11 @@ def create_app(SECRET_KEY=None):
                     user=user,
                 )
 
-                if (
-                    bool(db.session.query(Comment).filter_by(
-                        content=content).first())
-                    is False
-                ):
-                    logger.info(f"Added comment for {article.title}")
 
-                    db.session.add(comment)
-                    db.session.commit()
-                    logger.info("Added comment")
+                logger.info(f"Added comment for {article.title}")
+
+                db.session.add(comment)
+                db.session.commit()
+                logger.info("Added comment")
 
         return app

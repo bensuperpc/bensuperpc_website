@@ -8,10 +8,10 @@
                 <h3 class="border-bottom mb-4">{% block title %} Article {% endblock %}</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4">
             {% for post in posts %}
-            <div class="col-lg-3 mb-3 d-flex align-items-stretch">
-                <div class="card hover-scale shadow-sm">
+            <div class="col p-2">
+                <div class="card w-100 h-100 hover-scale shadow-sm">
                     <img src="{{ post['picture_url'] }}" width="100%"
                         height="100%" class="img-fluid" alt="Cat">
                     <!--<div class="card-header"></div>-->

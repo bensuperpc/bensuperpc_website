@@ -13,8 +13,11 @@ from flask import (
 from flask_login import current_user, login_required
 from loguru import logger
 from werkzeug.exceptions import abort
+from werkzeug.utils import secure_filename
 
-from .db import Mutual, Post
+from .db import Letter, Mutual, Post, db
+from .forms.contact import ContactForm
+from .forms.upload import UploadForm
 
 if __name__ == "__main__":
     logger.info("main.py")
@@ -67,6 +70,24 @@ def favicon():
     )
 
 
+@main.route("/contact", methods=["GET", "POST"])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        flash("Thanks for contacting me!", "success")
+        logger.info(f"Email: {form.email.data}: {form.message.data}")
+
+        letter = Letter(
+            email=form.email.data,
+            message=form.message.data,
+        )
+        db.session.add(letter)
+        db.session.commit()
+
+        return redirect(url_for("main.index"))
+    return render_template("contact.html", form=form)
+
+
 @main.route("/share")
 def share():
     musics_path = os.path.join(main.root_path, "static/media/music/")
@@ -102,3 +123,25 @@ def upload_image(filename):
 def upload_video(filename):
     uploads = os.path.join(main.root_path, "static/media/video/")
     return send_from_directory(uploads, filename, as_attachment=True)
+
+
+@main.route("/upload", methods=["GET", "POST"])
+@login_required
+def upload():
+    form = UploadForm()
+
+    if form.validate_on_submit():
+        logger.info(f"User {current_user.name} is uploading a file.")
+
+        files_filenames = []
+        for file in form.files.data:
+            if file.filename == "":
+                flash(f"No selected file", "danger")
+                return redirect(request.url)
+
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(main.root_path, "uploads/", filename))
+            files_filenames.append(filename)
+        flash(f"Files uploaded: {files_filenames}", "success")
+        return redirect(url_for("main.upload"))
+    return render_template("upload.html", form=form)
