@@ -110,6 +110,11 @@ def upload_video(filename):
 @main.route("/upload", methods=["GET", "POST"])
 @login_required
 def upload():
+
+    if current_user.admin is False:
+        flash("You are not admin", "danger")
+        return redirect(url_for("main.index"))
+
     form = UploadForm()
 
     if form.validate_on_submit():

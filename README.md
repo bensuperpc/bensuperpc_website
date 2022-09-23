@@ -73,7 +73,11 @@ Create Google API credentials:
 - Create a new **OAuth client ID**
 - Select **Web application**
 - Add javascript origins: **<https://127.0.0.1:5000>**
-- Add the following URIs: **<https://127.0.0.1:5000/login/google/callback>**
+- Add javascript origins: **<https://localhost:5000>**
+- Add the following URIs: **<https://localhost:5000/login/google>**
+- Add the following URIs: **<https://127.0.0.1:5000/login/google>**
+- Add the following URIs: **<https://localhost:5000/authorize/google>**
+- Add the following URIs: **<https://127.0.0.1:5000/authorize/google>**
 - Download the credentials as a JSON file and copy the content in the following variables:
 
 ```sh

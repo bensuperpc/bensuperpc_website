@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import timedelta
 
 from dotenv import load_dotenv
 from flask import Flask, redirect, request
@@ -19,6 +20,7 @@ from .auth import auth as auth_blueprint
 from .db import Comment, Mutual, Post, User, db
 from .letter import letter as letter_blueprint
 from .main import main as main_blueprint
+from .oauth import oauth
 from .user import user as user_blueprint
 
 
@@ -55,6 +57,20 @@ def create_app():
     app.config["REMEMBER_COOKIE_SECURE"] = True
     #app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
     #app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
+
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
+
+    oauth.init_app(app)
+    oauth.register(
+        name='google',
+        client_id=GOOGLE_CLIENT_ID,
+        client_secret=GOOGLE_CLIENT_SECRET,
+        server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
+        client_kwargs={
+            'scope': 'openid email profile'
+        }
+    )
+    logger.info("OAuth initialized")
     
 
     db.init_app(app)

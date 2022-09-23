@@ -48,7 +48,7 @@ def dashboard():
     users_count = User.query.count()
     logger.info(f"Users count: {users_count}")
 
-    user_count_google = users_count - User.query.filter_by(id_google=None).count()
+    user_count_google = User.query.filter_by(id_google=None).count()
     logger.info(f"Users count with Google: {user_count_google}")
 
     posts_count = Post.query.count()

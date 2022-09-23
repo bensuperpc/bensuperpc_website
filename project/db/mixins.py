@@ -14,7 +14,7 @@ class IdMixin:
 @orm.declarative_mixin
 class IdGoogleMixin:
     id_google = db.Column(db.Integer, unique=True, nullable=True)
-    oauth_token_google = db.Column(db.String(255), nullable=True)
+
 
 @orm.declarative_mixin
 class TimedMixin:
