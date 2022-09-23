@@ -3,7 +3,8 @@ import os
 from secrets import token_urlsafe
 
 import requests
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for, session
+from flask.json import jsonify
 from flask_login import current_user, login_required, login_user, logout_user
 from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -11,7 +12,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from .db import User, db
 from .forms.login import LoginForm
 from .forms.registration import RegistrationForm
-from .google import google
+from requests_oauthlib import OAuth2Session
 
 auth = Blueprint(
     "auth",
@@ -51,59 +52,62 @@ def login():
 
 @auth.route("/login/google", methods=["GET", "POST"])
 def login_google():
-    google_provider_cfg = google.get_google_provider_cfg()
-    logger.info(google_provider_cfg)
+    session['client_id'] = ""
+    session['client_secret'] = ""
+    session['redirect_uri'] = "https://127.0.0.1:5000/login/google/callback"
 
-    authorization_endpoint = google_provider_cfg["authorization_endpoint"]
-    logger.info(authorization_endpoint)
+    session['authorization_base_url'] = "https://accounts.google.com/o/oauth2/v2/auth"
+    session['token_url'] = "https://www.googleapis.com/oauth2/v4/token"
+    session['refresh_url'] = session['token_url'] # True for Google but not all providers.
+    session['scope'] = ["openid", "email", "profile"]
 
-    request_uri = google.client.prepare_request_uri(
-        authorization_endpoint,
-        redirect_uri=request.base_url + "/callback",
-        scope=["openid", "email", "profile"],
-    )
-    return redirect(request_uri)
+
+    google = OAuth2Session(
+        session['client_id'], scope=session['scope'], redirect_uri=session['redirect_uri'])
+    authorization_url, state = google.authorization_url(session['authorization_base_url'],
+                                                        # offline for refresh token
+                                                        # force to always make user click authorize
+                                                        access_type="offline", prompt="select_account")
+
+    logger.info(f"Authorization URL: {authorization_url}")
+    logger.info(f"State: {state}")
+
+    # State is used to prevent CSRF, keep this for later.
+    session['oauth_state'] = state
+    return redirect(authorization_url)
 
 
 @auth.route("/login/google/callback")
 def callback():
-    code = request.args.get("code")
 
-    google_provider_cfg = google.get_google_provider_cfg()
-    token_endpoint = google_provider_cfg["token_endpoint"]
+    google = OAuth2Session(session['client_id'], redirect_uri=session['redirect_uri'],
+                           state=session['oauth_state'])
+    token = google.fetch_token(session['token_url'], client_secret=session['client_secret'],
+                               authorization_response=request.url)
 
-    token_url, headers, body = google.client.prepare_token_request(
-        token_endpoint,
-        authorization_response=request.url,
-        redirect_url=request.base_url,
-        code=code,
-    )
-    token_response = requests.post(
-        token_url,
-        headers=headers,
-        data=body,
-        auth=(google.GOOGLE_CLIENT_ID, google.GOOGLE_CLIENT_SECRET),
-    )
+    # We use the session as a simple DB for this example.
+    session['oauth_token'] = token
 
-    google.client.parse_request_body_response(json.dumps(token_response.json()))
+    google = OAuth2Session(session['client_id'], token=session['oauth_token'])
 
-    userinfo_endpoint = google_provider_cfg["userinfo_endpoint"]
-    uri, headers, body = google.client.add_token(userinfo_endpoint)
-    userinfo_response = requests.get(uri, headers=headers, data=body)
+    r = google.get('https://www.googleapis.com/oauth2/v1/userinfo')
+    r_decoded = r.content.decode('utf-8')
+    user_info = json.loads(r_decoded)
+    logger.info(f"User info: {user_info}")
 
-    if userinfo_response.json().get("email_verified"):
+    if user_info["verified_email"]:
         logger.success("User email verified by Google")
 
-        unique_id = userinfo_response.json()["sub"]
+        unique_id = user_info["id"]
         logger.info(f"User unique id: {unique_id}")
 
-        users_email = userinfo_response.json()["email"]
+        users_email = user_info["email"]
         logger.info(f"User email: {users_email}")
 
-        picture = userinfo_response.json()["picture"]
+        picture = user_info["picture"]
         logger.info(f"User picture: {picture}")
 
-        users_name = userinfo_response.json()["given_name"]
+        users_name = user_info["given_name"]
         logger.info(f"User name: {users_name}")
 
         user = User.query.filter_by(email=users_email, id_google=unique_id).first()

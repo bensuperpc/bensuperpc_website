@@ -40,3 +40,4 @@ numpy
 oauthlib
 
 pyOpenSSL
+requests_oauthlib
