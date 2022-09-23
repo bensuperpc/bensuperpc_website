@@ -36,3 +36,7 @@ github3.py
 linkchecker
 
 numpy
+
+oauthlib
+
+pyOpenSSL

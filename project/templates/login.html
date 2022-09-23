@@ -1,54 +1,59 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="text-center container">
-    <div class="column is-4 is-offset-4">
-        <h3 class="title">Login</h3>
-        <div class="box">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="border-bottom mb-4">{% block title %} Login {% endblock %}</h3>
             </div>
-            {% endif %}
-            {% endwith %}
-            <form method="POST" action="/login">
-                {{ form.csrf_token }}
-                <!-- Email -->
-                <div class="form-outline mb-4">
-                    <!--<input type="email" placeholder="Your email" class="form-control" name="email" />-->
-                    {{ form.email(class="form-control", placeholder="email here", type="email") }}
-                </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-md-9">
+                <form method="POST" action="/login" class="bg-white rounded shadow-sm p-5">
+                    {{ form.csrf_token }}
 
-                <!-- Password -->
-                <div class="form-outline mb-4">
-                    <!--<input type="password" placeholder="Your password" class="form-control" name="password" />-->
-                    {{ form.password(class="form-control", placeholder="password here", type="password") }}
-                </div>
+                    <div class="form-outline mb-4">
+                        {{ form.email(class="form-control", placeholder="email here", type="email") }}
+                    </div>
 
-                <div class="row mb-4">
-                    <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                            {{ form.remember_me(class="form-check-input", placeholder="remember me", type="checkbox") }}
-                            <label class="form-check-label" for="remember_me"> Remember me </label>
+                    <div class="form-outline mb-4">
+                        {{ form.password(class="form-control", placeholder="password here", type="password") }}
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="form-check">
+                                {{ form.remember_me(class="form-check-input", placeholder="remember me",
+                                type="checkbox", checked="true") }}
+                                <label class="form-check-label" for="remember_me"> Remember me </label>
+                            </div>
+                        </div>
+
+                        <div class="col text-center">
+                            <a href="#!">Forgot password?</a>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <a class="disable" href="#!">Forgot password?</a>
+                    <div class="row mb-3">
+                        <div class="col d-flex justify-content-start">
+                            {{ form.submit(class="btn btn-primary btn-block", value="Login") }}
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="btn btn-primary">
+                                <a href="{{ url_for('auth.login_google') }}" class="text-white">Login with Google</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Submit button -->
-                <!--<button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button> -->
-
-                {{ form.submit(class="btn btn-primary", value="Login") }}
-
-                <div class="text-center">
-                    <p>Not a member? <a href="{{ url_for('auth.signup') }}">Register</a></p>
-                </div>
-            </form>
+                    <div class="border-top"></div>
+                    <div class="row">
+                        <div class="col mt-3 d-flex justify-content-center">
+                            <a href="{{ url_for('auth.signup') }}">You need an account? Sign up here</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+
 </section>
 {% endblock %}

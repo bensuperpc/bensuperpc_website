@@ -10,11 +10,11 @@ This is my new website, I'm working on it, it's **not finished yet**.
 
 ## Features
 
-- [x] Login system
+- [x] Login system (With and Without Google)
 - [x] Post system (with markdown)
 - [x] Share files system
 - [x] Comment system
-- [ ] Contact system
+- [x] Contact system
 - [x] https and config file
 - [ ] Youtube integration
 - [ ] Email integration
@@ -30,6 +30,7 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [pip](https://pypi.org/project/pip/)
 - [Git](https://git-scm.com/)
 - [Github token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- [Google API](https://console.developers.google.com/apis/credentials)
 
 ### Clone and config
 
@@ -58,11 +59,38 @@ echo "GITHUB_TOKEN=<Your github token>" >> project/.env
 echo "SECRET_KEY=<Your secret key>" >> project/.env
 ```
 
-_Note: You can generate a secret key with the following command:_
+You can generate a secret key with the following command:
 
 ```sh
 python -c 'import secrets; print(secrets.token_urlsafe(32))'
 ```
+
+Create Google API credentials:
+
+- Go to [https://console.developers.google.com/apis/credentials](https://console.developers.google.com/apis/credentials)
+- Create a new project
+- Go to the credentials tab
+- Create a new **OAuth client ID**
+- Select **Web application**
+- Add javascript origins: **<https://127.0.0.1:5000>**
+- Add the following URIs: **<https://127.0.0.1:5000/login/google/callback>**
+- Download the credentials as a JSON file and copy the content in the following variables:
+
+```sh
+echo "GOOGLE_CLIENT_ID=<Your google client id>" >> project/.env
+echo "GOOGLE_CLIENT_SECRET=<Your google client secret>" >> project/.env
+```
+
+Now should look like this:
+
+```sh
+GITHUB_TOKEN=gd56gdf48gf45gf54dgd5sgfds54g5sdfg5dg45g
+SECRET_KEY=f6d6fqsd465f46fq6sqd46f46s4df654f5645sf5f5s
+GOOGLE_CLIENT_ID=f45ddfs45f4ds5d4f4fd4fds45fd45f45sf45d4fs54df.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=45dfs5d4f5d4sf45dfs5fsd54fds54fs45f
+```
+
+_Is not my real tokens :D_
 
 Generate the certificate:
 
@@ -117,6 +145,9 @@ make docker-logs
 - [Gnu Make](https://www.gnu.org/software/make/)
 - [Github API](https://docs.github.com/en/rest)
 - [Github Actions](https://docs.github.com/en/actions)
+- [Google API](https://developers.google.com/identity/sign-in/web/sign-in)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 
 ## License

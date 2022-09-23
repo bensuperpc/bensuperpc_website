@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 # Import sqlalchemy mixins
-from .mixins import IdMixin, TimedMixin
+from .mixins import IdMixin, TimedMixin, IdGoogleMixin
 
 # Import sqlalchemy models
 from .letter import Letter

@@ -105,7 +105,7 @@ def delete_user(user_id):
         flash("You don't have the permission to delete users", "danger")
         abort(403)
 
-    if current_user.id == user_id:
+    if current_user.id != user_id:
         flash("You can't delete your own account", "danger")
         return redirect(url_for("user.user_panel"))
 

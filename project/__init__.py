@@ -8,6 +8,7 @@ from flask_paranoid import Paranoid
 from flask_wtf.csrf import CSRFProtect
 from github3 import GitHub
 from loguru import logger
+from oauthlib.oauth2 import WebApplicationClient
 from sqlalchemy import select
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -16,6 +17,7 @@ from .admin import admin as admin_blueprint
 from .article import article as article_blueprint
 from .auth import auth as auth_blueprint
 from .db import Comment, Mutual, Post, User, db
+from .google import google
 from .letter import letter as letter_blueprint
 from .main import main as main_blueprint
 from .user import user as user_blueprint
@@ -26,8 +28,26 @@ def create_app():
     basedir = os.path.abspath(os.path.dirname(__file__))
     load_dotenv(os.path.join(basedir, '.env'))
 
-    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", None)
+
     SECRET_KEY = os.environ.get("SECRET_KEY")
+
+    if GITHUB_TOKEN is None:
+        logger.error("GITHUB_TOKEN is not set, you need to set it in .env file")
+        exit(1)
+
+    GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
+    GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
+    GOOGLE_DISCOVERY_URL = (
+        "https://accounts.google.com/.well-known/openid-configuration"
+    )
+
+    if GOOGLE_CLIENT_ID is None or GOOGLE_CLIENT_SECRET is None:
+        logger.error("GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET is not set, you need to set it in .env file")
+        exit(1)
+
+    google.init_google(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_DISCOVERY_URL)
+
 
     app = Flask(__name__)
 
@@ -40,7 +60,7 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = 'uploads'
 
     app.config["REMEMBER_COOKIE_SECURE"] = True
-    app.config["REMEMBER_COOKIE_NAME"] = "remember_token_bensuperpc_website"
+    #app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
     #app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
     
 

@@ -47,12 +47,19 @@ def dashboard():
 
     users_count = User.query.count()
     logger.info(f"Users count: {users_count}")
+
+    user_count_google = users_count - User.query.filter_by(id_google=None).count()
+    logger.info(f"Users count with Google: {user_count_google}")
+
     posts_count = Post.query.count()
     logger.info(f"Posts count: {posts_count}")
+
     comments_count = Comment.query.count()
     logger.info(f"Comments count: {comments_count}")
+
     letters_count = Letter.query.count()
     logger.info(f"Letters count: {letters_count}")
+
     mutuals_count = Mutual.query.count()
     logger.info(f"Mutuals count: {mutuals_count}")
 
@@ -67,4 +74,5 @@ def dashboard():
         letters_count=letters_count,
         mutuals_count=mutuals_count,
         unread_letters_count=unread_letters_count,
+        user_count_google=user_count_google,
     )

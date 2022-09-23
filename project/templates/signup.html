@@ -1,43 +1,67 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="text-center container">
-    <div class="column is-4 is-offset-4">
-        <h3 class="title">Sign Up</h3>
-        <div class="box">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="border-bottom mb-4">{% block title %} Sign Up {% endblock %}</h3>
             </div>
-            {% endif %}
-            {% endwith %}
-
-            <form method=post>
-                {{ form.csrf_token }}
-                <div class="form-outline mb-4">
-                    {{ form.username(class="form-control", placeholder="username here", type="name") }}
-                </div>
-                <div class="form-outline mb-4">
-                    {{ form.email(class="form-control", placeholder="email here", type="email") }}
-                </div>
-                <div class="form-outline mb-4">
-                    {{ form.password(class="form-control", placeholder="password here", type="password") }}
-                </div>
-                <div class="form-outline mb-4">
-                    {{ form.confirm(class="form-control", placeholder="password again", type="password") }}
-                </div>
-                <p>
-                    {{ form.accept_tos(class="form-check-input", placeholder="accept tos", type="checkbox") }}
-                    <label class="form-check-label" for="formaccept_tos">
-                        I accept the <a href="#!">terms of service</a>
-                </p>
-                <!--<p><input type=submit value=Register></p>-->
-                <div class="form-outline mb-4">
-                    {{ form.submit(class="btn btn-primary", value="Register") }}
-                </div>
-            </form>
         </div>
-    </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-md-9">
+                <form method="POST" action="/signup" class="bg-white rounded shadow-sm p-5">
+                    {{ form.csrf_token }}
+
+                    <div class="form-outline mb-4">
+                        {{ form.username(class="form-control", placeholder="username here", type="name") }}
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        {{ form.email(class="form-control", placeholder="email here", type="email") }}
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        {{ form.password(class="form-control", placeholder="password here", type="password") }}
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        {{ form.confirm(class="form-control", placeholder="password again", type="password") }}
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="form-check">
+                                {{ form.accept_tos(class="form-check-input", placeholder="accept_tos", type="checkbox") }}
+                                <label class="form-check-label" for="accept_tos">
+                                    I accept the <a href="#!">GNU</a>
+                            </div>
+                        </div>
+
+                        <div class="col text-center">
+                            <a href="#!">Need help?</a>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col d-flex justify-content-start">
+                            {{ form.submit(class="btn btn-primary", value="Register") }}
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="btn btn-primary">
+                                <a href="{{ url_for('auth.login_google') }}" class="text-white">Login with Google</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top"></div>
+                    <div class="row">
+                        <div class="col mt-3 d-flex justify-content-center">
+                            <a href="{{ url_for('auth.login') }}">You already have an account? Login here</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
 </section>
 {% endblock %}

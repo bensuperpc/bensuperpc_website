@@ -1,10 +1,10 @@
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from . import IdMixin, TimedMixin, db
+from . import IdGoogleMixin, IdMixin, TimedMixin, db
 
 
-class User(TimedMixin, IdMixin, UserMixin, db.Model):
+class User(TimedMixin, IdMixin, UserMixin, IdGoogleMixin, db.Model):
     email = db.Column(db.String(128), unique=True)
     password = db.Column(db.String(128))
     name = db.Column(db.String(256))
