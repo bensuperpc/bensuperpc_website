@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h4 class="border-bottom mb-4">Your Profile</h4>
+                <h4 class="border-bottom mb-4">Your profile</h4>
             </div>
         </div>
         <div class="row">
@@ -22,6 +22,20 @@
                 <p><strong>Password:</strong> {{ user['password'] }}</p>
                 <p><strong>Created at:</strong> {{ user['created'] }}</p>
                 <p><strong>Last login:</strong> {{ user['last_connect'] }}</p>
+                <p><strong>Picture:</strong> <a href="{{ user['picture_url'] }}">{{ user['picture_url'] }}</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h4 class="border-bottom mb-4">Your tokens</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p><strong>Google OpenID:</strong> {{ user['id_google'] }} </p>
+                <p><strong>GitHub OpenID:</strong> {{ user['id_github'] }} </p>
+                <p><strong>Twitter OpenID:</strong> {{ user['id_twitter'] }} </p>
+                <p><strong>Facebook OpenID:</strong> {{ user['id_facebook'] }} </p>
             </div>
         </div>
     </div>

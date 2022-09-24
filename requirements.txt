@@ -37,7 +37,6 @@ linkchecker
 
 numpy
 
-oauthlib
-
 pyOpenSSL
-requests_oauthlib
+
+authlib

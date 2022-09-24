@@ -17,6 +17,21 @@ class IdGoogleMixin:
 
 
 @orm.declarative_mixin
+class IdGithubMixin:
+    id_github = db.Column(db.Integer, unique=True, nullable=True)
+
+
+@orm.declarative_mixin
+class IdTwitterMixin:
+    id_twitter = db.Column(db.Integer, unique=True, nullable=True)
+
+
+@orm.declarative_mixin
+class IdFacebookMixin:
+    id_facebook = db.Column(db.Integer, unique=True, nullable=True)
+
+
+@orm.declarative_mixin
 class TimedMixin:
     created = db.Column(db.DateTime, default=db.func.now())
     updated = db.Column(db.DateTime, default=db.func.now())

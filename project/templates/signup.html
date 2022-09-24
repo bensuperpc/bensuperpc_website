@@ -14,18 +14,22 @@
                     {{ form.csrf_token }}
 
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="username"><b>Username</b></label>
                         {{ form.username(class="form-control", placeholder="username here", type="name") }}
                     </div>
 
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="email"><b>Email</b></label>
                         {{ form.email(class="form-control", placeholder="email here", type="email") }}
                     </div>
 
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="password"><b>Password</b></label>
                         {{ form.password(class="form-control", placeholder="password here", type="password") }}
                     </div>
 
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="confirm"><b>Confirm Password</b></label>
                         {{ form.confirm(class="form-control", placeholder="password again", type="password") }}
                     </div>
 
@@ -47,10 +51,11 @@
                         <div class="col d-flex justify-content-start">
                             {{ form.submit(class="btn btn-primary", value="Register") }}
                         </div>
-                        <div class="col d-flex justify-content-end">
-                            <div class="btn btn-primary">
-                                <a href="{{ url_for('auth.login_google') }}" class="text-white">Login with Google</a>
-                            </div>
+                        <div class="col d-flex justify-content-evenly">
+                            <a href="{{ url_for('auth.login_google') }}" class="btn btn-primary text-white"><i class="fa-brands fa-google"></i></a>
+                            <a href="{{ url_for('auth.login_github') }}" class="btn btn-primary text-white"><i class="fa-brands fa-github"></i></a>
+                            <a href="{{ url_for('auth.login_twitter') }}" class="btn btn-primary disabled text-white"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="{{ url_for('auth.login_facebook') }}" class="btn btn-primary disabled text-white"><i class="fa-brands fa-facebook"></i></a>
                         </div>
                     </div>
                     <div class="border-top"></div>

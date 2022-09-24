@@ -30,11 +30,13 @@ def create_app():
     load_dotenv(os.path.join(basedir, '.env'))
 
     GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", None)
+    GITHUB_CLIENT_ID = os.environ.get("GITHUB_CLIENT_ID", None)
+    GITHUB_CLIENT_SECRET = os.environ.get("GITHUB_CLIENT_SECRET", None)
 
     SECRET_KEY = os.environ.get("SECRET_KEY")
 
-    if GITHUB_TOKEN is None:
-        logger.error("GITHUB_TOKEN is not set, you need to set it in .env file")
+    if GITHUB_TOKEN is None or GITHUB_CLIENT_ID is None or GITHUB_CLIENT_SECRET is None:
+        logger.error("GITHUB_TOKEN or GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file")
         exit(1)
 
     GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
@@ -61,16 +63,31 @@ def create_app():
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 
     oauth.init_app(app)
+    logger.info("OAuth initialized")
     oauth.register(
         name='google',
         client_id=GOOGLE_CLIENT_ID,
         client_secret=GOOGLE_CLIENT_SECRET,
         server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
         client_kwargs={
-            'scope': 'openid email profile'
+            'scope': 'openid email profile',
+            'prompt': 'select_account', 
         }
     )
-    logger.info("OAuth initialized")
+    logger.info("Google OAuth registered")
+
+    oauth.register(
+        name='github',
+        client_id=GITHUB_CLIENT_ID,
+        client_secret=GITHUB_CLIENT_SECRET,
+        access_token_url='https://github.com/login/oauth/access_token',
+        access_token_params=None,
+        authorize_url='https://github.com/login/oauth/authorize',
+        authorize_params=None,
+        api_base_url='https://api.github.com/',
+        client_kwargs={'scope': 'user:email'},
+    )
+    logger.info("Github OAuth registered")
     
 
     db.init_app(app)
