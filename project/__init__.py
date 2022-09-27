@@ -1,6 +1,8 @@
+from asyncio import tasks
 import json
 import os
 from datetime import timedelta
+import asyncio
 
 from dotenv import load_dotenv
 from flask import Flask, redirect, request
@@ -23,6 +25,44 @@ from .main import main as main_blueprint
 from .oauth import oauth
 from .user import user as user_blueprint
 
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
+import multiprocessing
+
+# https://stackoverflow.com/questions/7207309/how-to-run-functions-in-parallel
+def add_articles(gh, item, lock = multiprocessing.Manager().Lock()):
+    logger.debug(f"Adding article {item['title']}")
+    content = None
+
+    if item["from_github"] == True:
+        content = gh.repository(item["user"], item["repository"]).file_contents(
+            item["file"]
+        )
+        content = content.decoded.decode("utf-8")
+    else:
+        content = item["content"]
+
+    post = Post(
+        title=item["title"],
+        content=content,
+        summarize=item["description"],
+        # picture_url=item["picture_url"],
+        is_markdown=True,
+    )
+    # Critical section (1 thread at a time)
+    with lock:
+        if (
+            bool(db.session.query(Post).filter_by(
+                title=item["title"]).first())
+            is False
+        ):
+
+            db.session.add(post)
+            db.session.commit()
+            logger.debug(f"{post.title} added")
+        else:
+            logger.debug(f"{item['title']} already exists")
+    logger.debug(f"Adding article {item['title']} done")
+
 
 def create_app():
 
@@ -36,14 +76,16 @@ def create_app():
     SECRET_KEY = os.environ.get("SECRET_KEY")
 
     if GITHUB_TOKEN is None or GITHUB_CLIENT_ID is None or GITHUB_CLIENT_SECRET is None:
-        logger.error("GITHUB_TOKEN or GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file")
+        logger.error(
+            "GITHUB_TOKEN or GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file")
         exit(1)
 
     GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
     GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
 
     if GOOGLE_CLIENT_ID is None or GOOGLE_CLIENT_SECRET is None:
-        logger.error("GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET is not set, you need to set it in .env file")
+        logger.error(
+            "GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET is not set, you need to set it in .env file")
         exit(1)
 
     app = Flask(__name__)
@@ -53,7 +95,7 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16MB
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
     app.config['UPLOAD_FOLDER'] = 'uploads'
 
     app.config["REMEMBER_COOKIE_SECURE"] = True
@@ -71,9 +113,22 @@ def create_app():
         server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
         client_kwargs={
             'scope': 'openid email profile',
-            'prompt': 'select_account', 
+            'prompt': 'select_account',
         }
     )
+    """
+    oauth.register(
+        name='google',
+        client_id=os.environ.get("GOOGLE_CLIENT_ID", None),
+        client_secret=os.environ.get("GOOGLE_CLIENT_SECRET", None),
+        access_token_url='https://accounts.google.com/o/oauth2/token',
+        access_token_params=None,
+        authorize_url='https://accounts.google.com/o/oauth2/auth',
+        authorize_params=None,
+        api_base_url='https://www.googleapis.com/oauth2/v1/',
+        client_kwargs={'scope': 'openid email profile'},
+    )
+    """
     logger.info("Google OAuth registered")
 
     oauth.register(
@@ -88,7 +143,20 @@ def create_app():
         client_kwargs={'scope': 'user:email'},
     )
     logger.info("Github OAuth registered")
-    
+
+    """
+    oauth.register(
+        name='facebook',
+        client_id=os.environ.get("FACEBOOK_CLIENT_ID", None),
+        client_secret=os.environ.get("FACEBOOK_CLIENT_SECRET", None),
+        access_token_url='https://graph.facebook.com/v2.8/oauth/access_token',
+        access_token_params=None,
+        authorize_url='https://www.facebook.com/v2.8/dialog/oauth',
+        authorize_params=None,
+        api_base_url='https://graph.facebook.com/v2.8/',
+        client_kwargs={'scope': 'email'},
+    )
+    """
 
     db.init_app(app)
     logger.debug("App DB initialized")
@@ -107,14 +175,14 @@ def create_app():
     login_manager.login_view = "auth.login"
     #login_manager.refresh_view = "accounts.reauthenticate"
     #login_manager.anonymous_user = MyAnonymousUser
-    login_manager.session_protection = None # Panaroid
+    login_manager.session_protection = None  # Panaroid
     login_manager.init_app(app)
 
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-    
-    #@login_manager.unauthorized_handler
+
+    # @login_manager.unauthorized_handler
     # def unauthorized():
     #    return redirect("/login")
 
@@ -135,6 +203,7 @@ def create_app():
     with app.app_context():
         db.create_all()
         db.session.commit()
+
         gh = GitHub(token=GITHUB_TOKEN)
 
         # Add new articles for testing
@@ -142,35 +211,12 @@ def create_app():
         with open("project/static/data/article.json", encoding="UTF-8") as json_file:
             data = json.load(json_file)
 
-        for item in data["articles"]:
-
-            content = None
-
-            if item["from_github"] == True:
-                content = gh.repository(item["user"], item["repository"]).file_contents(
-                    item["file"]
-                )
-                content = content.decoded.decode("utf-8")
-            else:
-                content = item["content"]
-
-            post = Post(
-                title=item["title"],
-                content=content,
-                summarize=item["description"],
-                # picture_url=item["picture_url"],
-                is_markdown=True,
-            )
-            logger.debug(f"{post.title} added")
-
-            if (
-                bool(db.session.query(Post).filter_by(
-                    title=item["title"]).first())
-                is False
-            ):
-                db.session.add(post)
-                db.session.commit()
-                logger.info("Added post")
+        pool = ProcessPoolExecutor()
+        m = multiprocessing.Manager()
+        lock = m.Lock()
+        futures = [pool.submit(add_articles, gh, item, lock) for item in data["articles"]]
+        for future in futures:
+            future.result()
 
         # Add new users only for testing
         logger.warning("Adding users, only for testing/dev !")
@@ -235,7 +281,6 @@ def create_app():
                     post=article,
                     user=user,
                 )
-
 
                 logger.info(f"Added comment for {article.title}")
 

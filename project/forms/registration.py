@@ -8,8 +8,28 @@ class RegistrationForm(FlaskForm):
         [
             validators.Length(min=4, max=256),
             validators.DataRequired(),
+            validators.Regexp(
+                "^[A-Za-z0-9_.]*$", message="Username must contain only letters, numbers, underscores and points"
+            ),
         ],
     )
+
+    name = StringField(
+        "Name",
+        [
+            validators.Length(min=4, max=256),
+            validators.DataRequired(),
+        ],
+    )
+
+    last_name = StringField(
+        "Last name",
+        [
+            validators.Length(min=4, max=256),
+            validators.DataRequired(),
+        ],
+    )
+
     email = StringField(
         "Email Address", [validators.DataRequired(), validators.Email()]
     )

@@ -19,6 +19,16 @@
                     </div>
 
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="name"><b>Name</b></label>
+                        {{ form.name(class="form-control", placeholder="name here", type="name") }}
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="last_name"><b>Last name</b></label>
+                        {{ form.last_name(class="form-control", placeholder="Last name here", type="name") }}
+                    </div>
+
+                    <div class="form-outline mb-4">
                         <label class="form-label" for="email"><b>Email</b></label>
                         {{ form.email(class="form-control", placeholder="email here", type="email") }}
                     </div>

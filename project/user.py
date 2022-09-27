@@ -27,11 +27,14 @@ def profile(user_id=None):
 
     if user_id is None:
         user = User.query.get_or_404(current_user.id)
+        logger.info(f"User: {user.id_google}")
         logger.info(
             f"User {current_user.name} ({current_user.email}) is viewing their profile"
         )
     else:
         user = User.query.get_or_404(user_id)
+
+        logger.info(f"User: {user['id_google']}")
         logger.info(
             f"User {current_user.name} ({current_user.email}) is viewing {user.name}'s profile"
         )

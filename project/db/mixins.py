@@ -13,22 +13,22 @@ class IdMixin:
 
 @orm.declarative_mixin
 class IdGoogleMixin:
-    id_google = db.Column(db.Integer, unique=True, nullable=True)
+    id_google = db.Column(db.String(128), unique=True, nullable=True)
 
 
 @orm.declarative_mixin
 class IdGithubMixin:
-    id_github = db.Column(db.Integer, unique=True, nullable=True)
+    id_github = db.Column(db.String(128), unique=True, nullable=True)
 
 
 @orm.declarative_mixin
 class IdTwitterMixin:
-    id_twitter = db.Column(db.Integer, unique=True, nullable=True)
+    id_twitter = db.Column(db.String(128), unique=True, nullable=True)
 
 
 @orm.declarative_mixin
 class IdFacebookMixin:
-    id_facebook = db.Column(db.Integer, unique=True, nullable=True)
+    id_facebook = db.Column(db.String(128), unique=True, nullable=True)
 
 
 @orm.declarative_mixin

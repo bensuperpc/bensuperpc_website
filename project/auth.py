@@ -61,20 +61,22 @@ def callback_google():
     token = oauth.google.authorize_access_token()
     user = oauth.google.parse_id_token(token, None)
 
-    if ["email_verified"]:
-        email = user["email"]
-        name = user["name"]
-        # given_name = user["given_name"]
-        # family_name = user["family_name"]
-        picture = user["picture"]
+    if user.get("email_verified"):
+        email = user.get("email")
+        username = user.get("name")
+        given_name = user.get("given_name")
+        family_name = user.get("family_name")
+        picture = user.get("picture")
         # locale = user["locale"]
-        openid = user["sub"]
-
+        openid = user.get("sub")
+        
         user = User.query.filter_by(email=email).first()
         if not user:
             new_user = User(
                 email=email,
-                name=name,
+                username=username,
+                name=given_name,
+                last_name=family_name,
                 id_google=openid,
                 picture_url=picture,
                 password=generate_password_hash(token_urlsafe(64), method="sha512"),
@@ -91,6 +93,7 @@ def callback_google():
         else:
             if not user.id_google:
                 user.id_google = openid
+
             user.connect = 1
             user.last_connect = db.func.current_timestamp()
             db.session.commit()
@@ -119,15 +122,18 @@ def callback_github():
     user_info = resp.json()
 
     email = user_info["email"]
-    name = user_info["name"]
+    username = user_info["name"]
     picture = user_info["avatar_url"]
     openid = user_info["id"]  # github id isn't openid compliant
+    
 
     user = User.query.filter_by(email=email).first()
     if not user:
         new_user = User(
             email=email,
-            name=name,
+            username=username,
+            name = username,
+            last_name = username,
             id_github=openid,
             picture_url=picture,
             password=generate_password_hash(token_urlsafe(64), method="sha512"),
@@ -142,8 +148,8 @@ def callback_github():
         flash("Thanks for registering", "success")
         return redirect(url_for("main.index"))
     else:
-        if not user.id_google:
-            user.id_google = openid
+        if not user.id_github:
+            user.id_github = openid
 
         user.connect = 1
         user.last_connect = db.func.current_timestamp()
@@ -185,12 +191,14 @@ def signup():
 
     if form.validate_on_submit():
         email = form.email.data
-        name = form.username.data
+        username = form.username.data
+        name = form.name.data
+        last_name = form.last_name.data
         password = form.password.data
         confirm = form.confirm.data
         tos = form.accept_tos.data
 
-        if email == "" or name == "" or password == "" or confirm == "" or tos == False:
+        if email == "" or username == "" or password == "" or confirm == "" or tos == False:
             flash("Please fill out all fields.")
             return render_template("signup.html", form=form)
 
@@ -205,7 +213,9 @@ def signup():
 
         new_user = User(
             email=email,
+            username=username,
             name=name,
+            last_name=last_name,
             password=generate_password_hash(password, method="sha512"),
         )
         db.session.add(new_user)
