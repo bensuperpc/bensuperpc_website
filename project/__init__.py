@@ -11,6 +11,7 @@ from flask_paranoid import Paranoid
 from flask_wtf.csrf import CSRFProtect
 from github3 import GitHub
 from loguru import logger
+import tweepy
 from oauthlib.oauth2 import WebApplicationClient
 from sqlalchemy import select
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -65,7 +66,6 @@ def add_articles(gh, item, lock = multiprocessing.Manager().Lock()):
 
 
 def create_app():
-
     basedir = os.path.abspath(os.path.dirname(__file__))
     load_dotenv(os.path.join(basedir, '.env'))
 
@@ -86,6 +86,13 @@ def create_app():
     if GOOGLE_CLIENT_ID is None or GOOGLE_CLIENT_SECRET is None:
         logger.error(
             "GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET is not set, you need to set it in .env file")
+        exit(1)
+    
+    TWITTER_BEARER_TOKEN = os.environ.get("TWITTER_BEARER_TOKEN", None)
+
+    if TWITTER_BEARER_TOKEN is None:
+        logger.error(
+            "TWITTER_BEARER_TOKEN is not set, you need to set it in .env file")
         exit(1)
 
     app = Flask(__name__)
@@ -244,15 +251,27 @@ def create_app():
                 logger.info(f"{new_user.name} added")
 
         # Add mutuals for testing
+        TwitterClient = tweepy.Client(TWITTER_BEARER_TOKEN)
         data = {}
         with open("project/static/data/mutual.json", encoding="UTF-8") as json_file:
             data = json.load(json_file)
 
         for item in data["mutuals"]:
+            profile_image_url = None
+            try:
+                twitter_name = item["twitter_url"].split("/")[-1]
+                response = TwitterClient.get_users(usernames=[twitter_name], user_fields=["profile_image_url"])
+                profile_image_url = response.data[0]["profile_image_url"]
+                
+                #Replace _normal with _400x400
+                profile_image_url = profile_image_url.replace("_normal", "_400x400")
+            except:
+                profile_image_url = ""
+            
             mutual = Mutual(
                 name=item["name"],
                 describe=item["describe"],
-                picture_url=item["picture_url"],
+                picture_url=profile_image_url,
                 website_url=item["website_url"],
                 twitter_url=item["twitter_url"],
                 discord_url=item["discord_url"],

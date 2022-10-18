@@ -33,8 +33,6 @@ def profile(user_id=None):
         )
     else:
         user = User.query.get_or_404(user_id)
-
-        logger.info(f"User: {user['id_google']}")
         logger.info(
             f"User {current_user.name} ({current_user.email}) is viewing {user.name}'s profile"
         )

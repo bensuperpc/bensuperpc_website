@@ -36,7 +36,12 @@ github3.py
 linkchecker
 
 numpy
+seaborn
+pandas
+matplotlib
 
 pyOpenSSL
 
 authlib
+
+tweepy
