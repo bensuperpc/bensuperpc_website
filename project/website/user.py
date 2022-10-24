@@ -24,6 +24,7 @@ user = Blueprint(
     url_prefix="/",
 )
 
+
 @user.route("/profile")
 @user.route("/profile/<int:user_id>")
 @login_required

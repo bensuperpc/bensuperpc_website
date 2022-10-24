@@ -69,7 +69,7 @@ def callback_google():
         picture = user.get("picture")
         # locale = user["locale"]
         openid = user.get("sub")
-        
+
         user = User.query.filter_by(email=email).first()
         if not user:
             new_user = User(
@@ -125,15 +125,14 @@ def callback_github():
     username = user_info["name"]
     picture = user_info["avatar_url"]
     openid = user_info["id"]  # github id isn't openid compliant
-    
 
     user = User.query.filter_by(email=email).first()
     if not user:
         new_user = User(
             email=email,
             username=username,
-            name = username,
-            last_name = username,
+            name=username,
+            last_name=username,
             id_github=openid,
             picture_url=picture,
             password=generate_password_hash(token_urlsafe(64), method="sha512"),
@@ -198,7 +197,13 @@ def signup():
         confirm = form.confirm.data
         tos = form.accept_tos.data
 
-        if email == "" or username == "" or password == "" or confirm == "" or tos == False:
+        if (
+            email == ""
+            or username == ""
+            or password == ""
+            or confirm == ""
+            or tos == False
+        ):
             flash("Please fill out all fields.")
             return render_template("signup.html", form=form)
 

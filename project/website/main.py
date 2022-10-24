@@ -89,9 +89,11 @@ def share():
     logger.info(f"videos: {videos}")
     return render_template("share.html", musics=musics, images=images, videos=videos)
 
+
 @main.route("/GNU")
 def gnu():
     return render_template("GNU.html")
+
 
 @main.route("/media/music/<path:filename>")
 def upload_music(filename):

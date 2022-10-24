@@ -1,10 +1,11 @@
-from asyncio import tasks
+import asyncio
 import json
 import os
+from asyncio import tasks
 from datetime import timedelta
-import asyncio
-from black import err
 
+import tweepy
+from black import err
 from dotenv import load_dotenv
 from flask import Flask, redirect, request
 from flask_login import LoginManager
@@ -12,7 +13,6 @@ from flask_paranoid import Paranoid
 from flask_wtf.csrf import CSRFProtect
 from github3 import GitHub
 from loguru import logger
-import tweepy
 from oauthlib.oauth2 import WebApplicationClient
 from sqlalchemy import select
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -22,15 +22,16 @@ from .admin import admin as admin_blueprint
 from .article import article as article_blueprint
 from .auth import auth as auth_blueprint
 from .db import Comment, Mutual, Post, User, db
+from .error import error as error_blueprint
 from .letter import letter as letter_blueprint
 from .main import main as main_blueprint
 from .oauth import oauth
 from .user import user as user_blueprint
-from .error import error as error_blueprint
+
 
 def create_app():
     basedir = os.path.abspath(os.path.dirname(__file__))
-    load_dotenv(os.path.join(basedir, '.env'))
+    load_dotenv(os.path.join(basedir, ".env"))
 
     GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", None)
     GITHUB_CLIENT_ID = os.environ.get("GITHUB_CLIENT_ID", None)
@@ -40,7 +41,8 @@ def create_app():
 
     if GITHUB_TOKEN is None or GITHUB_CLIENT_ID is None or GITHUB_CLIENT_SECRET is None:
         logger.error(
-            "GITHUB_TOKEN or GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file")
+            "GITHUB_TOKEN or GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file"
+        )
         exit(1)
 
     GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
@@ -48,14 +50,14 @@ def create_app():
 
     if GOOGLE_CLIENT_ID is None or GOOGLE_CLIENT_SECRET is None:
         logger.error(
-            "GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET is not set, you need to set it in .env file")
+            "GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET is not set, you need to set it in .env file"
+        )
         exit(1)
-    
+
     TWITTER_BEARER_TOKEN = os.environ.get("TWITTER_BEARER_TOKEN", None)
 
     if TWITTER_BEARER_TOKEN is None:
-        logger.error(
-            "TWITTER_BEARER_TOKEN is not set, you need to set it in .env file")
+        logger.error("TWITTER_BEARER_TOKEN is not set, you need to set it in .env file")
         exit(1)
 
     app = Flask(__name__)
@@ -65,26 +67,26 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
-    app.config['UPLOAD_FOLDER'] = 'uploads'
+    app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB
+    app.config["UPLOAD_FOLDER"] = "uploads"
 
     app.config["REMEMBER_COOKIE_SECURE"] = True
-    #app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
-    #app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
+    # app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
+    # app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
 
-    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
+    app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=5)
 
     oauth.init_app(app)
     logger.info("OAuth initialized")
     oauth.register(
-        name='google',
+        name="google",
         client_id=GOOGLE_CLIENT_ID,
         client_secret=GOOGLE_CLIENT_SECRET,
         server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
         client_kwargs={
-            'scope': 'openid email profile',
-            'prompt': 'select_account',
-        }
+            "scope": "openid email profile",
+            "prompt": "select_account",
+        },
     )
     """
     oauth.register(
@@ -102,15 +104,15 @@ def create_app():
     logger.info("Google OAuth registered")
 
     oauth.register(
-        name='github',
+        name="github",
         client_id=GITHUB_CLIENT_ID,
         client_secret=GITHUB_CLIENT_SECRET,
-        access_token_url='https://github.com/login/oauth/access_token',
+        access_token_url="https://github.com/login/oauth/access_token",
         access_token_params=None,
-        authorize_url='https://github.com/login/oauth/authorize',
+        authorize_url="https://github.com/login/oauth/authorize",
         authorize_params=None,
-        api_base_url='https://api.github.com/',
-        client_kwargs={'scope': 'user:email'},
+        api_base_url="https://api.github.com/",
+        client_kwargs={"scope": "user:email"},
     )
     logger.info("Github OAuth registered")
 
@@ -143,8 +145,8 @@ def create_app():
     # Login manager
     login_manager = LoginManager()
     login_manager.login_view = "auth.login"
-    #login_manager.refresh_view = "accounts.reauthenticate"
-    #login_manager.anonymous_user = MyAnonymousUser
+    # login_manager.refresh_view = "accounts.reauthenticate"
+    # login_manager.anonymous_user = MyAnonymousUser
     login_manager.session_protection = None  # Panaroid
     login_manager.init_app(app)
 
@@ -167,7 +169,7 @@ def create_app():
     app.register_blueprint(admin_blueprint)
 
     app.register_blueprint(letter_blueprint)
-    
+
     app.register_blueprint(error_blueprint)
 
     logger.debug(f"{app.name} is running on {app.config['ENV']}")
@@ -180,9 +182,11 @@ def create_app():
 
         # Add new articles for testing
         data = {}
-        with open(os.path.join(basedir, "static/data/article.json"), encoding="UTF-8") as json_file:
+        with open(
+            os.path.join(basedir, "static/data/article.json"), encoding="UTF-8"
+        ) as json_file:
             data = json.load(json_file)
-        
+
         for item in data["articles"]:
 
             logger.debug(f"Adding article {item['title']}")
@@ -190,23 +194,29 @@ def create_app():
 
             if item["from_github"] == True:
                 try:
-                    content = gh.repository(item["user"], item["repository"]).file_contents(item["file"])
+                    content = gh.repository(
+                        item["user"], item["repository"]
+                    ).file_contents(item["file"])
                 except:
-                    logger.error(f"Cannot get content from {item['user']}/{item['repository']}/{item['file']}")
+                    logger.error(
+                        f"Cannot get content from {item['user']}/{item['repository']}/{item['file']}"
+                    )
                     continue
                 content = content.decoded.decode("utf-8")
             else:
                 content = item["content"]
             post = Post(
-            title=item["title"],
-            content=content,
-            summarize=item["description"],
-            # picture_url=item["picture_url"],
-            is_markdown=True,
+                title=item["title"],
+                content=content,
+                summarize=item["description"],
+                # picture_url=item["picture_url"],
+                is_markdown=True,
             )
 
-            if (bool(db.session.query(Post).filter_by(
-                title=item["title"]).first())is False):
+            if (
+                bool(db.session.query(Post).filter_by(title=item["title"]).first())
+                is False
+            ):
                 db.session.add(post)
                 db.session.commit()
                 logger.debug(f"{post.title} added")
@@ -217,22 +227,22 @@ def create_app():
         # Add new users only for testing
         logger.warning("Adding users, only for testing/dev !")
         data = {}
-        with open(os.path.join(basedir, "static/data/user.json"), encoding="UTF-8") as json_file:
+        with open(
+            os.path.join(basedir, "static/data/user.json"), encoding="UTF-8"
+        ) as json_file:
             data = json.load(json_file)
 
         for item in data["users"]:
             new_user = User(
                 email=item["email"],
                 name=item["name"],
-                password=generate_password_hash(
-                    item["password"], method="sha512"),
+                password=generate_password_hash(item["password"], method="sha512"),
                 admin=item["admin"],
                 picture_url=item["picture_url"],
             )
 
             if (
-                bool(db.session.query(User).filter_by(
-                    email=item["email"]).first())
+                bool(db.session.query(User).filter_by(email=item["email"]).first())
                 is False
             ):
                 db.session.add(new_user)
@@ -242,21 +252,25 @@ def create_app():
         # Add mutuals for testing
         TwitterClient = tweepy.Client(TWITTER_BEARER_TOKEN)
         data = {}
-        with open(os.path.join(basedir, "static/data/mutual.json"), encoding="UTF-8") as json_file:
+        with open(
+            os.path.join(basedir, "static/data/mutual.json"), encoding="UTF-8"
+        ) as json_file:
             data = json.load(json_file)
 
         for item in data["mutuals"]:
             profile_image_url = None
             try:
                 twitter_name = item["twitter_url"].split("/")[-1]
-                response = TwitterClient.get_users(usernames=[twitter_name], user_fields=["profile_image_url"])
+                response = TwitterClient.get_users(
+                    usernames=[twitter_name], user_fields=["profile_image_url"]
+                )
                 profile_image_url = response.data[0]["profile_image_url"]
-                
-                #Replace _normal with _400x400
+
+                # Replace _normal with _400x400
                 profile_image_url = profile_image_url.replace("_normal", "_400x400")
             except:
                 profile_image_url = ""
-            
+
             mutual = Mutual(
                 name=item["name"],
                 describe=item["describe"],
@@ -269,8 +283,7 @@ def create_app():
             )
 
             if (
-                bool(db.session.query(Mutual).filter_by(
-                    name=item["name"]).first())
+                bool(db.session.query(Mutual).filter_by(name=item["name"]).first())
                 is False
             ):
                 db.session.add(mutual)
@@ -278,11 +291,10 @@ def create_app():
                 logger.info("Added mutual")
 
         # Add comments for testing
-        #logger.warning("Adding comments only for testing")
+        # logger.warning("Adding comments only for testing")
         for article in Post.query.all():
             for user in User.query.all():
-                content = str(
-                    f"This is a comment for {article.title} from {user.name}")
+                content = str(f"This is a comment for {article.title} from {user.name}")
 
                 comment = Comment(
                     content=content,

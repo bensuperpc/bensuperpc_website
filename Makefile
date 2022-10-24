@@ -22,7 +22,7 @@ PYTHON := python
 
 .PHONY: install
 install:
-	$(PYTHON) -m pip install -r requirements.txt
+	$(PYTHON) -m pip install -r project/requirements.txt
 
 .PHONY: run
 run:

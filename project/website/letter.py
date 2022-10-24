@@ -28,6 +28,7 @@ letter = Blueprint(
     url_prefix="/",
 )
 
+
 @letter.route("/contact", methods=["GET", "POST"])
 def contact():
     form = ContactForm()

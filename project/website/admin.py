@@ -1,22 +1,27 @@
 import datetime
-from sys import prefix
-
-from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_required
-from loguru import logger
-
-from .db import Comment, Letter, Mutual, Post, User, db
-
 import io
 import random
-from flask import Response
+from sys import prefix
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from flask import (
+    Blueprint,
+    Response,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
+from flask_login import current_user, login_required
+from loguru import logger
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
 
-import numpy as np
-import seaborn as sns
-import pandas as pd
+from .db import Comment, Letter, Mutual, Post, User, db
 
 admin = Blueprint(
     "admin",
@@ -94,7 +99,9 @@ def dashboard():
 @admin.route("/plot/<string:plot_url>", methods=["GET"])
 @login_required
 def plot(plot_url):
-    logger.debug(f"User {current_user.name} ({current_user.email}) is viewing the plot {plot_url}")
+    logger.debug(
+        f"User {current_user.name} ({current_user.email}) is viewing the plot {plot_url}"
+    )
     if current_user.admin is False:
         flash("Sorry, you don't have permission to read a letter.", "danger")
         return redirect(url_for("main.index"))
@@ -109,14 +116,17 @@ def plot(plot_url):
         output = io.BytesIO()
         FigureCanvas(fig).print_png(output)
         return Response(output.getvalue(), mimetype="image/png")
-    
+
     flash("Sorry, this plot does not exist.", "danger")
     return redirect(url_for("main.index"))
+
 
 # Generate plot with matplotlib, evolution of number of comments count since last 30 days
 def comment_count_plot():
     logger.warning("Generating plot..")
-    comments = Comment.query.filter(Comment.created > datetime.datetime.now() - datetime.timedelta(days=31)).all()
+    comments = Comment.query.filter(
+        Comment.created > datetime.datetime.now() - datetime.timedelta(days=31)
+    ).all()
     comments_count = np.zeros((31, 1), dtype=np.uint64)
     days = np.arange(1, 32)
 
@@ -127,28 +137,28 @@ def comment_count_plot():
         day_index = (comment_date - date).days
         if comment_date >= date:
             comments_count[day_index] += 1
-    
-    plt.style.use('ggplot')
+
+    plt.style.use("ggplot")
 
     fig = Figure()
 
-    #fig, ax = plt.subplots()
+    # fig, ax = plt.subplots()
     ax = fig.add_subplot(1, 1, 1)
-    ax.plot(days, comments_count, color='blue', marker='o', linestyle='solid')
+    ax.plot(days, comments_count, color="blue", marker="o", linestyle="solid")
 
     ax.set_title("Evolution of number of comments since last 30 days")
     ax.set_xlabel("Date")
     ax.set_ylabel("Number of comments")
 
     fig.autofmt_xdate()
-    ax.legend(title='Data')
+    ax.legend(title="Data")
     fig.tight_layout()
 
     return fig
 
 
 def create_figure():
-    plt.style.use('ggplot')
+    plt.style.use("ggplot")
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     xs = range(100)

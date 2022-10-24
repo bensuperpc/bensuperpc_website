@@ -23,7 +23,7 @@ error = Blueprint(
     url_prefix="/",
 )
 
+
 @error.app_errorhandler(404)
 def handle_404(err):
     return render_template("404.html"), 404
-

@@ -9,7 +9,8 @@ class RegistrationForm(FlaskForm):
             validators.Length(min=4, max=256),
             validators.DataRequired(),
             validators.Regexp(
-                "^[A-Za-z0-9_.]*$", message="Username must contain only letters, numbers, underscores and points"
+                "^[A-Za-z0-9_.]*$",
+                message="Username must contain only letters, numbers, underscores and points",
             ),
         ],
     )
