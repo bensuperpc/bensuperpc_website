@@ -19,9 +19,6 @@ from .db import Letter, Mutual, Post, db
 from .forms.contact import ContactForm
 from .forms.upload import UploadMultipleForm, UploadSimpleForm
 
-if __name__ == "__main__":
-    logger.info("main.py")
-
 main = Blueprint(
     "main",
     __name__,

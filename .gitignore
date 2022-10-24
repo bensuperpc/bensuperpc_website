@@ -1,9 +1,8 @@
 __pycache__/
 .env
-venv_dev/*
-project/__init__.py
 cert.pem
 key.pem
-project/uploads/*
-!project/uploads/.gitkeep
+project/website/uploads/*
+!project/website/uploads/.gitkeep
 db.sqlite
+project/website/uploads/*

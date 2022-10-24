@@ -26,7 +26,7 @@ install:
 
 .PHONY: run
 run:
-	cd project && $(PYTHON) wsgi.py
+	$(PYTHON) project/wsgi.py
 
 .PHONY: format
 format:
@@ -50,8 +50,12 @@ linkcheck:
 certificate:
 	openssl req -x509 -newkey rsa:4096 -nodes -out project/cert.pem -keyout project/key.pem -days 365 -subj "/C=US/ST=France/L=Nantes/O=Bensuperpc/OU=Org/CN=localhost"
 
+.PHONY: docker-build
+docker-build:
+	docker-compose -f docker-compose.yml build
+
 .PHONY: docker-start
-docker-start:
+docker-start: docker-build
 	docker-compose -f docker-compose.yml up
 
 .PHONY: docker-stop
