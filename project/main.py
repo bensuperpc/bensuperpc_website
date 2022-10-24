@@ -17,7 +17,7 @@ from werkzeug.utils import secure_filename
 
 from .db import Letter, Mutual, Post, db
 from .forms.contact import ContactForm
-from .forms.upload import UploadForm
+from .forms.upload import UploadMultipleForm, UploadSimpleForm
 
 if __name__ == "__main__":
     logger.info("main.py")
@@ -28,6 +28,7 @@ main = Blueprint(
     template_folder="templates",
     static_folder="static",
     static_url_path="/",
+    url_prefix="/",
 )
 
 
@@ -115,7 +116,7 @@ def upload():
         flash("You are not admin", "danger")
         return redirect(url_for("main.index"))
 
-    form = UploadForm()
+    form = UploadMultipleForm()
 
     if form.validate_on_submit():
         logger.info(f"User {current_user.name} is uploading a file.")

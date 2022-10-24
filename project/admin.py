@@ -24,6 +24,7 @@ admin = Blueprint(
     template_folder="templates",
     static_folder="static",
     static_url_path="/",
+    url_prefix="/admin",
 )
 
 
@@ -79,7 +80,7 @@ def dashboard():
     logger.info(f"Unread letters: {unread_letters_count}")
 
     return render_template(
-        "dashboard.html",
+        "admin/dashboard.html",
         users_count=users_count,
         posts_count=posts_count,
         comments_count=comments_count,
@@ -92,7 +93,7 @@ def dashboard():
 
 @admin.route("/plot/<string:plot_url>", methods=["GET"])
 @login_required
-def read_letter(plot_url):
+def plot(plot_url):
     logger.debug(f"User {current_user.name} ({current_user.email}) is viewing the plot {plot_url}")
     if current_user.admin is False:
         flash("Sorry, you don't have permission to read a letter.", "danger")

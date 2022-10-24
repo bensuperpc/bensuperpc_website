@@ -25,8 +25,8 @@ letter = Blueprint(
     template_folder="templates",
     static_folder="static",
     static_url_path="/",
+    url_prefix="/",
 )
-
 
 @letter.route("/contact", methods=["GET", "POST"])
 def contact():

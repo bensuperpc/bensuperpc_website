@@ -15,8 +15,14 @@ from werkzeug.exceptions import abort
 
 from .db import User, db
 
-user = Blueprint("user", __name__)
-
+user = Blueprint(
+    "user",
+    __name__,
+    template_folder="templates",
+    static_folder="static",
+    static_url_path="/",
+    url_prefix="/",
+)
 
 @user.route("/profile")
 @user.route("/profile/<int:user_id>")

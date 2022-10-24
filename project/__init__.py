@@ -3,6 +3,7 @@ import json
 import os
 from datetime import timedelta
 import asyncio
+from black import err
 
 from dotenv import load_dotenv
 from flask import Flask, redirect, request
@@ -25,6 +26,7 @@ from .letter import letter as letter_blueprint
 from .main import main as main_blueprint
 from .oauth import oauth
 from .user import user as user_blueprint
+from .error import error as error_blueprint
 
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 import multiprocessing
@@ -204,6 +206,8 @@ def create_app():
     app.register_blueprint(admin_blueprint)
 
     app.register_blueprint(letter_blueprint)
+    
+    app.register_blueprint(error_blueprint)
 
     logger.debug(f"{app.name} is running on {app.config['ENV']}")
 
