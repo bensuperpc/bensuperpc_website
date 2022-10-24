@@ -47,7 +47,7 @@ def login():
         flash("Welcome back !", "success")
         return redirect(url_for("main.index"))
 
-    return render_template("login.html", form=form)
+    return render_template("auth/login.html", form=form)
 
 
 @auth.route("/login/google")
@@ -222,7 +222,7 @@ def signup():
         db.session.commit()
         flash("Thanks for registering", "success")
         return redirect(url_for("auth.login"))
-    return render_template("signup.html", form=form)
+    return render_template("auth/signup.html", form=form)
 
 
 @auth.route("/logout")

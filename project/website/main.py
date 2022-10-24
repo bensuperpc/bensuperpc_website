@@ -42,12 +42,12 @@ def index():
 
 @main.route("/linktree")
 def linktree():
-    return render_template("linktree.html")
+    return render_template("personal/linktree.html")
 
 
 @main.route("/curriculum_vitae")
 def curriculum_vitae():
-    return render_template("curriculum_vitae.html")
+    return render_template("personal/curriculum_vitae.html")
 
 
 @main.route("/mutual")
@@ -59,7 +59,7 @@ def mutual():
 
 @main.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("personal/about.html")
 
 
 @main.route("/favicon.ico")
@@ -89,6 +89,9 @@ def share():
     logger.info(f"videos: {videos}")
     return render_template("share.html", musics=musics, images=images, videos=videos)
 
+@main.route("/GNU")
+def gnu():
+    return render_template("GNU.html")
 
 @main.route("/media/music/<path:filename>")
 def upload_music(filename):

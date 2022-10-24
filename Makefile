@@ -26,7 +26,7 @@ install:
 
 .PHONY: run
 run:
-	$(PYTHON) wsgi.py
+	cd project && $(PYTHON) wsgi.py
 
 .PHONY: format
 format:
@@ -48,21 +48,19 @@ linkcheck:
 
 .PHONY: certificate
 certificate:
-	openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365 -subj "/C=US/ST=France/L=Nantes/O=Bensuperpc/OU=Org/CN=localhost"
+	openssl req -x509 -newkey rsa:4096 -nodes -out project/cert.pem -keyout project/key.pem -days 365 -subj "/C=US/ST=France/L=Nantes/O=Bensuperpc/OU=Org/CN=localhost"
 
 .PHONY: docker-start
 docker-start:
-	docker build -t flash_server .
-	docker run -d -p 5000:5000 -v "$(shell pwd):/usr/src/app" --name flash_server flash_server
+	docker-compose -f docker-compose.yml up
 
 .PHONY: docker-stop
 docker-stop:
-	docker stop flash_server
-	docker rm flash_server
+	docker-compose -f docker-compose.yml down
 
 .PHONY: docker-logs
 docker-logs:
-	docker logs flash_server
+	docker-compose -f docker-compose.yml logs
 
 .PHONY: venv
 venv:

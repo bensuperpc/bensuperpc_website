@@ -28,45 +28,6 @@ from .oauth import oauth
 from .user import user as user_blueprint
 from .error import error as error_blueprint
 
-from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
-import multiprocessing
-
-# https://stackoverflow.com/questions/7207309/how-to-run-functions-in-parallel
-def add_articles(gh, item, lock = multiprocessing.Manager().Lock()):
-    logger.debug(f"Adding article {item['title']}")
-    content = None
-
-    if item["from_github"] == True:
-        content = gh.repository(item["user"], item["repository"]).file_contents(
-            item["file"]
-        )
-        content = content.decoded.decode("utf-8")
-    else:
-        content = item["content"]
-
-    post = Post(
-        title=item["title"],
-        content=content,
-        summarize=item["description"],
-        # picture_url=item["picture_url"],
-        is_markdown=True,
-    )
-    # Critical section (1 thread at a time)
-    with lock:
-        if (
-            bool(db.session.query(Post).filter_by(
-                title=item["title"]).first())
-            is False
-        ):
-
-            db.session.add(post)
-            db.session.commit()
-            logger.debug(f"{post.title} added")
-        else:
-            logger.debug(f"{item['title']} already exists")
-    logger.debug(f"Adding article {item['title']} done")
-
-
 def create_app():
     basedir = os.path.abspath(os.path.dirname(__file__))
     load_dotenv(os.path.join(basedir, '.env'))
@@ -219,20 +180,44 @@ def create_app():
 
         # Add new articles for testing
         data = {}
-        with open("project/static/data/article.json", encoding="UTF-8") as json_file:
+        with open(os.path.join(basedir, "static/data/article.json"), encoding="UTF-8") as json_file:
             data = json.load(json_file)
+        
+        for item in data["articles"]:
 
-        pool = ProcessPoolExecutor()
-        m = multiprocessing.Manager()
-        lock = m.Lock()
-        futures = [pool.submit(add_articles, gh, item, lock) for item in data["articles"]]
-        for future in futures:
-            future.result()
+            logger.debug(f"Adding article {item['title']}")
+            content = None
+
+            if item["from_github"] == True:
+                try:
+                    content = gh.repository(item["user"], item["repository"]).file_contents(item["file"])
+                except:
+                    logger.error(f"Cannot get content from {item['user']}/{item['repository']}/{item['file']}")
+                    continue
+                content = content.decoded.decode("utf-8")
+            else:
+                content = item["content"]
+            post = Post(
+            title=item["title"],
+            content=content,
+            summarize=item["description"],
+            # picture_url=item["picture_url"],
+            is_markdown=True,
+            )
+
+            if (bool(db.session.query(Post).filter_by(
+                title=item["title"]).first())is False):
+                db.session.add(post)
+                db.session.commit()
+                logger.debug(f"{post.title} added")
+            else:
+                logger.debug(f"{item['title']} already exists")
+            logger.debug(f"Adding article {item['title']} done")
 
         # Add new users only for testing
         logger.warning("Adding users, only for testing/dev !")
         data = {}
-        with open("project/static/data/user.json", encoding="UTF-8") as json_file:
+        with open(os.path.join(basedir, "static/data/user.json"), encoding="UTF-8") as json_file:
             data = json.load(json_file)
 
         for item in data["users"]:
@@ -257,7 +242,7 @@ def create_app():
         # Add mutuals for testing
         TwitterClient = tweepy.Client(TWITTER_BEARER_TOKEN)
         data = {}
-        with open("project/static/data/mutual.json", encoding="UTF-8") as json_file:
+        with open(os.path.join(basedir, "static/data/mutual.json"), encoding="UTF-8") as json_file:
             data = json.load(json_file)
 
         for item in data["mutuals"]:
