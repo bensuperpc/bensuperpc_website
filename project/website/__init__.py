@@ -1,7 +1,7 @@
-import asyncio
+#!/usr/bin/env python
+
 import json
 import os
-from asyncio import tasks
 from datetime import timedelta
 
 import tweepy
@@ -13,8 +13,6 @@ from flask_paranoid import Paranoid
 from flask_wtf.csrf import CSRFProtect
 from github3 import GitHub
 from loguru import logger
-from oauthlib.oauth2 import WebApplicationClient
-from sqlalchemy import select
 from werkzeug.security import check_password_hash, generate_password_hash
 
 # Import all blueprint
@@ -29,7 +27,7 @@ from .oauth import oauth
 from .user import user as user_blueprint
 
 
-def create_app():
+def create_app(*args, **kwargs):
     basedir = os.path.abspath(os.path.dirname(__file__))
     load_dotenv(os.path.join(basedir, ".env"))
 
@@ -63,8 +61,14 @@ def create_app():
     app = Flask(__name__)
 
     app.config["SECRET_KEY"] = SECRET_KEY
+    POSTGRES_URL = os.environ.get("POSTGRES_URL")
+    POSTGRES_USER = os.environ.get("POSTGRES_USER")
+    POSTGRES_PW = os.environ.get("POSTGRES_PW")
+    POSTGRES_DB = os.environ.get("POSTGRES_DB")
+    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER,pw=POSTGRES_PW,url=POSTGRES_URL,db=POSTGRES_DB)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
+    logger.info("Database URL: {url}", url=DB_URL)
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB
@@ -175,6 +179,15 @@ def create_app():
     logger.debug(f"{app.name} is running on {app.config['ENV']}")
 
     with app.app_context():
+        from sqlalchemy_utils import database_exists, create_database, drop_database
+
+        if database_exists(DB_URL):
+            logger.info("Deleting database")
+            # drop_database(DB_URL)
+        if not database_exists(DB_URL):
+            logger.info("Creating database")
+            create_database(DB_URL)
+
         db.create_all()
         db.session.commit()
 

@@ -24,10 +24,6 @@ PYTHON := python
 install:
 	$(PYTHON) -m pip install -r project/requirements.txt
 
-.PHONY: run
-run:
-	$(PYTHON) project/wsgi.py
-
 .PHONY: format
 format:
 	isort --multi-line=3 .
@@ -35,7 +31,7 @@ format:
 
 .PHONY: pygmentize
 pygmentize:
-	pygmentize -S emacs -f html -a .codehilite > project/static/css/style_code.css
+	pygmentize -S emacs -f html -a .codehilite > project/website/static/css/style_code.css
 
 .PHONY: lint
 lint: 

@@ -1,5 +1,5 @@
-import flask_sqlalchemy as sqlalchemy
-import markdown
+#!/usr/bin/env python
+
 from flask import (
     Blueprint,
     flash,

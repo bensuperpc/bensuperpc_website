@@ -14,6 +14,8 @@ flask-paginate
 
 email-validator
 
+psycopg2
+
 sqlalchemy
 sqlalchemy-utils
 

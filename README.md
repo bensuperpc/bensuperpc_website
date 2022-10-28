@@ -57,7 +57,7 @@ pip install -r requirements.txt
 Set the environment variables:
 
 ```sh
-echo "SECRET_KEY=<Your secret key>" >> project/.env
+echo "SECRET_KEY=<Your secret key>" >> project/website/.env
 ```
 
 You can generate a secret key with the following command:
@@ -73,7 +73,7 @@ Create github token:
 - Set the environment variables in the `.env` file:
 
 ```sh
-echo "GITHUB_TOKEN=<Your github token>" >> project/.env
+echo "GITHUB_TOKEN=<Your github token>" >> project/website/.env
 ```
 
 Create Github API credentials:
@@ -86,8 +86,8 @@ Create Github API credentials:
 - Set the environment variables in the `.env` file
 
 ```sh
-echo "GITHUB_CLIENT_ID=<Your github client id>" >> project/.env
-echo "GITHUB_CLIENT_SECRET=<Your github client secret>" >> project/.env
+echo "GITHUB_CLIENT_ID=<Your github client id>" >> project/website/.env
+echo "GITHUB_CLIENT_SECRET=<Your github client secret>" >> project/website/.env
 ```
 
 Create Google API credentials:
@@ -108,8 +108,8 @@ Create Google API credentials:
 - Copy the content in the following variables in the `.env` file:
 
 ```sh
-echo "GOOGLE_CLIENT_ID=<Your google client id>" >> project/.env
-echo "GOOGLE_CLIENT_SECRET=<Your google client secret>" >> project/.env
+echo "GOOGLE_CLIENT_ID=<Your google client id>" >> project/website/.env
+echo "GOOGLE_CLIENT_SECRET=<Your google client secret>" >> project/website/.env
 ```
 
 Create Twitter API credentials:
@@ -123,10 +123,10 @@ Create Twitter API credentials:
 - Copy **barrer token** and set the environment variables in the `.env` file:
 
 ```sh
-echo "TWITTER_BEARER_TOKEN=<Your twitter bearer token>" >> project/.env
+echo "TWITTER_BEARER_TOKEN=<Your twitter bearer token>" >> project/website/.env
 ```
 
-Now, the `project/.env` file should look like this:
+Now, the `project/website/.env` file should look like this:
 
 ```sh
 GITHUB_TOKEN=gd56gdf48gf45gf54dgd5sgfds54g5sdfg5dg45g
@@ -146,16 +146,6 @@ Generate the certificate:
 make certificate
 ```
 
-### Run
-
-Now you can run the website with:
-
-```sh
-make run
-```
-
-And go to: [https://127.0.0.1:5000/](https://127.0.0.1:5000/) or [https://localhost:5000/](https://localhost:5000/)
-
 ### Run with docker
 
 Start the website with:
@@ -165,6 +155,9 @@ make docker-start
 ```
 
 And go to: [https://127.0.0.1:5000/](https://127.0.0.1:5000/) or [https://localhost:5000/](https://localhost:5000/)
+
+
+Access to the pgadmin with: [https://127.0.0.1:5050/](https://127.0.0.1:5050/) or [https://localhost:5050/](https://localhost:5050/)
 
 Stop the website with:
 

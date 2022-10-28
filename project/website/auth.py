@@ -1,5 +1,5 @@
-import json
-import os
+#!/usr/bin/env python
+
 from secrets import token_urlsafe
 
 import requests

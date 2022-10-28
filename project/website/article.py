@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import flask_sqlalchemy as sqlalchemy
 import markdown
 from flask import (

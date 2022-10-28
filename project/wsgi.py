@@ -1,7 +1,11 @@
+#!/usr/bin/env python
+
+from argparse import ArgumentParser
 from dotenv import load_dotenv
 from loguru import logger
 from website import create_app
 import os
+
 
 if __name__ == "__main__":
     basedir = os.path.abspath(os.path.dirname(__file__))

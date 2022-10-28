@@ -8,6 +8,9 @@ class PostForm(FlaskForm):
     title = StringField("Title", [validators.DataRequired()])
     summary = TextAreaField("Summary", [validators.DataRequired()])
     content = TextAreaField("Content", [validators.DataRequired()])
+    picture_url = StringField("Picture URL", [validators.DataRequired()])
+
     is_markdown = BooleanField("Markdown")
     is_published = BooleanField("Published")
+    
     submit = SubmitField("Save")

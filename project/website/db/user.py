@@ -24,8 +24,8 @@ class User(
     IdFacebookMixin,
     db.Model,
 ):
-    email = db.Column(db.String(128), unique=True)
-    password = db.Column(db.String(128))
+    email = db.Column(db.String(256), unique=True)
+    password = db.Column(db.String(256))
 
     username = db.Column(db.String(256), default="Anonymous")
 

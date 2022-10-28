@@ -1,5 +1,4 @@
-import os
-import random
+#!/usr/bin/env python
 
 from flask import (
     Blueprint,

@@ -1,4 +1,4 @@
-ARG DOCKER_IMAGE=python:3.10-buster
+ARG DOCKER_IMAGE=python:3.11-buster
 FROM $DOCKER_IMAGE
 
 WORKDIR /app

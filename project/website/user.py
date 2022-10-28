@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import flask_sqlalchemy as sqlalchemy
 import markdown
 from flask import (
@@ -120,6 +122,13 @@ def delete_user(user_id):
     user = db.session.query(User).get(user_id)
     if user is None:
         abort(404)
+    
+    # Delete user's comments and posts
+    #for post in user.posts:
+    #    db.session.delete(post)
+    #for comment in user.comments:
+    #    db.session.delete(comment)
+
     db.session.delete(user)
     db.session.commit()
     flash("User deleted", "success")

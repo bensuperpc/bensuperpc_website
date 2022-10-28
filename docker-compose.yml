@@ -1,18 +1,55 @@
 version: "3"
 
 services:
-  app:
-    networks:
-      - global
+  website:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - 5000:5000
     environment:
-      - FLASK_DEBUG=1
+      FLASK_DEBUG: "${FLASK_DEBUG:-1}"
+      POSTGRES_URL: "${POSTGRES_URL:-db:5432}"
+      POSTGRES_USER: "${POSTGRES_USER:-postgres}"
+      POSTGRES_PW: "${POSTGRES_PW:-postgres}"
+      POSTGRES_DB: "${POSTGRES_DB:-website}"
     volumes:
       - ./project:/app:rw
     restart: unless-stopped
+    depends_on:
+      - "db"
+    networks:
+      - global
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "${POSTGRES_HOST_AUTH_METHOD:-trust}"
+      POSTGRES_USER: "${POSTGRES_USER:-postgres}"
+      POSTGRES_PASSWORD: "${POSTGRES_PW:-postgres}"
+      POSTGRES_DB: "${POSTGRES_DB:-website}"
+    ports:
+      - 5432:5432
+    volumes: 
+    - postgres-data:/var/lib/postgresql/data
+    networks:
+      - global
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "${PGADMIN_DEFAULT_EMAIL:-admin@admin.net}"
+      PGADMIN_DEFAULT_PASSWORD: "${PGADMIN_DEFAULT_PASSWORD:-admin}"
+    depends_on:
+      - "db"
+    ports:
+      - 5050:80
+    networks:
+      - global
+volumes:
+  postgres-data:
+
 networks:
   global:
