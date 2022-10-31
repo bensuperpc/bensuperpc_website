@@ -1,19 +1,21 @@
 #!/usr/bin/env python
 
+# Import Python libs
 import json
 import os
 from datetime import timedelta
 
-import tweepy
-from black import err
-from dotenv import load_dotenv
+# Import Flask libs
 from flask import Flask, redirect, request
 from flask_login import LoginManager
-from flask_paranoid import Paranoid
 from flask_wtf.csrf import CSRFProtect
+
+import tweepy
+from dotenv import load_dotenv
 from github3 import GitHub
 from loguru import logger
 from werkzeug.security import check_password_hash, generate_password_hash
+from sqlalchemy_utils import database_exists, create_database, drop_database
 
 # Import all blueprint
 from .admin import admin as admin_blueprint
@@ -28,14 +30,79 @@ from .user import user as user_blueprint
 
 
 def create_app(*args, **kwargs):
+
     basedir = os.path.abspath(os.path.dirname(__file__))
     load_dotenv(os.path.join(basedir, ".env"))
+
+    app = Flask(__name__)
+
+    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+    app.config["WTF_CSRF_SECRET_KEY"] = os.environ.get("WTF_CSRF_SECRET_KEY")
+
+    app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB
+    app.config["UPLOAD_FOLDER"] = "uploads"
+
+    app.config["REMEMBER_COOKIE_SECURE"] = True
+    app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
+    app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
+
+    app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
+
+    POSTGRES_URL = os.environ.get("POSTGRES_URL")
+    POSTGRES_USER = os.environ.get("POSTGRES_USER")
+    POSTGRES_PW = os.environ.get("POSTGRES_PW")
+    POSTGRES_DB = os.environ.get("POSTGRES_DB")
+    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER,pw=POSTGRES_PW,url=POSTGRES_URL,db=POSTGRES_DB)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
+    logger.info("Database URL: {url}", url=DB_URL)
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    db.init_app(app)
+    logger.debug("App DB initialized")
+
+    # CSRF protection
+    csrf = CSRFProtect()
+    csrf.init_app(app)
+    logger.debug("App CSRF initialized")
+
+    # Login manager
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login"
+    # login_manager.refresh_view = "accounts.reauthenticate"
+    # login_manager.anonymous_user = MyAnonymousUser
+    login_manager.session_protection = "strong"
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
+    # @login_manager.unauthorized_handler
+    # def unauthorized():
+    #    return redirect("/login")
+
+    app.register_blueprint(main_blueprint)
+
+    app.register_blueprint(auth_blueprint)
+
+    app.register_blueprint(user_blueprint)
+
+    app.register_blueprint(article_blueprint)
+
+    app.register_blueprint(admin_blueprint)
+
+    app.register_blueprint(letter_blueprint)
+
+    app.register_blueprint(error_blueprint)
+
+    logger.debug(f"{app.name} is running on {app.config['ENV']}")
+
+
 
     GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", None)
     GITHUB_CLIENT_ID = os.environ.get("GITHUB_CLIENT_ID", None)
     GITHUB_CLIENT_SECRET = os.environ.get("GITHUB_CLIENT_SECRET", None)
-
-    SECRET_KEY = os.environ.get("SECRET_KEY")
 
     if GITHUB_TOKEN is None or GITHUB_CLIENT_ID is None or GITHUB_CLIENT_SECRET is None:
         logger.error(
@@ -57,28 +124,6 @@ def create_app(*args, **kwargs):
     if TWITTER_BEARER_TOKEN is None:
         logger.error("TWITTER_BEARER_TOKEN is not set, you need to set it in .env file")
         exit(1)
-
-    app = Flask(__name__)
-
-    app.config["SECRET_KEY"] = SECRET_KEY
-    POSTGRES_URL = os.environ.get("POSTGRES_URL")
-    POSTGRES_USER = os.environ.get("POSTGRES_USER")
-    POSTGRES_PW = os.environ.get("POSTGRES_PW")
-    POSTGRES_DB = os.environ.get("POSTGRES_DB")
-    DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER,pw=POSTGRES_PW,url=POSTGRES_URL,db=POSTGRES_DB)
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
-    logger.info("Database URL: {url}", url=DB_URL)
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-    app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB
-    app.config["UPLOAD_FOLDER"] = "uploads"
-
-    app.config["REMEMBER_COOKIE_SECURE"] = True
-    # app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
-    # app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
-
-    app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=5)
 
     oauth.init_app(app)
     logger.info("OAuth initialized")
@@ -134,53 +179,7 @@ def create_app(*args, **kwargs):
     )
     """
 
-    db.init_app(app)
-    logger.debug("App DB initialized")
-
-    # Cookie protection
-    paranoid = Paranoid(app)
-    paranoid.redirect_view = "auth.login"
-
-    # CSRF protection
-    csrf = CSRFProtect()
-    csrf.init_app(app)
-    logger.debug("App CSRF initialized")
-
-    # Login manager
-    login_manager = LoginManager()
-    login_manager.login_view = "auth.login"
-    # login_manager.refresh_view = "accounts.reauthenticate"
-    # login_manager.anonymous_user = MyAnonymousUser
-    login_manager.session_protection = None  # Panaroid
-    login_manager.init_app(app)
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
-
-    # @login_manager.unauthorized_handler
-    # def unauthorized():
-    #    return redirect("/login")
-
-    app.register_blueprint(main_blueprint)
-
-    app.register_blueprint(auth_blueprint)
-
-    app.register_blueprint(user_blueprint)
-
-    app.register_blueprint(article_blueprint)
-
-    app.register_blueprint(admin_blueprint)
-
-    app.register_blueprint(letter_blueprint)
-
-    app.register_blueprint(error_blueprint)
-
-    logger.debug(f"{app.name} is running on {app.config['ENV']}")
-
     with app.app_context():
-        from sqlalchemy_utils import database_exists, create_database, drop_database
-
         if database_exists(DB_URL):
             logger.info("Deleting database")
             # drop_database(DB_URL)
@@ -235,7 +234,6 @@ def create_app(*args, **kwargs):
                 logger.debug(f"{post.title} added")
             else:
                 logger.debug(f"{item['title']} already exists")
-            logger.debug(f"Adding article {item['title']} done")
 
         # Add new users only for testing
         logger.warning("Adding users, only for testing/dev !")
@@ -301,7 +299,9 @@ def create_app(*args, **kwargs):
             ):
                 db.session.add(mutual)
                 db.session.commit()
-                logger.info("Added mutual")
+                logger.info("Added mutual {}".format(mutual.name))
+            else:
+                logger.info("Mutual {} already exists".format(item["name"]))
 
         # Add comments for testing
         # logger.warning("Adding comments only for testing")
@@ -315,10 +315,18 @@ def create_app(*args, **kwargs):
                     user=user,
                 )
 
-                logger.info(f"Added comment for {article.title}")
-
-                db.session.add(comment)
-                db.session.commit()
-                logger.info("Added comment")
+                if (
+                    bool(
+                        db.session.query(Comment)
+                        .filter_by(content=content)
+                        .first()
+                    )
+                    is False
+                ):
+                    db.session.add(comment)
+                    db.session.commit()
+                    logger.info(f"Added comment for {article.title}")
+                else:
+                    logger.info(f"Comment for {article.title} already exists")
 
         return app

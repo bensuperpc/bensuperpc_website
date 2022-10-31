@@ -60,6 +60,10 @@ Set the environment variables:
 echo "SECRET_KEY=<Your secret key>" >> project/website/.env
 ```
 
+```sh
+echo "WTF_CSRF_SECRET_KEY" >> project/website/.env
+```
+
 You can generate a secret key with the following command:
 
 ```sh
@@ -133,6 +137,7 @@ GITHUB_TOKEN=gd56gdf48gf45gf54dgd5sgfds54g5sdfg5dg45g
 GITHUB_CLIENT_ID=ggffdgfdgfgdgdfgdfgdf
 GITHUB_CLIENT_SECRET=gingingdfingfuigfbugfdbgfibgiigfdigfdgif
 SECRET_KEY=f6d6fqsd465f46fq6sqd46f46s4df654f5645sf5f5s
+WTF_CSRF_SECRET_KEY=fdsfdsfdfsfdsdfsfdsfsdfdgdhfgdhdf
 GOOGLE_CLIENT_ID=f45ddfs45f4ds5d4f4fd4fds45fd45f45sf45d4fs54df.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=45dfs5d4f5d4sf45dfs5fsd54fds54fs45f
 TWITTER_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAfdfdsdsfsdffgfdsfggfdsfsdfsdfsdfsdf

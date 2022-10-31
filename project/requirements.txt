@@ -9,7 +9,6 @@ flask-wtf
 flask-mail
 
 flask-qrcode
-flask-paranoid
 flask-paginate
 
 email-validator
