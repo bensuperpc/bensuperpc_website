@@ -17,7 +17,7 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [x] Contact system
 - [x] https and config file
 - [ ] Youtube integration
-- [ ] Email integration
+- [x] Email integration
 - [ ] RSS integration
 
 ## Screenshots
