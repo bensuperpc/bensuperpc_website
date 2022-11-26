@@ -13,4 +13,5 @@ if __name__ == "__main__":
     debug = os.environ.get("FLASK_DEBUG", True)
 
     app = create_app()
-    app.run(host="0.0.0.0", port=5000, debug=debug, ssl_context=(os.path.join(basedir, "cert.pem"), os.path.join(basedir, "key.pem")))
+    #app.run(host="0.0.0.0", port=5000, debug=debug, ssl_context=(os.path.join(basedir, "cert.pem"), os.path.join(basedir, "key.pem")))
+    app.run(host="0.0.0.0", port=8080, debug=debug)

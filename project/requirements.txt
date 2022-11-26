@@ -1,5 +1,7 @@
 requests
 
+uwsgi
+
 flask
 flask-babel
 flask-login
