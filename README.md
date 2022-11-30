@@ -70,16 +70,6 @@ You can generate a secret key with the following command:
 python -c 'import secrets; print(secrets.token_urlsafe(32))'
 ```
 
-Create github token:
-
-- Go to [Github token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-- Follow the instructions to create a token and copy it
-- Set the environment variables in the `.env` file:
-
-```sh
-echo "GITHUB_TOKEN=<Your github token>" >> project/website/.env
-```
-
 Create Github API credentials:
 
 - Go to [https://github.com/settings/applications/new](https://github.com/settings/applications/new)
@@ -133,7 +123,6 @@ echo "TWITTER_BEARER_TOKEN=<Your twitter bearer token>" >> project/website/.env
 Now, the `project/website/.env` file should look like this:
 
 ```sh
-GITHUB_TOKEN=gd56gdf48gf45gf54dgd5sgfds54g5sdfg5dg45g
 GITHUB_CLIENT_ID=ggffdgfdgfgdgdfgdfgdf
 GITHUB_CLIENT_SECRET=gingingdfingfuigfbugfdbgfibgiigfdigfdgif
 SECRET_KEY=f6d6fqsd465f46fq6sqd46f46s4df654f5645sf5f5s
@@ -160,7 +149,6 @@ make docker-start
 ```
 
 And go to: [https://127.0.0.1:5000/](https://127.0.0.1:5000/) or [https://localhost:5000/](https://localhost:5000/)
-
 
 Access to the pgadmin with: [https://127.0.0.1:5050/](https://127.0.0.1:5050/) or [https://localhost:5050/](https://localhost:5050/)
 

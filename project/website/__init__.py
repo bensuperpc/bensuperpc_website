@@ -98,15 +98,12 @@ def create_app(*args, **kwargs):
 
     logger.debug(f"{app.name} is running on {app.config['ENV']}")
 
-
-
-    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", None)
     GITHUB_CLIENT_ID = os.environ.get("GITHUB_CLIENT_ID", None)
     GITHUB_CLIENT_SECRET = os.environ.get("GITHUB_CLIENT_SECRET", None)
 
-    if GITHUB_TOKEN is None or GITHUB_CLIENT_ID is None or GITHUB_CLIENT_SECRET is None:
+    if GITHUB_CLIENT_ID is None or GITHUB_CLIENT_SECRET is None:
         logger.error(
-            "GITHUB_TOKEN or GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file"
+            "GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET is not set, you need to set it in .env file"
         )
         exit(1)
 
@@ -179,6 +176,8 @@ def create_app(*args, **kwargs):
     )
     """
 
+
+    # Load all data into the database
     with app.app_context():
         if database_exists(DB_URL):
             logger.info("Deleting database")
@@ -190,7 +189,7 @@ def create_app(*args, **kwargs):
         db.create_all()
         db.session.commit()
 
-        gh = GitHub(token=GITHUB_TOKEN)
+        gh = GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
 
         # Add new articles for testing
         data = {}
