@@ -179,8 +179,8 @@ def create_app(*args, **kwargs):
 
     # Load all data into the database
     with app.app_context():
-        if database_exists(DB_URL):
-            logger.info("Deleting database")
+        #if database_exists(DB_URL):
+        #    logger.info("Deleting database")
             # drop_database(DB_URL)
         if not database_exists(DB_URL):
             logger.info("Creating database")
