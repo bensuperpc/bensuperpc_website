@@ -8,36 +8,27 @@
                 <h3 class="border-bottom mb-4">{% block title %} Contact {% endblock %}</h3>
             </div>
         </div>
-        <div>
-            <div class="row mt-2">
-                <div class="col-12">
-                    <form method="post">
-                        {{ form.csrf_token }}
-                        <div class="row">
-                            <div class="col-6">
-                                <p><strong>Your Email:</strong> {{ form.email(class="form-control", placeholder="Email", type="email") }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p><strong>Your title:</strong> {{ form.title(class="form-control", placeholder="Title", type="text") }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p><strong>Your message:</strong> {{ form.message(class="form-control", placeholder="Message", type="text") }}</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                                <p>{{ form.submit(class="btn btn-primary", value="Send") }}</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-md-9">
+                <form method="POST" class="bg-white rounded shadow-sm p-5">
+                    {{ form.csrf_token }}
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="email"><b>Your Email:</b></label>
+                        {{ form.email(class="form-control", placeholder="Email", type="email") }}
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="title"><b>Title:</b></label>
+                        {{ form.title(class="form-control", placeholder="Title", type="text") }}
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="message"><b>Your message:</b></label>
+                        {{ form.message(class="form-control", placeholder="Message", type="text") }}
+                    </div>
+                    <div class="form-outline mb-3">
+                        <p>{{ form.submit(class="btn btn-primary", value="Send") }}</p>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
 </section>
 {% endblock %}
