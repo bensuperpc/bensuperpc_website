@@ -44,7 +44,7 @@ def create_app(*args, **kwargs):
 
     app.config["REMEMBER_COOKIE_SECURE"] = True
     app.config["REMEMBER_COOKIE_NAME"] = "remember_token"
-    app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.com"
+    app.config["REMEMBER_COOKIE_DOMAIN"] = "bensuperpc.org"
 
     app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 
