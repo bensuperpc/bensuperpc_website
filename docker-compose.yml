@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 5000:5000
+      - 8080:8080
     environment:
       FLASK_DEBUG: "${FLASK_DEBUG:-1}"
       POSTGRES_URL: "${POSTGRES_URL:-db:5432}"

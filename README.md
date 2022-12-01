@@ -34,7 +34,7 @@ This is my new website, I'm working on it, it's **not finished yet**.
 - [Google API](https://console.developers.google.com/apis/credentials)
 - [Twitter API](https://developer.twitter.com/en/portal/dashboard)
 
-### Clone and config
+### Clone the repository
 
 Clone this repository to your local machine using:
 
@@ -48,10 +48,21 @@ Go to the folder
 cd bensuperpc_website
 ```
 
+### Install the requirements
+
 Install the requirements:
 
 ```sh
 pip install -r requirements.txt
+```
+
+### Config the website
+
+If you use this project directly (Not through [Infrastructure project](https://github.com/bensuperpc/infrastructure) or other domain name), you need to change the domain name/IP.
+For example, if you use `bensuperpc.com`, you need to change the domain name `bensuperpc.org` by `bensuperpc.com`, for localhost : `127.0.0.1:8080`
+
+```sh
+find . \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/bensuperpc.org/bensuperpc.com/g'
 ```
 
 Set the environment variables:
@@ -74,8 +85,8 @@ Create Github API credentials:
 
 - Go to [https://github.com/settings/applications/new](https://github.com/settings/applications/new)
 - Set the name to `bensuperpc_website`
-- Set the homepage url to `https://127.0.0.1:5000`
-- Set the authorization callback url to `<https://127.0.0.1:5000/authorize/github>'
+- Set the homepage url to `https://www.bensuperpc.org/authorize/github`
+- Set the authorization callback url to `<https://www.bensuperpc.org/authorize/github>'
 - Copy the client id and secret (Or generate a new one and keep it)
 - Set the environment variables in the `.env` file
 
@@ -92,12 +103,12 @@ Create Google API credentials:
 - Create a new **OAuth client ID**
 - Select **Web application**
 - Set the name to `bensuperpc_website`
-- Add javascript origins: **<https://127.0.0.1:5000>**
-- Add javascript origins: **<https://localhost:5000>**
-- Add the following URIs: **<https://127.0.0.1:5000/login/google>**
-- Add the following URIs: **<https://localhost:5000/login/google>**
-- Add the following URIs: **<https://localhost:5000/authorize/google>**
-- Add the following URIs: **<https://127.0.0.1:5000/authorize/google>**
+- Add javascript origins: **<https://bensuperpc.org>**
+- Add javascript origins: **<https://www.bensuperpc.org>**
+- Add the following URIs: **<https://bensuperpc.org/login/google>**
+- Add the following URIs: **<https://www.bensuperpc.org/login/google>**
+- Add the following URIs: **<https://bensuperpc.org/authorize/google>**
+- Add the following URIs: **<https://www.bensuperpc.org/authorize/google>**
 - Download the credentials as a JSON file
 - Copy the content in the following variables in the `.env` file:
 
@@ -148,7 +159,7 @@ Start the website with:
 make docker-start
 ```
 
-And go to: [https://127.0.0.1:5000/](https://127.0.0.1:5000/) or [https://localhost:5000/](https://localhost:5000/)
+And go to: [https://127.0.0.1:8080/](https://127.0.0.1:8080/) or [https://localhost:8080/](https://localhost:8080/)
 
 Access to the pgadmin with: [https://127.0.0.1:5050/](https://127.0.0.1:5050/) or [https://localhost:5050/](https://localhost:5050/)
 

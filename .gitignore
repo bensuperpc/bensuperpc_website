@@ -1,5 +1,5 @@
 __pycache__/
-.env
+*.env
 cert.pem
 key.pem
 project/website/uploads/*
