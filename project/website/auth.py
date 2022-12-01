@@ -236,8 +236,8 @@ def logout():
 
     if current_user.is_authenticated:
         current_user.connect = 0
-        logout_user()
         logger.debug(f"User {current_user.name} ({current_user.email}) logged out")
+        logout_user()
         flash("You have been logged out.", "success")
         return redirect(url_for("main.index"))
     else:
