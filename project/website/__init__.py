@@ -4,6 +4,7 @@
 import json
 import os
 from datetime import timedelta
+import time
 
 # Import Flask libs
 from flask import Flask, redirect, request
@@ -182,10 +183,20 @@ def create_app(*args, **kwargs):
         #if database_exists(DB_URL):
         #    logger.info("Deleting database")
             # drop_database(DB_URL)
-        if not database_exists(DB_URL):
-            logger.info("Creating database")
-            create_database(DB_URL)
-
+        while True:
+            logger.info("Database does not exist, creating it")
+            try:
+                if not database_exists(DB_URL):
+                    create_database(DB_URL)
+                    logger.info("Database created")
+                    break
+                else:
+                    logger.info("Database already exists")
+                    break
+            except Exception as e:
+                logger.error("Error creating database: {e}, retrying in 2 seconds", e=e)
+                time.sleep(2)
+                continue
         db.create_all()
         db.session.commit()
 
@@ -308,24 +319,16 @@ def create_app(*args, **kwargs):
             for user in User.query.all():
                 content = str(f"This is a comment for {article.title} from {user.name}")
 
-                comment = Comment(
-                    content=content,
-                    post=article,
-                    user=user,
-                )
-
-                if (
-                    bool(
-                        db.session.query(Comment)
-                        .filter_by(content=content)
-                        .first()
+                if (db.session.query(Comment).filter_by(content=content).count() == 0):
+                    comment = Comment(
+                        content=content,
+                        post=article,
+                        user=user,
                     )
-                    is False
-                ):
                     db.session.add(comment)
                     db.session.commit()
-                    logger.info(f"Added comment for {article.title}")
+                    logger.info(f"Added comment for {article.title} from {user.name}")
                 else:
-                    logger.info(f"Comment for {article.title} already exists")
+                    logger.info(f"Comment for {article.title} from {user.name} already exists")
 
         return app

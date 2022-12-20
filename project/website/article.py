@@ -223,6 +223,13 @@ def edit_comment(comment_id):
     if current_user.admin is False:
         flash("Sorry, you don't have permission to edit a comment.", "danger")
         return redirect(url_for("article.panel"))
+    
+    comment = Comment.query.get_or_404(comment_id)
+    
+    flash("Comment cannot be edited for now.", "warning")
+    return redirect(url_for("article.post", post_id=comment.post_id))
+
+    # TODO: Implement comment editing
 
     comment = Comment.query.get_or_404(comment_id)
     db.session.commit()
