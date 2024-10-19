@@ -1,12 +1,8 @@
-__pycache__/
-*.env
-cert.pem
-key.pem
-project/website/uploads/*
-!project/website/uploads/.gitkeep
-db.sqlite
-project/website/uploads/*
-project/website/static/media/image/FiKcb1-XoAAnOJ6.png
-project/website/static/media/music/Doom Crossing - Eternal Horizons (feat. Natalia Natchan)-801563641.mp3
-project/website/static/media/music/Macintosh Plus 420 (instrumental No Vocals) Extended..mp3
-project/website/static/media/video/Touhou - Bad Apple.mp4
+.env
+public
+themes
+build
+storage
+node_modules
+package-lock.json
+static/*

@@ -16,19 +16,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10"]
-        os: [ubuntu-latest, macos-latest]
+        command: ["build"]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
+      - uses: actions/checkout@v4
 
-      - name: "Install deps"
+      - name: "Install zola"
         run: |
-          make install
+          make install-debian-deps
 
-      - name: "lint"
+      - name: "build"
         run: |
-          make lint
+          make ${{ matrix.command }}
