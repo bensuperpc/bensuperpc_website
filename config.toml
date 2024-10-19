@@ -149,7 +149,7 @@ foothr = false # show or hide horizontal rule above footer
 
 title_separator = "|"  # Separator between title and title_addition, set as |, -, _, etc
 title_addition = "Fast, Lightweight, and Modern Zola Theme" # a default value for title addition (for SEO aim for 50-70 characters including the title and separator 'Abridge | title_addition')
-author = "Jake G" # Put Your Name here
+author = "Bensuperpc" # Put Your Name here
 keywords = "Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" # used for the primary site index
 banner = "banner.png" # Used as default image for OpenGraph/Twitter if page specific image is undefined.
 twitter_meta = "your-user-name" # for SEO: twitter:site and twitter:creator
@@ -167,31 +167,31 @@ seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twit
 ###############################################################################
 
 feed = true # this adds the RSS feed icon in the footer.
-mail = "name@example.com"
+mail = "bensuperpc@gmail.com"
 mastodon = "https://mastodon.example.com/@username"
 element = "matrix.example.com"
 #buymeacoffee = "your-user-name"
 kofi = "your-user-name"
 #discord = "your-discord" # Everything after https://discord.com/   eg: invite/my-server  *or*  servers/my-server-id
-#twitter = "your-user-name"
-#facebook = "your-user-name"
+twitter = "bensuperpc"
+#facebook = "bensuperpc"
 #linkedin = "your-user-name"
-#gitlab = "your-user-name"
-github = "your-user-name"
+#gitlab = "bensuperpc"
+github = "bensuperpc"
 #codeberg = "your-user-name" # Everything after https://codeberg.org/   eg: username  *or*  username/repository
 #github_sponsor = "your-user-name"
 #bitbucket = "your-user-name"
-#python = "your-user-name"
-#docker = "your-user-name"
+python = "bensuperpc"
+docker = "bensuperpc"
 #stack = "your-user-name"
-instagram = "your-user-name"
+instagram = "bensuperpc"
 #pixelfed = "https://pixelfed.example.com/" # Heaviest icon, off by default
 #pinterest = "your-user-name"
-twitch = "your-user-name"
-youtube = "channel/your-channel-id"
+twitch = "bensuperpc"
+youtube = "channel/bensuperpc"
 #peertube = "https://peertube.example.com/@username"
 #researchgate = "your-profile-id"
-#telegram = "your-user-name"
+telegram = "bensuperpc"
 
 
 ###############################################################################
