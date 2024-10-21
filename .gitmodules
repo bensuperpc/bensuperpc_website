@@ -1,6 +1,6 @@
-[submodule "themes/abridge"]
-	path = themes/abridge
+[submodule "website/site/themes/abridge"]
+	path = website/site/themes/abridge
 	url = https://github.com/jieiku/abridge.git
-[submodule "static"]
-	path = static
+[submodule "website/site/static"]
+	path = website/site/static
 	url = git@github.com:bensuperpc/bensuperpc_website_static_content.git

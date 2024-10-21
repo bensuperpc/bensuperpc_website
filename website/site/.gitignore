@@ -1,8 +1,7 @@
-.env
 public
 themes
 build
 storage
 node_modules
 package-lock.json
-static/*
+static

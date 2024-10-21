@@ -1,0 +1,47 @@
+services:
+  # zola
+  zola:
+    image: ghcr.io/getzola/zola:v0.19.2
+    container_name: zola
+    user: ${PUID:-1000}:${PGID:-1000}
+    profiles:
+      - zola
+    restart: on-failure:5
+    env_file:
+      - ./zola/env/zola.env
+    working_dir: /project
+    command: ["serve", "--force", "--interface", "0.0.0.0", "--port", "80", "--base-url", "http://0.0.0.0", "--output-dir", "/tmpfs/public"]
+    ports:
+      - "80:80"
+      - "1024:1024"
+    volumes:
+      - ./site:/project
+      - public_www:/tmpfs/public:rw
+    networks:
+      - infra-network
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    cap_drop:
+      - SYS_ADMIN
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.001'
+          memory: 20M
+
+networks:
+  infra-network:
+    driver: bridge
+    name: infra-network
+
+volumes:
+  public_www:
+    name: public_www
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+      o: size=1g,uid=${PUID:-1000},gid=${PGID:-1000}
