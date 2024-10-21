@@ -22,10 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "Install zola"
-        run: |
-          make install-debian-deps
-
       - name: "build"
         run: |
           make ${{ matrix.command }}
