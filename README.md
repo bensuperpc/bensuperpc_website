@@ -34,6 +34,14 @@ Go to the folder
 cd bensuperpc_website
 ```
 
+### Start the server
+
+```sh
+make start-at
+```
+
+Now you can visit the website at [http://0.0.0.0:8080](http://0.0.0.0:8080)
+
 ## Source code
 
 - [Zola](https://www.getzola.org/)
