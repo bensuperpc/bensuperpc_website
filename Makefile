@@ -84,3 +84,7 @@ clean:
 .PHONY: purge
 purge:
 	$(ENV_ARG_VAR) $(DOCKER) compose $(COMPOSE_DIR) $(COMPOSE_FILES) down -v --rmi all
+
+.PHONY: rmmetadata
+rmmetadata:
+	time find . -type f \( -iname "*.jpeg" -o -iname "*.jpg" -o -iname "*.png" \) -print0 | parallel -0 exiftool -all= -overwrite_original "{}"
