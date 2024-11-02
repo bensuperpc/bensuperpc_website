@@ -14,8 +14,11 @@ series = "Features"
 
 ## Anker Gan charger
 
-Let's compare the Anker Gan chargers, the 737 GanPrime 120W, the Prime 100W 2023, and the Prime 100W 2024.
+737 GanPrime 120W (A2148) - 2022
 
+Prime 100W (A2343) - 2023
+
+Prime 100W (A2688) - 2024
 
 |          Spec           |   737 GanPrime 120W   |    Prime 100W 2023    |    Prime 100W 2024    |
 | :---------------------: | :-------------------: | :-------------------: | :-------------------: |
@@ -42,9 +45,10 @@ Let's compare the Anker Gan chargers, the 737 GanPrime 120W, the Prime 100W 2023
 |       Dimensions        |                       |                       |   43.5x29.0x67.8mm    |
 |         Weight          |                       |                       |         170g          |
 
+
 ## Sources
 
 - [Anker](https://www.anker.com/)
-- [A2148.pdf](/manuals/anker/A2148.pdf)
-- {{ static_link(label="A2343.pdf", file="/manuals/anker/A2343.pdf") }}
-- [A2148.pdf](/manuals/anker/A2148.pdf)
+- [A2148.pdf](/articles/manuals/anker/A2148.pdf)
+- {{ static_link(label="A2343.pdf", file="/articles/manuals/anker/A2343.pdf") }}
+- [A2688.pdf](/articles/manuals/anker/A2688.pdf)
