@@ -6,22 +6,22 @@ template = "pages.html"
 draft = false
 +++
 
-<p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
-<form name="contact" method="POST">
-  <p>
-    <label for="name">Name</label>
-    <input type="text" placeholder="Name" id="name" required data-validation-required-message="Please enter your name." />
-  </p>
-  <p>
-    <label for="email">Email Address</label>
-    <input type="email" placeholder="name@example.com" id="email" required data-validation-required-message="Please enter your email address." />
-  </p>
-  <p>
-    <label for="message">Message</label>
-    <textarea rows="5" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-  </p>
-  <div id="success"></div>
-  <p>
-    <button type="submit" id="sendMessageButton">Send</button>
-  </p>
-</form>
+## Mail
+
+To contact me, I recommend you to send me an email to the following address: **bensuperpc[at]gmail.com** or to my secondary address **bensuperpc[at]protonmail.com**.
+
+## Réseaux sociaux
+
+You can also contact me via the following social networks:
+
+Bluesky : [bensuperpc](https://bsky.app/profile/bensuperpc.bsky.social)
+
+Twitter : [@bensuperpc](https://twitter.com/bensuperpc)
+
+GitHub : [bensuperpc](https://github.com/bensuperpc)
+
+Instagram : [bensuperpc](https://www.instagram.com/bensuperpc/)
+
+Telegram : [bensuperpc](https://t.me/bensuperpc)
+
+Discord server : [bensuperpc](https://discord.gg/etzX79VS)

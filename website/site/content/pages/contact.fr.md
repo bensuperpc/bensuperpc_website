@@ -24,4 +24,4 @@ Instagram : [bensuperpc](https://www.instagram.com/bensuperpc/)
 
 Telegram : [bensuperpc](https://t.me/bensuperpc)
 
-Discord : [bensuperpc](#)
+Discord server : [bensuperpc](https://discord.gg/etzX79VS)

@@ -4,8 +4,8 @@ base_url = "https://abridge.netlify.app"
 # Also set index format = "elasticlunr_javascript", and in [extra] uglyurls = true, integrity = false
 # If you use the npm/node script then all you have to do is set offline = true, and everything else is automatic.
 
-title = "Abridge"
-description = "Abridge is a fast, lightweight, and modern Zola theme (class-light, semantic HTML). Perfect Lighthouse, YellowLabTools, and Observatory scores."#for SEO aim for 140-180 Characters
+title = "Bensuperpc"
+description = "Bensuperpc website, talk about software and hardware stuff." #for SEO aim for 140-180 Characters
 theme = "abridge"
 
 default_language = "en"
@@ -160,6 +160,9 @@ seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twit
 
 #head_extra = '<meta name="analytics" content="my-analytics-id" /><meta name="advertising" content="my-advertising-id" />'
 
+head_extra = '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">'
+
+# <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 ###############################################################################
 ### Footer social links; these are used in macros/social.html
@@ -172,7 +175,7 @@ mastodon = "https://mastodon.example.com/@username"
 element = "matrix.example.com"
 #buymeacoffee = "your-user-name"
 kofi = "your-user-name"
-#discord = "your-discord" # Everything after https://discord.com/   eg: invite/my-server  *or*  servers/my-server-id
+discord = "invite/etzX79VS" # Everything after https://discord.com/   eg: invite/my-server  *or*  servers/my-server-id
 twitter = "bensuperpc"
 #facebook = "bensuperpc"
 #linkedin = "your-user-name"
