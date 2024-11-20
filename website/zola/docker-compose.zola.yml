@@ -6,6 +6,7 @@ services:
     user: ${PUID:-1000}:${PGID:-1000}
     profiles:
       - zola
+      - zola-dev
     restart: on-failure:5
     env_file:
       - ./zola/env/zola.env
@@ -32,6 +33,27 @@ services:
         reservations:
           cpus: '0.001'
           memory: 20M
+  zola-build:
+    image: ghcr.io/getzola/zola:v0.19.2
+    container_name: zola-build
+    user: ${PUID:-1000}:${PGID:-1000}
+    profiles:
+      - zola
+      - zola-build
+    env_file:
+      - ./zola/env/zola.env
+    working_dir: /project
+    command: ["build", "--force", "--base-url", "https://bensuperpc.github.io", "--output-dir", "/site/public"]
+    volumes:
+      - ./site:/project
+      - ./build:/site:rw
+    networks:
+      - infra-network
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    cap_drop:
+      - SYS_ADMIN
 
 networks:
   infra-network:
