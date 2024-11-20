@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://bensuperpc.github.io/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://bensuperpc.github.io/abridge.css?h=374e44ad187641d92ce9" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://bensuperpc.github.io" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://bensuperpc.github.io/manifest.min.json" />
+  <link rel="mask-icon" href="https://bensuperpc.github.io/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="icon" type="image/svg+xml" href="https://bensuperpc.github.io/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://bensuperpc.github.io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://bensuperpc.github.io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://bensuperpc.github.io/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Bensuperpc Atom Feed" href="https://bensuperpc.github.io/atom.xml" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>RTL9210: Firmware and tools | Bensuperpc</title>
+  <meta name="author" content="Bensuperpc" />
+  <meta name="copyright" content="Bensuperpc" />
+  <meta name="description" content="Firmware and tools for Realtek RTL9210 and RTL9210B USB to NVMe&#x2F;SATA bridge controller." />
+  <link rel="canonical" href="https://bensuperpc.github.io/realtek/rtl9210/" />
+  <meta name="keywords" content="RTL9210, Realtek, Embed, Embedded, Streamable, Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://bensuperpc.github.io/realtek/rtl9210/" />
+  <meta name="twitter:url" content="https://bensuperpc.github.io/realtek/rtl9210/" />
+  <meta property="og:description" content="Firmware and tools for Realtek RTL9210 and RTL9210B USB to NVMe&#x2F;SATA bridge controller." />
+  <meta name="twitter:description" content="Firmware and tools for Realtek RTL9210 and RTL9210B USB to NVMe&#x2F;SATA bridge controller." />
+  <meta property="og:title" content="RTL9210: Firmware and tools | Bensuperpc" />
+  <meta name="twitter:title" content="RTL9210: Firmware and tools | Bensuperpc" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://bensuperpc.github.io/banner.png" />
+  <meta property="og:image" content="https://bensuperpc.github.io/banner.png" />
+  <meta property="og:site_name" content="Bensuperpc" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2024-10-19" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://bensuperpc.github.io/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://bensuperpc.github.io/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://bensuperpc.github.io" title="Bensuperpc"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#f90" viewBox="0 0 96 96" width="28" height="28"><path stroke-width="14" d="M14 99 46 7h4l32 92"/><path stroke-width="9" d="M-3 82c43-26 59-26 102 0"/><path stroke-linecap="round" stroke-width="1.5" d="M94 72v7m-5-9.8v7m-5-9.8v7.1M79 64v7M63 57.7v7m-5-8.2v7m-5-7.8v7m-5-7.2v7m-5-6.7v7m-5-6.3v7m-5-5.8v7M17 64v7m-5-4.6v7m-5-4.2v7M2 72v7"/></svg>bridge</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://bensuperpc.github.io/archive/"> Posts </a></li><li><a class="s110" href="https://bensuperpc.github.io/tags/"> Tags </a></li>
+            <li><div class="dropdown"><i class="svgs world" type="reset"></i>
+                <div class="dropdown-content">
+                <span>English</span><a href="https://bensuperpc.github.io/fr/realtek/rtl9210/">Français</a></div>
+            </div></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://bensuperpc.github.io/realtek/rtl9210/">RTL9210: Firmware and tools</a></h1>
+
+      <span class="s95"> Bensuperpc <span class="rpad"></span> October 19, 2024 <span class="rpad"></span> #<a href="https://bensuperpc.github.io/tags/features/">Features</a>  #<a href="https://bensuperpc.github.io/tags/realtek/">Realtek</a>  #<a href="https://bensuperpc.github.io/tags/rtl9210/">RTL9210</a> </span>
+
+    
+        <div class="block">
+      <div class="blockdiv">
+        <a class="b s150" href="https://bensuperpc.github.io/tags/features/">Features (Series)</a><br>
+            <a href="https://bensuperpc.github.io/overview-showdata/">Showdata Shortcode</a><br>
+            <a href="https://bensuperpc.github.io/overview-math/">Mathematical Notation</a><br>
+            <a href="https://bensuperpc.github.io/video-streaming-sites/overview-embed-streamable/">Embed Streamable</a><br>
+            <a href="https://bensuperpc.github.io/video-streaming-sites/overview-embed-vimeo/">Embed Vimeo</a><br>
+            <a href="https://bensuperpc.github.io/video-streaming-sites/overview-embed-youtube/">Embed Youtube</a><br>
+            <a href="https://bensuperpc.github.io/overview-rich-content/">Rich Content</a><br>
+            <a href="https://bensuperpc.github.io/overview-images/">Image Shortcodes</a><br>
+            <a href="https://bensuperpc.github.io/overview-markdown-and-style/">Markdown and Style</a><br>
+            <a href="https://bensuperpc.github.io/overview-code-blocks/">Code Blocks Theme</a><br>
+            <a href="https://bensuperpc.github.io/overview-abridge/">Abridge Zola Theme</a><br>
+            <a class="scur" href="https://bensuperpc.github.io/realtek/rtl9210/">RTL9210: Firmware and tools</a><br> 
+          
+            <a href="https://bensuperpc.github.io/anker/charger/">Comparison of Anker chargers</a><br>
+            <a href="https://bensuperpc.github.io/webp/webp/">Benchmarking Webp format</a><br>
+      </div>
+    </div>
+
+
+<h1 id="rtl9210">RTL9210</h1>
+<p>Firmware and tools for <strong>RTL9210</strong> and <strong>RTL9210B</strong> USB to NVMe/SATA bridge controller. They are provided by <a rel="noopener" target="_blank" href="https://www.station-drivers.com">station-drivers</a>, <a rel="noopener" target="_blank" href="https://www.realtek.com">Realtek</a>, etc.</p>
+<p><strong>All procedures described in this Git repository are at your own risk. In case of software issues, you can find some solutions in the <a href="https://bensuperpc.github.io/realtek/rtl9210/#unbrick">Unbrick</a> section.</strong></p>
+<h2 id="files-and-folders">Files and Folders</h2>
+<ul>
+<li><a href="https://bensuperpc.github.io/realtek/rtl9210/configure">configure</a>: All configurations for each device.</li>
+<li><a href="https://bensuperpc.github.io/realtek/rtl9210/dump">dump</a>: All dumps for each device.</li>
+<li><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware">firmware</a>: All found firmware.</li>
+</ul>
+<h2 id="firmware">Firmware</h2>
+<p>The table below lists all known firmware versions available in this git repository's <a href="https://bensuperpc.github.io/realtek/rtl9210/firmware">firmware</a> folder.</p>
+<table><thead><tr><th>Firmware ver.</th><th>Build date</th><th>RTL9210</th><th>RTL9210B</th><th>Links</th></tr></thead><tbody>
+<tr><td>1.20.12</td><td>?</td><td>✅</td><td>❌</td><td><a href="/files/firmware/realtek_rtl9210_fw%20(Version%201.20.12).zip">Download</a></td></tr>
+<tr><td>1.20.12</td><td>?</td><td>✅</td><td>❌</td><td><!-- Assets -->
+<a href="https://bensuperpc.github.io/files/firmware/realtek_rtl9210_fw%20(Version%201.20.12).zip" target="_blank">
+    Download
+</a></td></tr>
+<tr><td>1.23.5</td><td>2020.09.03</td><td>❓</td><td>❓</td><td>Not found yet</td></tr>
+<tr><td>1.23.9</td><td>2020.10.05</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.23.9).zip">Download</a></td></tr>
+<tr><td>1.23.15</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.23.15).zip">Download</a></td></tr>
+<tr><td>1.25.7</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.25.7).zip">Download</a></td></tr>
+<tr><td>1.25.14</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.25.14).zip">Download</a></td></tr>
+<tr><td>1.25.18</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.25.18).zip">Download</a></td></tr>
+<tr><td>1.27.24</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.27.24).zip">Download</a></td></tr>
+<tr><td>1.27.25</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.27.25).zip">Download</a></td></tr>
+<tr><td>1.28.17</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.28.17).zip">Download</a></td></tr>
+<tr><td>1.29.8</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.29.8).zip">Download</a></td></tr>
+<tr><td>1.29.12</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.29.12).zip">Download</a></td></tr>
+<tr><td>1.29.12.011122</td><td>?</td><td>✅</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210AB_fw%20(Version%201.29.12.011122).zip">Download</a></td></tr>
+<tr><td>1.29.391</td><td>?</td><td>✅</td><td>❌</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210_fw%20(Version%201.29.391).zip">Download</a></td></tr>
+<tr><td>1.30.17</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.30.17).zip">Download</a></td></tr>
+<tr><td>1.30.21.070622</td><td>?</td><td>✅</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210AB_fw%20(Version%201.30.21.070622).zip">Download</a></td></tr>
+<tr><td>1.30.24.030822</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.30.24.030822).zip">Download</a></td></tr>
+<tr><td>1.30.28.081022</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.30.28.081022).zip">Download</a></td></tr>
+<tr><td>1.31.17.102022</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.31.17.102022).zip">Download</a></td></tr>
+<tr><td>1.31.17.102022 (2)</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.31.17.102022%20(2)).zip">Download</a></td></tr>
+<tr><td>1.32.16.010923</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.16.010923).zip">Download</a></td></tr>
+<tr><td>1.32.45.041323</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.45.041323).zip">Download</a></td></tr>
+<tr><td>1.32.49.140423</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.49.140423).zip">Download</a></td></tr>
+<tr><td>1.32.49.140423 (Lcd)</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.49.140423%20(Lcd)).zip">Download</a></td></tr>
+<tr><td>1.32.68.062623</td><td>28.06.23</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.68.062623).zip">Download</a></td></tr>
+<tr><td>1.32.87.082923</td><td>29.08.23</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.87.082923).zip">Download</a></td></tr>
+<tr><td>1.32.901.120722</td><td>?</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.32.901.120722).zip">Download</a></td></tr>
+<tr><td>1.33.7.191023</td><td>19.10.2023</td><td>❌</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.33.7.191023).zip">Download</a></td></tr>
+<tr><td>1.33.44.011824</td><td>18-01-2024</td><td>❓</td><td>✅</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/firmware/realtek_rtl9210B_fw%20(Version%201.33.44.011824).zip">Download</a></td></tr>
+</tbody></table>
+<h2 id="supported-devices">Supported Devices</h2>
+<p>There are dozens of devices with the RTL9210B, I have gathered in this git repository some firmware configs found on the <a rel="noopener" target="_blank" href="https://www.station-drivers.com/index.php/en/forum/enclosures-nvme-sata-usb-3-x/76-nvme-usb-drives-realtek-rtl9210-rtl9220-firmware-version-1-xx?start=0">www.station-drivers.com</a> forums.</p>
+<p>You can check in the <a href="https://bensuperpc.github.io/realtek/rtl9210/configure">configure</a> folder or use values from the <a href="https://bensuperpc.github.io/realtek/rtl9210/dump">dump</a> folder to create your own configuration.</p>
+<table><thead><tr><th>Brand</th><th>Model</th><th>Controller</th><th>config file</th><th>dump</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Inateck</td><td>FE2025</td><td>RTL9210B</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/configure/RTL9210B_CG_INATEK_FE2025_N1.cfg">config</a></td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/dump/INATEK_FE2025_N1.txt">dump</a></td><td></td></tr>
+<tr><td>Sabrent</td><td>EC-SNVE</td><td>RTL9210B</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/configure/RTL9210B_CG_SABRANT_EC-SNVE.cfg">config</a></td><td></td><td></td></tr>
+<tr><td>Mokin</td><td>MOUD0501</td><td>RTL9210B</td><td></td><td></td><td></td></tr>
+<tr><td>Ugreen</td><td>?</td><td>RTL9210B</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/configure/RTL9210B_CG_UGREEN.cfg">config</a></td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/dump/UGREEN.txt">dump</a></td><td></td></tr>
+<tr><td>SmallRig</td><td>SD-01</td><td>RTL9210B</td><td></td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/dump/SMALLRIG_SD-01.txt">dump</a></td><td></td></tr>
+<tr><td>MKUO</td><td>SD-01</td><td>RTL9210(B ?)</td><td></td><td></td><td></td></tr>
+<tr><td>Orico</td><td>M2PJM-C3</td><td>RTL9210(B ?)</td><td></td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/dump/ORICO_M2PJM-C3.txt">dump</a></td><td></td></tr>
+<tr><td>Unionsime</td><td>MD202</td><td>RTL9210B</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/configure/RTL9210B_CG_UNIONSINE_MD202.cfg">config</a></td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/dump/UNIONSINE_MD202.txt">dump</a></td><td></td></tr>
+<tr><td>UniAccessories</td><td>?</td><td>RTL9210B</td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/configure/RTL9210B_CG_UniAccessories.cfg">config</a></td><td><a href="https://bensuperpc.github.io/realtek/rtl9210/dump/UniAccessories.txt">dump</a></td><td></td></tr>
+</tbody></table>
+<h2 id="how-to-flash-the-firmware">How to Flash the Firmware</h2>
+<p><strong>Warning: Flashing the firmware can brick or permanently damage your device. Do it at your own risk. The author of this Git repository is not responsible for any damage to your device. If you brick your device, you can try to unbrick it with the <a href="https://bensuperpc.github.io/realtek/rtl9210/#unbrick">Unbrick</a> section.</strong></p>
+<p><strong>Info: The firmware update tool is only available for Windows and does not work well on Linux with Wine or in a virtual machine.</strong></p>
+<ol>
+<li>Download the <strong>correct</strong> and latest firmware and tools from the <code>firmware</code> folder.</li>
+<li>Extract the archive.</li>
+<li>Connect the device to the computer.</li>
+<li>Launch the firmware update tool (such as UTHSB_MPtool) provided in the firmware archive.</li>
+<li>Dump your device configuration with the firmware update tool and save it. (Optional but highly recommended)</li>
+<li>Disconnect the enclosure from the computer.</li>
+<li>Remove the NVMe/SATA drive.</li>
+<li>Reconnect the device to the computer.</li>
+<li>Copy the configuration file (<code>.cfg</code>) of your device from the <strong>configure folder</strong> to the <strong>configure folder</strong> where the firmware update tool is located.</li>
+<li>Change the <code>SERIAL</code> in the configuration file to match your dump file <strong>if it is defined</strong>. (Optional but recommended)</li>
+<li>Comment out the <code>DISK_IPS_THRES</code> with a <code>;</code> in the configuration file. (Optional but recommended)</li>
+<li>Launch the firmware update tool (such as UTHSB_MPtool) provided in the firmware archive.</li>
+<li>Select the configuration file (<code>.cfg</code>) of your device.</li>
+<li>Click on the flash/update device button and wait until the process is finished.</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<p>This section describes how to configure (in cfg files) the firmware for your device, all configurations are in the <code>configure</code> folder or use values from the <code>dump</code> folder to create your own configuration.</p>
+<p><strong>Each configuration are unique to the device, your enclosure may not work properly if you have not the right configuration.</strong></p>
+<table><thead><tr><th>Variable name</th><th>Value example</th><th>Description</th></tr></thead><tbody>
+<tr><td>U2PHY</td><td>02 f4 9b e0 e1</td><td>USB 2.0 Physical Layer settings</td></tr>
+<tr><td>U3PHY</td><td>02 d4 09 00 d5 00 80</td><td>USB 3.0 Physical Layer settings</td></tr>
+<tr><td>VID</td><td>0x0bda</td><td>Vendor ID</td></tr>
+<tr><td>PID</td><td>0x9210</td><td>Product ID</td></tr>
+<tr><td>MANUFACTURE</td><td>"Unionsine"</td><td>Manufacturer name</td></tr>
+<tr><td>PRODUCT</td><td>"MD202"</td><td>Product name</td></tr>
+<tr><td>SERIAL</td><td>"012345679545"</td><td>Serial number, 12 characters and unique per device</td></tr>
+<tr><td>SCSI_PRODUCT</td><td>"Unionsine MD202 "</td><td>SCSI Product name</td></tr>
+<tr><td>SCSI_VENDOR</td><td>"n/a"</td><td>SCSI Vendor name</td></tr>
+<tr><td>CFEXPRESS</td><td>0x0</td><td>Enable CFExpress card reader (Always 0x0)</td></tr>
+<tr><td>USB_SELF_PWR</td><td>0x0</td><td>If the device is self-powered ?</td></tr>
+<tr><td>LED</td><td>0x1</td><td>Set to 0x1 if the device has a LED</td></tr>
+<tr><td>DISK_HOTPLUG</td><td>0x0</td><td>Anable device supports hot-plugging (Very often 0x0)</td></tr>
+<tr><td>PINMUX1</td><td>0x0</td><td>Pin multiplexing settings (first set)</td></tr>
+<tr><td>PINMUX2</td><td>0x0</td><td>Pin multiplexing settings (second set)</td></tr>
+<tr><td>U2_MAXPWR</td><td>0xfa</td><td>USB 2.0 mode maximum power</td></tr>
+<tr><td>U3_MAXPWR</td><td>0x70</td><td>USB 3.0 mode maximum power</td></tr>
+<tr><td>ASPMDIS</td><td>0x0</td><td>Enable or disable active power management</td></tr>
+<tr><td>PCIE_REFCLK</td><td>0x0</td><td>PCIe reference clock</td></tr>
+<tr><td>PCIE_PWRCUT_THRES</td><td>0x5</td><td>Suspends the PCIe power after 5 minutes of idle time  (1 unit = 1 minute),, it recommended to comment this line</td></tr>
+<tr><td>DISK_IPS_THRES</td><td>0x1</td><td>Responsible for powering down the PCI bus after a timeout to conserve energy</td></tr>
+<tr><td>SWR_1_2V</td><td>0x0</td><td>?</td></tr>
+<tr><td>EN_U1U2</td><td>0x1</td><td>Set to 0x1 to enable USB 3.0 Link Power Management</td></tr>
+<tr><td>EN_UPS</td><td>0x1</td><td>Enable USB Power Saving ?</td></tr>
+<tr><td>PD</td><td>0x1</td><td>Power Down</td></tr>
+<tr><td>CUSTOMIZED_LED</td><td>02 01 07</td><td>To customize the LED behavior</td></tr>
+<tr><td>SUSPEND_LED_OFF</td><td>0x1</td><td>?</td></tr>
+<tr><td>FORCE_USB_SPEED</td><td>0x0</td><td>?</td></tr>
+<tr><td>FORCE_PCIE_SPEED</td><td>0x0</td><td>?</td></tr>
+<tr><td>FORCE_USB_QUIRK</td><td>0x0</td><td>?</td></tr>
+<tr><td>FORCE_PCIE_QUIRK</td><td>0x0</td><td>?</td></tr>
+<tr><td>FAN</td><td>0x0</td><td>Set to 0x1 if the device has a fan</td></tr>
+<tr><td>DIS_SHOW_EMPTY_DISK</td><td>0x1</td><td>Set to 0x1 to show the enclosure when no NVMe/SATA drive is connected</td></tr>
+<tr><td>FORCE_SATA_NORMAL_DMA</td><td>0x0</td><td>Force SATA to use normal DMA</td></tr>
+<tr><td>RM_INTERNAL_RD</td><td>0x0</td><td>?</td></tr>
+<tr><td>HS_AUTO_SWITCH</td><td>0x0</td><td>?</td></tr>
+<tr><td>UART_DBG_PIN</td><td>0x0</td><td>UART Debug pin</td></tr>
+<tr><td>UART_BAUD_RATE</td><td>0x0</td><td>UART Baud rate</td></tr>
+<tr><td>FINGER_PRINT_EN</td><td>0x0</td><td>Enable fingerprint authentication</td></tr>
+<tr><td>CUSTOMIZED_DISK_IDENTIFY</td><td>0x0</td><td>?</td></tr>
+<tr><td>HW_LED_CFG</td><td>0x0</td><td>?</td></tr>
+<tr><td>CDROM_CFG</td><td>0x0</td><td>?</td></tr>
+<tr><td>SUPPORT_HID</td><td>0x0</td><td>?</td></tr>
+<tr><td>LATE_INIT_DISK</td><td>0x0</td><td>?</td></tr>
+<tr><td>SCSI_WP_PIN</td><td>0x0</td><td>Write Protect SCSI pin ?</td></tr>
+<tr><td>SD_MMC_TYPE</td><td>0x0</td><td>?</td></tr>
+<tr><td>FORCE_PORT_TYPE</td><td>0x0</td><td>?</td></tr>
+<tr><td>BCDDEVICE</td><td>0x0</td><td>?</td></tr>
+<tr><td>SUSPEND_DISK_OFF</td><td>0x7</td><td>?</td></tr>
+<tr><td>SCSI_WB_PIN</td><td>0x0</td><td>?</td></tr>
+<tr><td>CUSTOMIZED_FEATURE</td><td>0x0</td><td>?</td></tr>
+<tr><td>PERIPH_API</td><td>0x0</td><td>?</td></tr>
+<tr><td>RAID_CFG</td><td>0x0</td><td>?</td></tr>
+</tbody></table>
+<h2 id="create-your-own-configuration">Create your own configuration</h2>
+<p>To create your own configuration, you can use the <code>dump</code> folder to get the values of your device.</p>
+<ol>
+<li>Find the dump file of your device in the <code>dump</code> folder or on the internet.</li>
+<li>Create a new file in the <code>configure</code> folder with the name of your device and the extension <code>.cfg</code>.</li>
+<li>Copy the content of the dump file into the new file.</li>
+<li>Remove the first 3 lines of the dump file. These lines start with a line of <code>*</code>, contain the device name on the second line, and have another line of <code>*</code> on the third line.</li>
+<li>Remove variables with a value of <code>n/a</code>. (Optional)</li>
+<li>Replace <code>:</code> with <code>=</code> for variable definitions.</li>
+<li>Comment <code>DISK_IPS_THRES</code> by changing it to <code>;DISK_IPS_THRES = 0x1</code> if you want. (Optional)</li>
+<li>Launch the firmware update tool (such as UTHSB_MPtool), select the new configuration file, and flash it.</li>
+</ol>
+<h2 id="unbrick">Unbrick</h2>
+<p>When you have bricked your device, you can try to unbrick it with the following steps:</p>
+<ol>
+<li>Disconnect the device from the computer and remove the NVMe/SATA drive.</li>
+<li>Disassemble the enclosure and locate the flash chip, which is usually an 8-pin 2x3 mm chip. The chip might be labeled P25Q40SH, FM25Q04A, PUYA P25D40H, or FM25Q04A.</li>
+<li>Find the datasheet for the flash chip, and locate the CS# and VCC pin or CS# and Hardware Reset pin. Generally, VCC is pin 8 and CS# is pin 1.</li>
+<li>Short the CS# and VCC pin, or better, use an SPI programmer like the CH341A. If using an SPI programmer, you can skip the next steps and directly flash the firmware.</li>
+<li>Launch the Realtek firmware update tool (such as UTHSB_MPtool).</li>
+<li>Connect the enclosure to the computer and keep the pins shorted. Keep the pins shorted for 10-15 seconds or until the device is recognized by the computer or the Realtek firmware update tool.</li>
+<li>Launch the Realtek firmware update tool (such as UTHSB_MPtool).</li>
+<li>Click on the flash/update device button and wait until the process is finished.</li>
+</ol>
+<picture class="b1">
+  <img src="https://bensuperpc.github.io/articles/image/imageFlash.jpg" alt="Image" width="2123" height="1993" loading="lazy" />
+</picture>
+<p><img src="/articles/image/imageFlash.jpg" alt="" /></p>
+<h2 id="firmware-changelog">Firmware changelog</h2>
+<h3 id="1-23-9-100520-2020-10-05">1.23.9.100520 2020.10.05</h3>
+<ul>
+<li>Add customized command.</li>
+<li>Fix SATA USB powercut resume issue.</li>
+<li>Fix SATA reset issue if disk is lost.</li>
+<li>Update Kinsea KS10 LED behavior.</li>
+<li>Fix Fulllink macbook disk speed test issue.</li>
+</ul>
+<h3 id="1-23-5-09320-2020-09-03">1.23.5.09320 2020.09.03</h3>
+<ul>
+<li>Support USB HID interface.</li>
+<li>Improve the compatibility for RTL9210B.</li>
+<li>Support RTL9210C_PD/RTL9210C_CG.</li>
+<li>Improve the compatibility for cdrom feature.</li>
+<li>Add Orico customized sleep RGB LED behavior.</li>
+<li>Support security api.</li>
+<li>Add Kinsea KS10 LED behavior.</li>
+<li>Add IOmaster M204 LED behavior.</li>
+<li>Add LED SSI_6431_fp LED behavior.</li>
+<li>Improve opal compatibility.</li>
+</ul>
+<h3 id="1-27-25-072921-2021-07-29">1.27.25.072921 2021.07.29</h3>
+<ul>
+<li>This firmware update aims to improve stability with Samsung 980 Pro and Western Digital SN550 NVMe SSDs.</li>
+<li>The power LED behavior is also improved on Windows, and Intel based Mac systems:
+now when safely ejected the power LED should turn off ( it may blink slowly )
+indicating the drive may be safely unplugged from the computer.This update
+is recommended for uses who have experienced connectivity problems with Samsung 980 Pro or Western Digital SN550 NVMe SSDs.</li>
+</ul>
+<h3 id="1-29-8-122921">1.29.8.122921 ?</h3>
+<ul>
+<li>Fix problem If your HDD/SSD could not be detected or kept disconnected from your Mac</li>
+</ul>
+<h3 id="1-29-12-011122">1.29.12.011122 ?</h3>
+<ul>
+<li>Fix Compatibility with Samsung M.2 SSDs und Samsung Data Migration Tool</li>
+</ul>
+<h3 id="1-30-17-070622">1.30.17.070622 ?</h3>
+<ul>
+<li>Fix slow speed issue.</li>
+</ul>
+<h3 id="1-30-21-070622">1.30.21.070622 ?</h3>
+<ul>
+<li>Has improved random 4K read performance.</li>
+</ul>
+<h3 id="1-31-17-102022">1.31.17.102022 ?</h3>
+<h3 id="1-32-16-010923">1.32.16.010923 ?</h3>
+<h3 id="1-32-45-041323">1.32.45.041323 ?</h3>
+<h3 id="1-32-49-140423">1.32.49.140423 ?</h3>
+<h3 id="1-32-68-062623-28-06-23">1.32.68.062623 28.06.23</h3>
+<h3 id="1-32-87-082923-29-08-23">1.32.87.082923 29.08.23</h3>
+<ul>
+<li>Addresses USB link instability seen in some SSD models when used in conjunction with Linux-based PCs, including the Solidigm P41 Plus. This update includes compatibility fixes in certain scenarios, including use with the Samsung 980 Pro</li>
+</ul>
+<h3 id="1-32-901-120722">1.32.901.120722 ?</h3>
+<h3 id="1-33-7-191023-19-10-2023">1.33.7.191023 19-10-2023</h3>
+<h3 id="1-33-44-011824-18-01-2024">1.33.44.011824 18-01-2024</h3>
+<ul>
+<li>Improved Compatibility</li>
+</ul>
+<h2 id="contribute">Contribute</h2>
+<p>Don't hesitate to contribute to this git repository by creating a pull request or by contacting me.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.station-drivers.com/index.php/en/forum/enclosures-nvme-sata-usb-3-x/76-nvme-usb-drives-realtek-rtl9210-rtl9220-firmware-version-1-xx?start=0">www.station-drivers.com</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.station-drivers.com/index.php/en/forum/enclosures-nvme-sata-usb-3-x/76-nvme-usb-drives-realtek-rtl9210-rtl9220-firmware-version-1-xx?start=60#718">Configuration</a></li>
+<li><a rel="noopener" target="_blank" href="https://downloads.sabrent.com/product/ec-snve-firmware-update/?wpdmdl=370&amp;refresh=624f7332be18e1649374002&amp;ind=1649290344652&amp;filename=EC-SNVE%20-%20Firmware%20Update%20-%20Windows.zip">Sabrent EC-SNVE firmware</a></li>
+</ul>
+
+      <nav>
+        <div>
+          <a href="https://bensuperpc.github.io/anker/charger/">&#8249; Comparison of Anker chargers</a>
+        </div>
+        <div>
+          <a href="https://bensuperpc.github.io/overview-abridge/"> Abridge Zola Theme &#8250;</a>
+        </div>
+      </nav>
+    </article>
+
+    <div class="sblock">
+      <div class="blockdiv">
+        <a class="b s150" href="https://bensuperpc.github.io/tags/features/">Series</a><br>
+
+          
+          
+      <a href="https://bensuperpc.github.io/overview-showdata/">Showdata Shortcode</a><br>
+
+          
+            <details>
+              <summary>More...</summary>
+            </details>
+            <div class="hidden_li">
+                <a href="https://bensuperpc.github.io/overview-math/">Mathematical Notation</a><br>
+                <a href="https://bensuperpc.github.io/video-streaming-sites/overview-embed-streamable/">Embed Streamable</a><br>
+                <a href="https://bensuperpc.github.io/video-streaming-sites/overview-embed-vimeo/">Embed Vimeo</a><br>
+                <a href="https://bensuperpc.github.io/video-streaming-sites/overview-embed-youtube/">Embed Youtube</a><br>
+                <a href="https://bensuperpc.github.io/overview-rich-content/">Rich Content</a><br>
+                <a href="https://bensuperpc.github.io/overview-images/">Image Shortcodes</a><br>
+                <a href="https://bensuperpc.github.io/overview-markdown-and-style/">Markdown and Style</a><br>
+            </div>
+
+          
+
+          
+            <a href="https://bensuperpc.github.io/overview-code-blocks/">Code Blocks Theme</a><br>
+            <a href="https://bensuperpc.github.io/overview-abridge/">Abridge Zola Theme</a><br>
+
+          
+            
+      <a class="scur" href="https://bensuperpc.github.io/realtek/rtl9210/">RTL9210: Firmware and tools</a><br>
+    
+
+          
+            <a href="https://bensuperpc.github.io/anker/charger/">Comparison of Anker chargers</a><br>
+          
+        
+      <a href="https://bensuperpc.github.io/webp/webp/">Benchmarking Webp format</a><br>
+
+        
+      </div>
+      <div class="blockdiv sticky">
+        <a class="b s150" href="#">Index</a>
+        <div>
+          <a href="#rtl9210">RTL9210</a>
+        </div>
+        <div class="hpad">
+          <a href="#files-and-folders"><small>- Files and Folders</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#firmware"><small>- Firmware</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#supported-devices"><small>- Supported Devices</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#how-to-flash-the-firmware"><small>- How to Flash the Firmware</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#configuration"><small>- Configuration</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#create-your-own-configuration"><small>- Create your own configuration</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#unbrick"><small>- Unbrick</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#firmware-changelog"><small>- Firmware changelog</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#contribute"><small>- Contribute</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#sources"><small>- Sources</small></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://bensuperpc.github.io/atom.xml" target="_blank" title="Bensuperpc Atom Feed"><i type="Button" class="svg rss" title="Bensuperpc Atom Feed"></i></a><a class="js m-protected" href="#YmVuc3VwZXJwY0BnbWFpbC5jb20=" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.example.com/@username" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://discord.com/invite&#x2F;etzX79VS/" target="_blank" title="Discord"><i type="Button" class="svg discord" title="Discord"></i></a><a href="https://twitter.com/bensuperpc/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a><a href="https://github.com/bensuperpc/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://pypi.org/user/bensuperpc/" target="_blank" title="Python"><i type="Button" class="svg python" title="Python"></i></a><a href="https://hub.docker.com/u/bensuperpc/" target="_blank" title="Docker"><i type="Button" class="svg docker" title="Docker"></i></a><a href="https://www.instagram.com/bensuperpc/" target="_blank" title="Instagram"><i type="Button" class="svg instagram" title="Instagram"></i></a><a href="https://www.youtube.com/channel&#x2F;bensuperpc" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/bensuperpc/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/your-user-name/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a><a href="https://t.me/bensuperpc/" target="_blank" title="Telegram"><i type="Button" class="svg telegram" title="Telegram"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://bensuperpc.github.io/about/"> About </a>
+        <a class="rpad s90" href="https://bensuperpc.github.io/contact/"> Contact </a>
+        <a class="rpad s90" href="https://bensuperpc.github.io/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://bensuperpc.github.io/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Bensuperpc</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

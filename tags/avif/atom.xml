@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Bensuperpc - Avif</title>
+    <subtitle>Bensuperpc website, talk about software and hardware stuff.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://bensuperpc.github.io/tags/avif/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://bensuperpc.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-03T00:00:00+00:00</updated>
+    <id>https://bensuperpc.github.io/tags/avif/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Benchmarking Webp format</title>
+        <published>2024-11-03T00:00:00+00:00</published>
+        <updated>2024-11-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/webp/webp/"/>
+        <id>https://bensuperpc.github.io/webp/webp/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/webp/webp/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h2&gt;
+&lt;p&gt;In this article, we will benchmark the Webp against other formats like Avif, JPG, JPEG, PNG, Avif, JPGXL, and JPEGXL.&lt;&#x2F;p&gt;
+&lt;p&gt;Webp is a modern image format created by Google, it support &lt;strong&gt;lossy&lt;&#x2F;strong&gt; and &lt;strong&gt;lossless&lt;&#x2F;strong&gt; compression, we will benchmark the lossy and lossless compression against other formats.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;setup&quot;&gt;Setup&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Specification&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Value&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;CPU&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;AMD Ryzen 7 5700X 8c16t (3.4 GHz &#x2F; 4.6 GHz)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;RAM&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;64GB DDR4 3200MHz&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;OS&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Arch Linux&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Compiler&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;GCC 14.2.1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;cWebp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;1.4.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;FFMPEG&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;7.0.2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Docker Image&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;bensuperpc&#x2F;multimedia:archlinux-base-1.0.0-20241103&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;lossless-compression&quot;&gt;Lossless compression&lt;&#x2F;h2&gt;
+&lt;p&gt;The dataset for the &lt;strong&gt;lossless&lt;&#x2F;strong&gt; benchmark is:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;2000 screenshots from Minecraft (1080p to 1440p).&lt;&#x2F;li&gt;
+&lt;li&gt;2000 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p).&lt;&#x2F;li&gt;
+&lt;li&gt;500 screenshots from desktop applications (1080p to 1440p).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The PNG to Webp lossless compression command is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cwebp&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;quiet&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;metadata&lt;&#x2F;span&gt; all&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;lossless&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;exact&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;z&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;o &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-quiet&lt;&#x2F;code&gt;: Quiet mode.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-metadata all&lt;&#x2F;code&gt;: Copy all metadata.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-lossless&lt;&#x2F;code&gt;: Lossless compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-exact&lt;&#x2F;code&gt;: Use exact mode, keep invisible pixels.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-z &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-mt&lt;&#x2F;code&gt;: Use multi-threading.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output Webp file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For PNG to Avif lossless compression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;avifenc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;lossless&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;speed&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-jobs 1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;codec&lt;&#x2F;span&gt; aom &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-output &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--lossless&lt;&#x2F;code&gt;: Lossless compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--speed &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--jobs 1&lt;&#x2F;code&gt;: Number of jobs.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--codec aom&lt;&#x2F;code&gt;: Use the AOM codec, only codec available for lossless compression (11-2024).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output Avif file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For PNG to JPGXL lossless compression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cjxl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;quiet&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;num_threads&lt;&#x2F;span&gt; 1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;effort&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-distance 0.0&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;brotli_effort&lt;&#x2F;span&gt; 11 &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--quiet&lt;&#x2F;code&gt;: Quiet mode.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--num_threads 1&lt;&#x2F;code&gt;: Number of threads.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--effort &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--distance 0.0&lt;&#x2F;code&gt;: The quality, 0.0 is &quot;mathematically lossless&quot;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--brotli_effort 11&lt;&#x2F;code&gt;: Brotli compression level, 11 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output JPGXL file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developers.google.com&#x2F;speed&#x2F;webp&#x2F;docs&#x2F;cwebp&quot;&gt;cWebp&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Benchmarking Webp format</title>
+        <published>2024-11-03T00:00:00+00:00</published>
+        <updated>2024-11-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/webp/webp/"/>
+        <id>https://bensuperpc.github.io/webp/webp/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/webp/webp/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h2&gt;
+&lt;p&gt;In this article, we will benchmark the Webp against other formats like Avif, JPG, JPEG, PNG, Avif, JPGXL, and JPEGXL.&lt;&#x2F;p&gt;
+&lt;p&gt;Webp is a modern image format created by Google, it support &lt;strong&gt;lossy&lt;&#x2F;strong&gt; and &lt;strong&gt;lossless&lt;&#x2F;strong&gt; compression, we will benchmark the lossy and lossless compression against other formats.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;setup&quot;&gt;Setup&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Specification&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Value&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;CPU&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;AMD Ryzen 7 5700X 8c16t (3.4 GHz &#x2F; 4.6 GHz)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;RAM&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;64GB DDR4 3200MHz&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;OS&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Arch Linux&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Compiler&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;GCC 14.2.1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;cWebp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;1.4.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;FFMPEG&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;7.0.2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Docker Image&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;bensuperpc&#x2F;multimedia:archlinux-base-1.0.0-20241103&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;lossless-compression&quot;&gt;Lossless compression&lt;&#x2F;h2&gt;
+&lt;p&gt;The dataset for the &lt;strong&gt;lossless&lt;&#x2F;strong&gt; benchmark is:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;2000 screenshots from Minecraft (1080p to 1440p).&lt;&#x2F;li&gt;
+&lt;li&gt;2000 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p).&lt;&#x2F;li&gt;
+&lt;li&gt;500 screenshots from desktop applications (1080p to 1440p).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The PNG to Webp lossless compression command is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cwebp&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;quiet&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;metadata&lt;&#x2F;span&gt; all&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;lossless&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;exact&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;z&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;o &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-quiet&lt;&#x2F;code&gt;: Quiet mode.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-metadata all&lt;&#x2F;code&gt;: Copy all metadata.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-lossless&lt;&#x2F;code&gt;: Lossless compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-exact&lt;&#x2F;code&gt;: Use exact mode, keep invisible pixels.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-z &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-mt&lt;&#x2F;code&gt;: Use multi-threading.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output Webp file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For PNG to Avif lossless compression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;avifenc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;lossless&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;speed&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-jobs 1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;codec&lt;&#x2F;span&gt; aom &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-output &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--lossless&lt;&#x2F;code&gt;: Lossless compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--speed &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--jobs 1&lt;&#x2F;code&gt;: Number of jobs.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--codec aom&lt;&#x2F;code&gt;: Use the AOM codec, only codec available for lossless compression (11-2024).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output Avif file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For PNG to JPGXL lossless compression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cjxl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;quiet&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;num_threads&lt;&#x2F;span&gt; 1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;effort&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-distance 0.0&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;brotli_effort&lt;&#x2F;span&gt; 11 &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--quiet&lt;&#x2F;code&gt;: Quiet mode.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--num_threads 1&lt;&#x2F;code&gt;: Number of threads.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--effort &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--distance 0.0&lt;&#x2F;code&gt;: The quality, 0.0 is &quot;mathematically lossless&quot;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--brotli_effort 11&lt;&#x2F;code&gt;: Brotli compression level, 11 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output JPGXL file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developers.google.com&#x2F;speed&#x2F;webp&#x2F;docs&#x2F;cwebp&quot;&gt;cWebp&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

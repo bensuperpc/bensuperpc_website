@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+    <title>Abridge</title>
+    <subtitle>Abridge est un thème Zola rapide et léger utilisant le html sémantique, le CSS abridge.css class-light et aucun JS obligatoire.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://bensuperpc.github.io/fr/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://bensuperpc.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-03T00:00:00+00:00</updated>
+    <id>https://bensuperpc.github.io/fr/atom.xml</id>
+    <entry xml:lang="fr">
+        <title>Benchmarking Webp format</title>
+        <published>2024-11-03T00:00:00+00:00</published>
+        <updated>2024-11-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/webp/webp/"/>
+        <id>https://bensuperpc.github.io/fr/webp/webp/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/fr/webp/webp/">&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developers.google.com&#x2F;speed&#x2F;webp&#x2F;docs&#x2F;cwebp&quot;&gt;cWebp&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Comparison of Anker chargers</title>
+        <published>2024-10-22T00:00:00+00:00</published>
+        <updated>2024-10-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/anker/charger/"/>
+        <id>https://bensuperpc.github.io/fr/anker/charger/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/fr/anker/charger/">&lt;h2 id=&quot;anker-gan-charger&quot;&gt;Anker Gan charger&lt;&#x2F;h2&gt;
+&lt;p&gt;737 GanPrime 120W (A2148) - 2022&lt;&#x2F;p&gt;
+&lt;p&gt;Prime 100W (A2343) - 2023&lt;&#x2F;p&gt;
+&lt;p&gt;Prime 100W (A2688) - 2024&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Spec&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;737 GanPrime 120W&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Prime 100W 2023&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Prime 100W 2024&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Model&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;A2148&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;A2343&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;A2688&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Type&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;?&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Foldable&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Foldable&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Ports&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;2x USB-C + 1x USB-A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;2x USB-C + 1x USB-A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;2x USB-C + 1x USB-A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Input&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100-240V~1.9A 50-60Hz&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100-240V~2.1A 50-60Hz&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100-240V~2.1A 50-60Hz&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Output (all ports)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;120W (5-20V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W  (5-20V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W  (5-20V)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-C1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W  (5-20V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W (5-20V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W  (5-20V)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-C2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W (5-20V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;22.5W (4.5-12V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;22.5W (4.5-12V)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;22.5W (4.5-12V)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-C1 + USB-C2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;120W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-C1 + USB-A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;120W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-C2 + USB-A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;24W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB-C1 + USB-C2 + USB-A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;120W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;89W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB PD version&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3.x&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3.1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3.1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB PD voltage&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;5, 9, 12, 15, 20V&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;5, 9, 12, 15, 20V&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;5, 9, 15, 20V&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;USB PD max current&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3, 3, 3, 3, 5A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3, 3, 3, 3, 5A&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3, 3, 3, 5A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;PPS&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;No ?&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Yes&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Yes ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Efficiency&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;85.18%&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;79.20%&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;85%&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Efficiency at 10%&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;73.92%&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;59.18%&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;80.37%&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;No load power&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;0.23W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;0.27W&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;0.27W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Price&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Dimensions&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;43.5x29.0x67.8mm&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Weight&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;170g&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.anker.com&#x2F;&quot;&gt;Anker&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;articles&#x2F;manuals&#x2F;anker&#x2F;A2148.pdf&quot;&gt;A2148.pdf&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;!-- Assets --&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;articles&#x2F;manuals&#x2F;anker&#x2F;A2343.pdf&quot; target=&quot;_blank&quot;&gt;
+    A2343.pdf
+&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;articles&#x2F;manuals&#x2F;anker&#x2F;A2688.pdf&quot;&gt;A2688.pdf&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>RTL9210: Firmware and tools</title>
+        <published>2024-10-19T00:00:00+00:00</published>
+        <updated>2024-10-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/realtek/rtl9210/"/>
+        <id>https://bensuperpc.github.io/fr/realtek/rtl9210/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/fr/realtek/rtl9210/">&lt;h1 id=&quot;rtl9210&quot;&gt;RTL9210&lt;&#x2F;h1&gt;
+&lt;p&gt;Firmware and tools for &lt;strong&gt;RTL9210&lt;&#x2F;strong&gt; and &lt;strong&gt;RTL9210B&lt;&#x2F;strong&gt; USB to NVMe&#x2F;SATA bridge controller. They are provided by &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.station-drivers.com&quot;&gt;station-drivers&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.realtek.com&quot;&gt;Realtek&lt;&#x2F;a&gt;, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;All procedures described in this Git repository are at your own risk. In case of software issues, you can find some solutions in the &lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;#unbrick&quot;&gt;Unbrick&lt;&#x2F;a&gt; section.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;files-and-folders&quot;&gt;Files and Folders&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&quot;&gt;configure&lt;&#x2F;a&gt;: All configurations for each device.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&quot;&gt;dump&lt;&#x2F;a&gt;: All dumps for each device.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&quot;&gt;firmware&lt;&#x2F;a&gt;: All found firmware.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;firmware&quot;&gt;Firmware&lt;&#x2F;h2&gt;
+&lt;p&gt;The table below lists all known firmware versions available in this git repository&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&quot;&gt;firmware&lt;&#x2F;a&gt; folder.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Firmware ver.&lt;&#x2F;th&gt;&lt;th&gt;Build date&lt;&#x2F;th&gt;&lt;th&gt;RTL9210&lt;&#x2F;th&gt;&lt;th&gt;RTL9210B&lt;&#x2F;th&gt;&lt;th&gt;Links&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1.20.12&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;&#x2F;files&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.20.12).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.20.12&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;!-- Assets --&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;files&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.20.12).zip&quot; target=&quot;_blank&quot;&gt;
+    Download
+&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.23.5&lt;&#x2F;td&gt;&lt;td&gt;2020.09.03&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;Not found yet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.23.9&lt;&#x2F;td&gt;&lt;td&gt;2020.10.05&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.23.9).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.23.15&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.23.15).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.25.7&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.25.7).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.25.14&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.25.14).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.25.18&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.25.18).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.27.24&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.27.24).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.27.25&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.27.25).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.28.17&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.28.17).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.29.8&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.29.8).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.29.12&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.29.12).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.29.12.011122&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210AB_fw%20(Version%201.29.12.011122).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.29.391&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210_fw%20(Version%201.29.391).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.30.17&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.30.17).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.30.21.070622&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210AB_fw%20(Version%201.30.21.070622).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.30.24.030822&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.30.24.030822).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.30.28.081022&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.30.28.081022).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.31.17.102022&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.31.17.102022).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.31.17.102022 (2)&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.31.17.102022%20(2)).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.16.010923&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.16.010923).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.45.041323&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.45.041323).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.49.140423&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.49.140423).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.49.140423 (Lcd)&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.49.140423%20(Lcd)).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.68.062623&lt;&#x2F;td&gt;&lt;td&gt;28.06.23&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.68.062623).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.87.082923&lt;&#x2F;td&gt;&lt;td&gt;29.08.23&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.87.082923).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.32.901.120722&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.32.901.120722).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.33.7.191023&lt;&#x2F;td&gt;&lt;td&gt;19.10.2023&lt;&#x2F;td&gt;&lt;td&gt;❌&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.33.7.191023).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1.33.44.011824&lt;&#x2F;td&gt;&lt;td&gt;18-01-2024&lt;&#x2F;td&gt;&lt;td&gt;❓&lt;&#x2F;td&gt;&lt;td&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;firmware&#x2F;realtek_rtl9210B_fw%20(Version%201.33.44.011824).zip&quot;&gt;Download&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;supported-devices&quot;&gt;Supported Devices&lt;&#x2F;h2&gt;
+&lt;p&gt;There are dozens of devices with the RTL9210B, I have gathered in this git repository some firmware configs found on the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.station-drivers.com&#x2F;index.php&#x2F;en&#x2F;forum&#x2F;enclosures-nvme-sata-usb-3-x&#x2F;76-nvme-usb-drives-realtek-rtl9210-rtl9220-firmware-version-1-xx?start=0&quot;&gt;www.station-drivers.com&lt;&#x2F;a&gt; forums.&lt;&#x2F;p&gt;
+&lt;p&gt;You can check in the &lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&quot;&gt;configure&lt;&#x2F;a&gt; folder or use values from the &lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&quot;&gt;dump&lt;&#x2F;a&gt; folder to create your own configuration.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Brand&lt;&#x2F;th&gt;&lt;th&gt;Model&lt;&#x2F;th&gt;&lt;th&gt;Controller&lt;&#x2F;th&gt;&lt;th&gt;config file&lt;&#x2F;th&gt;&lt;th&gt;dump&lt;&#x2F;th&gt;&lt;th&gt;Notes&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Inateck&lt;&#x2F;td&gt;&lt;td&gt;FE2025&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&#x2F;RTL9210B_CG_INATEK_FE2025_N1.cfg&quot;&gt;config&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&#x2F;INATEK_FE2025_N1.txt&quot;&gt;dump&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Sabrent&lt;&#x2F;td&gt;&lt;td&gt;EC-SNVE&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&#x2F;RTL9210B_CG_SABRANT_EC-SNVE.cfg&quot;&gt;config&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Mokin&lt;&#x2F;td&gt;&lt;td&gt;MOUD0501&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Ugreen&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&#x2F;RTL9210B_CG_UGREEN.cfg&quot;&gt;config&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&#x2F;UGREEN.txt&quot;&gt;dump&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SmallRig&lt;&#x2F;td&gt;&lt;td&gt;SD-01&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&#x2F;SMALLRIG_SD-01.txt&quot;&gt;dump&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;MKUO&lt;&#x2F;td&gt;&lt;td&gt;SD-01&lt;&#x2F;td&gt;&lt;td&gt;RTL9210(B ?)&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Orico&lt;&#x2F;td&gt;&lt;td&gt;M2PJM-C3&lt;&#x2F;td&gt;&lt;td&gt;RTL9210(B ?)&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&#x2F;ORICO_M2PJM-C3.txt&quot;&gt;dump&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Unionsime&lt;&#x2F;td&gt;&lt;td&gt;MD202&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&#x2F;RTL9210B_CG_UNIONSINE_MD202.cfg&quot;&gt;config&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&#x2F;UNIONSINE_MD202.txt&quot;&gt;dump&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;UniAccessories&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;RTL9210B&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;configure&#x2F;RTL9210B_CG_UniAccessories.cfg&quot;&gt;config&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;dump&#x2F;UniAccessories.txt&quot;&gt;dump&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;how-to-flash-the-firmware&quot;&gt;How to Flash the Firmware&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Warning: Flashing the firmware can brick or permanently damage your device. Do it at your own risk. The author of this Git repository is not responsible for any damage to your device. If you brick your device, you can try to unbrick it with the &lt;a href=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;fr&#x2F;realtek&#x2F;rtl9210&#x2F;#unbrick&quot;&gt;Unbrick&lt;&#x2F;a&gt; section.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Info: The firmware update tool is only available for Windows and does not work well on Linux with Wine or in a virtual machine.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the &lt;strong&gt;correct&lt;&#x2F;strong&gt; and latest firmware and tools from the &lt;code&gt;firmware&lt;&#x2F;code&gt; folder.&lt;&#x2F;li&gt;
+&lt;li&gt;Extract the archive.&lt;&#x2F;li&gt;
+&lt;li&gt;Connect the device to the computer.&lt;&#x2F;li&gt;
+&lt;li&gt;Launch the firmware update tool (such as UTHSB_MPtool) provided in the firmware archive.&lt;&#x2F;li&gt;
+&lt;li&gt;Dump your device configuration with the firmware update tool and save it. (Optional but highly recommended)&lt;&#x2F;li&gt;
+&lt;li&gt;Disconnect the enclosure from the computer.&lt;&#x2F;li&gt;
+&lt;li&gt;Remove the NVMe&#x2F;SATA drive.&lt;&#x2F;li&gt;
+&lt;li&gt;Reconnect the device to the computer.&lt;&#x2F;li&gt;
+&lt;li&gt;Copy the configuration file (&lt;code&gt;.cfg&lt;&#x2F;code&gt;) of your device from the &lt;strong&gt;configure folder&lt;&#x2F;strong&gt; to the &lt;strong&gt;configure folder&lt;&#x2F;strong&gt; where the firmware update tool is located.&lt;&#x2F;li&gt;
+&lt;li&gt;Change the &lt;code&gt;SERIAL&lt;&#x2F;code&gt; in the configuration file to match your dump file &lt;strong&gt;if it is defined&lt;&#x2F;strong&gt;. (Optional but recommended)&lt;&#x2F;li&gt;
+&lt;li&gt;Comment out the &lt;code&gt;DISK_IPS_THRES&lt;&#x2F;code&gt; with a &lt;code&gt;;&lt;&#x2F;code&gt; in the configuration file. (Optional but recommended)&lt;&#x2F;li&gt;
+&lt;li&gt;Launch the firmware update tool (such as UTHSB_MPtool) provided in the firmware archive.&lt;&#x2F;li&gt;
+&lt;li&gt;Select the configuration file (&lt;code&gt;.cfg&lt;&#x2F;code&gt;) of your device.&lt;&#x2F;li&gt;
+&lt;li&gt;Click on the flash&#x2F;update device button and wait until the process is finished.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;&#x2F;h2&gt;
+&lt;p&gt;This section describes how to configure (in cfg files) the firmware for your device, all configurations are in the &lt;code&gt;configure&lt;&#x2F;code&gt; folder or use values from the &lt;code&gt;dump&lt;&#x2F;code&gt; folder to create your own configuration.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Each configuration are unique to the device, your enclosure may not work properly if you have not the right configuration.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Variable name&lt;&#x2F;th&gt;&lt;th&gt;Value example&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;U2PHY&lt;&#x2F;td&gt;&lt;td&gt;02 f4 9b e0 e1&lt;&#x2F;td&gt;&lt;td&gt;USB 2.0 Physical Layer settings&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;U3PHY&lt;&#x2F;td&gt;&lt;td&gt;02 d4 09 00 d5 00 80&lt;&#x2F;td&gt;&lt;td&gt;USB 3.0 Physical Layer settings&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;VID&lt;&#x2F;td&gt;&lt;td&gt;0x0bda&lt;&#x2F;td&gt;&lt;td&gt;Vendor ID&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PID&lt;&#x2F;td&gt;&lt;td&gt;0x9210&lt;&#x2F;td&gt;&lt;td&gt;Product ID&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;MANUFACTURE&lt;&#x2F;td&gt;&lt;td&gt;&quot;Unionsine&quot;&lt;&#x2F;td&gt;&lt;td&gt;Manufacturer name&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PRODUCT&lt;&#x2F;td&gt;&lt;td&gt;&quot;MD202&quot;&lt;&#x2F;td&gt;&lt;td&gt;Product name&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SERIAL&lt;&#x2F;td&gt;&lt;td&gt;&quot;012345679545&quot;&lt;&#x2F;td&gt;&lt;td&gt;Serial number, 12 characters and unique per device&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SCSI_PRODUCT&lt;&#x2F;td&gt;&lt;td&gt;&quot;Unionsine MD202 &quot;&lt;&#x2F;td&gt;&lt;td&gt;SCSI Product name&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SCSI_VENDOR&lt;&#x2F;td&gt;&lt;td&gt;&quot;n&#x2F;a&quot;&lt;&#x2F;td&gt;&lt;td&gt;SCSI Vendor name&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;CFEXPRESS&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Enable CFExpress card reader (Always 0x0)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;USB_SELF_PWR&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;If the device is self-powered ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;LED&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;Set to 0x1 if the device has a LED&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;DISK_HOTPLUG&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Anable device supports hot-plugging (Very often 0x0)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PINMUX1&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Pin multiplexing settings (first set)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PINMUX2&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Pin multiplexing settings (second set)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;U2_MAXPWR&lt;&#x2F;td&gt;&lt;td&gt;0xfa&lt;&#x2F;td&gt;&lt;td&gt;USB 2.0 mode maximum power&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;U3_MAXPWR&lt;&#x2F;td&gt;&lt;td&gt;0x70&lt;&#x2F;td&gt;&lt;td&gt;USB 3.0 mode maximum power&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;ASPMDIS&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Enable or disable active power management&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PCIE_REFCLK&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;PCIe reference clock&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PCIE_PWRCUT_THRES&lt;&#x2F;td&gt;&lt;td&gt;0x5&lt;&#x2F;td&gt;&lt;td&gt;Suspends the PCIe power after 5 minutes of idle time  (1 unit = 1 minute),, it recommended to comment this line&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;DISK_IPS_THRES&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;Responsible for powering down the PCI bus after a timeout to conserve energy&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SWR_1_2V&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;EN_U1U2&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;Set to 0x1 to enable USB 3.0 Link Power Management&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;EN_UPS&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;Enable USB Power Saving ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PD&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;Power Down&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;CUSTOMIZED_LED&lt;&#x2F;td&gt;&lt;td&gt;02 01 07&lt;&#x2F;td&gt;&lt;td&gt;To customize the LED behavior&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SUSPEND_LED_OFF&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FORCE_USB_SPEED&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FORCE_PCIE_SPEED&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FORCE_USB_QUIRK&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FORCE_PCIE_QUIRK&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FAN&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Set to 0x1 if the device has a fan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;DIS_SHOW_EMPTY_DISK&lt;&#x2F;td&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;Set to 0x1 to show the enclosure when no NVMe&#x2F;SATA drive is connected&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FORCE_SATA_NORMAL_DMA&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Force SATA to use normal DMA&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;RM_INTERNAL_RD&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;HS_AUTO_SWITCH&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;UART_DBG_PIN&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;UART Debug pin&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;UART_BAUD_RATE&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;UART Baud rate&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FINGER_PRINT_EN&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Enable fingerprint authentication&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;CUSTOMIZED_DISK_IDENTIFY&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;HW_LED_CFG&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;CDROM_CFG&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SUPPORT_HID&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;LATE_INIT_DISK&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SCSI_WP_PIN&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;Write Protect SCSI pin ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SD_MMC_TYPE&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;FORCE_PORT_TYPE&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;BCDDEVICE&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SUSPEND_DISK_OFF&lt;&#x2F;td&gt;&lt;td&gt;0x7&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;SCSI_WB_PIN&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;CUSTOMIZED_FEATURE&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;PERIPH_API&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;RAID_CFG&lt;&#x2F;td&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;create-your-own-configuration&quot;&gt;Create your own configuration&lt;&#x2F;h2&gt;
+&lt;p&gt;To create your own configuration, you can use the &lt;code&gt;dump&lt;&#x2F;code&gt; folder to get the values of your device.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the dump file of your device in the &lt;code&gt;dump&lt;&#x2F;code&gt; folder or on the internet.&lt;&#x2F;li&gt;
+&lt;li&gt;Create a new file in the &lt;code&gt;configure&lt;&#x2F;code&gt; folder with the name of your device and the extension &lt;code&gt;.cfg&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Copy the content of the dump file into the new file.&lt;&#x2F;li&gt;
+&lt;li&gt;Remove the first 3 lines of the dump file. These lines start with a line of &lt;code&gt;*&lt;&#x2F;code&gt;, contain the device name on the second line, and have another line of &lt;code&gt;*&lt;&#x2F;code&gt; on the third line.&lt;&#x2F;li&gt;
+&lt;li&gt;Remove variables with a value of &lt;code&gt;n&#x2F;a&lt;&#x2F;code&gt;. (Optional)&lt;&#x2F;li&gt;
+&lt;li&gt;Replace &lt;code&gt;:&lt;&#x2F;code&gt; with &lt;code&gt;=&lt;&#x2F;code&gt; for variable definitions.&lt;&#x2F;li&gt;
+&lt;li&gt;Comment &lt;code&gt;DISK_IPS_THRES&lt;&#x2F;code&gt; by changing it to &lt;code&gt;;DISK_IPS_THRES = 0x1&lt;&#x2F;code&gt; if you want. (Optional)&lt;&#x2F;li&gt;
+&lt;li&gt;Launch the firmware update tool (such as UTHSB_MPtool), select the new configuration file, and flash it.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;unbrick&quot;&gt;Unbrick&lt;&#x2F;h2&gt;
+&lt;p&gt;When you have bricked your device, you can try to unbrick it with the following steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Disconnect the device from the computer and remove the NVMe&#x2F;SATA drive.&lt;&#x2F;li&gt;
+&lt;li&gt;Disassemble the enclosure and locate the flash chip, which is usually an 8-pin 2x3 mm chip. The chip might be labeled P25Q40SH, FM25Q04A, PUYA P25D40H, or FM25Q04A.&lt;&#x2F;li&gt;
+&lt;li&gt;Find the datasheet for the flash chip, and locate the CS# and VCC pin or CS# and Hardware Reset pin. Generally, VCC is pin 8 and CS# is pin 1.&lt;&#x2F;li&gt;
+&lt;li&gt;Short the CS# and VCC pin, or better, use an SPI programmer like the CH341A. If using an SPI programmer, you can skip the next steps and directly flash the firmware.&lt;&#x2F;li&gt;
+&lt;li&gt;Launch the Realtek firmware update tool (such as UTHSB_MPtool).&lt;&#x2F;li&gt;
+&lt;li&gt;Connect the enclosure to the computer and keep the pins shorted. Keep the pins shorted for 10-15 seconds or until the device is recognized by the computer or the Realtek firmware update tool.&lt;&#x2F;li&gt;
+&lt;li&gt;Launch the Realtek firmware update tool (such as UTHSB_MPtool).&lt;&#x2F;li&gt;
+&lt;li&gt;Click on the flash&#x2F;update device button and wait until the process is finished.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+ &lt;img src=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;articles&#x2F;image&#x2F;imageFlash.jpg&quot; alt=&quot;Image&quot; width=&quot;2123&quot; height=&quot;1993&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;firmware-changelog&quot;&gt;Firmware changelog&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;1-23-9-100520-2020-10-05&quot;&gt;1.23.9.100520 2020.10.05&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add customized command.&lt;&#x2F;li&gt;
+&lt;li&gt;Fix SATA USB powercut resume issue.&lt;&#x2F;li&gt;
+&lt;li&gt;Fix SATA reset issue if disk is lost.&lt;&#x2F;li&gt;
+&lt;li&gt;Update Kinsea KS10 LED behavior.&lt;&#x2F;li&gt;
+&lt;li&gt;Fix Fulllink macbook disk speed test issue.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-23-5-09320-2020-09-03&quot;&gt;1.23.5.09320 2020.09.03&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Support USB HID interface.&lt;&#x2F;li&gt;
+&lt;li&gt;Improve the compatibility for RTL9210B.&lt;&#x2F;li&gt;
+&lt;li&gt;Support RTL9210C_PD&#x2F;RTL9210C_CG.&lt;&#x2F;li&gt;
+&lt;li&gt;Improve the compatibility for cdrom feature.&lt;&#x2F;li&gt;
+&lt;li&gt;Add Orico customized sleep RGB LED behavior.&lt;&#x2F;li&gt;
+&lt;li&gt;Support security api.&lt;&#x2F;li&gt;
+&lt;li&gt;Add Kinsea KS10 LED behavior.&lt;&#x2F;li&gt;
+&lt;li&gt;Add IOmaster M204 LED behavior.&lt;&#x2F;li&gt;
+&lt;li&gt;Add LED SSI_6431_fp LED behavior.&lt;&#x2F;li&gt;
+&lt;li&gt;Improve opal compatibility.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-27-25-072921-2021-07-29&quot;&gt;1.27.25.072921 2021.07.29&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;This firmware update aims to improve stability with Samsung 980 Pro and Western Digital SN550 NVMe SSDs.&lt;&#x2F;li&gt;
+&lt;li&gt;The power LED behavior is also improved on Windows, and Intel based Mac systems:
+now when safely ejected the power LED should turn off ( it may blink slowly )
+indicating the drive may be safely unplugged from the computer.This update
+is recommended for uses who have experienced connectivity problems with Samsung 980 Pro or Western Digital SN550 NVMe SSDs.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-29-8-122921&quot;&gt;1.29.8.122921 ?&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix problem If your HDD&#x2F;SSD could not be detected or kept disconnected from your Mac&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-29-12-011122&quot;&gt;1.29.12.011122 ?&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix Compatibility with Samsung M.2 SSDs und Samsung Data Migration Tool&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-30-17-070622&quot;&gt;1.30.17.070622 ?&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix slow speed issue.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-30-21-070622&quot;&gt;1.30.21.070622 ?&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Has improved random 4K read performance.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-31-17-102022&quot;&gt;1.31.17.102022 ?&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-32-16-010923&quot;&gt;1.32.16.010923 ?&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-32-45-041323&quot;&gt;1.32.45.041323 ?&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-32-49-140423&quot;&gt;1.32.49.140423 ?&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-32-68-062623-28-06-23&quot;&gt;1.32.68.062623 28.06.23&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-32-87-082923-29-08-23&quot;&gt;1.32.87.082923 29.08.23&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Addresses USB link instability seen in some SSD models when used in conjunction with Linux-based PCs, including the Solidigm P41 Plus. This update includes compatibility fixes in certain scenarios, including use with the Samsung 980 Pro&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;1-32-901-120722&quot;&gt;1.32.901.120722 ?&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-33-7-191023-19-10-2023&quot;&gt;1.33.7.191023 19-10-2023&lt;&#x2F;h3&gt;
+&lt;h3 id=&quot;1-33-44-011824-18-01-2024&quot;&gt;1.33.44.011824 18-01-2024&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved Compatibility&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;contribute&quot;&gt;Contribute&lt;&#x2F;h2&gt;
+&lt;p&gt;Don&#x27;t hesitate to contribute to this git repository by creating a pull request or by contacting me.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.station-drivers.com&#x2F;index.php&#x2F;en&#x2F;forum&#x2F;enclosures-nvme-sata-usb-3-x&#x2F;76-nvme-usb-drives-realtek-rtl9210-rtl9220-firmware-version-1-xx?start=0&quot;&gt;www.station-drivers.com&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.station-drivers.com&#x2F;index.php&#x2F;en&#x2F;forum&#x2F;enclosures-nvme-sata-usb-3-x&#x2F;76-nvme-usb-drives-realtek-rtl9210-rtl9220-firmware-version-1-xx?start=60#718&quot;&gt;Configuration&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;downloads.sabrent.com&#x2F;product&#x2F;ec-snve-firmware-update&#x2F;?wpdmdl=370&amp;amp;refresh=624f7332be18e1649374002&amp;amp;ind=1649290344652&amp;amp;filename=EC-SNVE%20-%20Firmware%20Update%20-%20Windows.zip&quot;&gt;Sabrent EC-SNVE firmware&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Blocs de code et thème</title>
+        <published>2022-05-16T15:00:00+00:00</published>
+        <updated>2022-05-16T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/overview-code-blocks/"/>
+        <id>https://bensuperpc.github.io/fr/overview-code-blocks/</id>
+        
+        <summary type="html">&lt;p&gt;Cet article présente différents Code Blocks permettant de comparer facilement des thèmes sublimes.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Markdown et Style</title>
+        <published>2022-05-15T15:00:00+00:00</published>
+        <updated>2022-05-15T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/overview-markdown-and-style/"/>
+        <id>https://bensuperpc.github.io/fr/overview-markdown-and-style/</id>
+        
+        <summary type="html">&lt;p&gt;Cet article propose un exemple de syntaxe Markdown de base pouvant être utilisée dans les fichiers de contenu Zola. Il indique également si les éléments HTML de base sont décorés avec CSS dans un thème Zola.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Codes courts d&#x27;image</title>
+        <published>2021-05-19T15:00:00+00:00</published>
+        <updated>2021-05-19T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/overview-images/"/>
+        <id>https://bensuperpc.github.io/fr/overview-images/</id>
+        
+        <summary type="html">&lt;p&gt;Cet article couvre les &lt;strong&gt;shortcodes imgswap et img&lt;&#x2F;strong&gt;. Les images peuvent également être intégrées directement à l&#x27;aide de markdown &lt;code&gt;![Ferris](ferris.svg)&lt;&#x2F;code&gt;, mais il est préférable d&#x27;utiliser un shortcode afin de pouvoir définir explicitement la largeur et la hauteur, cela aidera à empêcher le changement de mise en page du contenu, ce qui améliore l&#x27;expérience utilisateur et le score Google Lighthouse.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Contenu riche</title>
+        <published>2021-05-15T15:00:00+00:00</published>
+        <updated>2021-05-15T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/overview-rich-content/"/>
+        <id>https://bensuperpc.github.io/fr/overview-rich-content/</id>
+        
+        <summary type="html">&lt;p&gt;Plusieurs codes abrégés personnalisés sont inclus pour augmenter CommonMark. &lt;code&gt;video&lt;&#x2F;code&gt;, &lt;code&gt;image&lt;&#x2F;code&gt;, &lt;code&gt;gif&lt;&#x2F;code&gt;, et &lt;code&gt;audio&lt;&#x2F;code&gt; ont été créés pour vous aider à tirer parti des éléments HTML modernes dans votre écriture.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Youtube intégrées</title>
+        <published>2021-05-08T15:00:00+00:00</published>
+        <updated>2021-05-08T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/video-streaming-sites/overview-embed-youtube/"/>
+        <id>https://bensuperpc.github.io/fr/video-streaming-sites/overview-embed-youtube/</id>
+        
+        <summary type="html">&lt;p&gt;Zola a de nombreux shortcodes, et de nouveaux sont facilement ajoutés, cet exemple montre youtube.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Vimeo intégrées</title>
+        <published>2021-05-07T15:00:00+00:00</published>
+        <updated>2021-05-07T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/video-streaming-sites/overview-embed-vimeo/"/>
+        <id>https://bensuperpc.github.io/fr/video-streaming-sites/overview-embed-vimeo/</id>
+        
+        <summary type="html">&lt;p&gt;Zola a de nombreux shortcodes, et de nouveaux sont facilement ajoutés, cet exemple montre vimeo.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Streamable intégrées</title>
+        <published>2021-05-06T15:00:00+00:00</published>
+        <updated>2021-05-06T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/video-streaming-sites/overview-embed-streamable/"/>
+        <id>https://bensuperpc.github.io/fr/video-streaming-sites/overview-embed-streamable/</id>
+        
+        <summary type="html">&lt;p&gt;Zola a de nombreux shortcodes, et de nouveaux sont facilement ajoutés, cet exemple montre streamable.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Notation mathématiques</title>
+        <published>2021-05-05T15:00:00+00:00</published>
+        <updated>2022-01-01T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/overview-math/"/>
+        <id>https://bensuperpc.github.io/fr/overview-math/</id>
+        
+        <summary type="html">&lt;p&gt;Vous pouvez utiliser &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;katex.org&quot;&gt;KaTeX&lt;&#x2F;a&gt; pour rendre des notations mathématiques.&lt;&#x2F;p&gt;
+&lt;p&gt;Vous pouvez activer le $\KaTeX$ prise en charge globale, par section ou par page.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Code court Showdata</title>
+        <published>2021-05-04T15:00:00+00:00</published>
+        <updated>2021-05-04T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/overview-showdata/"/>
+        <id>https://bensuperpc.github.io/fr/overview-showdata/</id>
+        
+        <summary type="html">&lt;p&gt;Le shortcode &lt;code&gt;showdata&lt;&#x2F;code&gt; peut charger et afficher des données provenant d&#x27;une source externe via la fonction &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;templates&#x2F;overview&#x2F;#load-data&quot;&gt;load_data()&lt;&#x2F;a&gt; de Zola.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
