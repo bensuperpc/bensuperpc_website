@@ -38,7 +38,6 @@ services:
     container_name: zola-build
     user: ${PUID:-1000}:${PGID:-1000}
     profiles:
-      - zola
       - zola-build
     env_file:
       - ./zola/env/zola.env
