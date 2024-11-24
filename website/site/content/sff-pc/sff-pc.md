@@ -18,6 +18,8 @@ Welcome to the guide to SSF PCs.
 
 ## Introduction into SSF PCs
 
+In this section, we will see the different aspects of SSF PCs and his components.
+
 ### What is an SSF PC?
 
 An SSF PC is a **Small Form Factor PC**, it usually very compact, power efficient, and can be used for various purposes, they are usually used in schools, offices and homes servers.
@@ -66,28 +68,33 @@ In this section, we will see the components of SSF PCs.
 
 ### CPU (Central Processing Unit)
 
-I recommend using socketed CPUs, they are upgradable to more powerfull CPU, you can for example upgrade from **intel celeron G4900T** to **intel i9 9900T** without any issue in most cases.
+I recommend using socketed CPUs, they are upgradable to more powerfull CPU (with same TDP), you can for example upgrade from **intel celeron G4900T** to **intel i9 9900T** without any issue.
+Most SSF PCs have 35W or 65W CPUs, **i really recommend to avoid put a CPU with more than the maximum TDP supported by the SSF PC**, it can cause overheating and damage the motherboard or the PSU.
+Nowadays, most software use AVX, AVX2 and FMA3 instructions, you can easily multiply the performance by 2 or 3, especially for video encoding/decoding, compression, encryption, etc...
 
 | Brand | CPU arch | CPU Gen | Socket | RAM Type | Max RAM | Year | Exemple of SSF PC | Remarks |
 |-------|----------|--------|--------|----------|---------|------|----------------| ------- |
+| intel | Merom | Core 2 | LGA775 | DDR2 | 8GB | 2006-2007 | | |
 | intel | Nehalem | 1st Gen | LGA1156 | DDR3 | 16GB | 2008-2009 | | Avoid it, lack of AVX and not very power efficient |
-| intel | Sandy Bridge | 2nd Gen | LGA1155 | DDR3 | 32GB | 2011-2012 | | |
-| intel | Ivy Bridge | 3rd Gen | LGA1155 | DDR3 | 32GB | 2012-2013 | | |
-| intel | Haswell | 4th Gen | LGA1150 | DDR3 | 32GB | 2013-2014 | M73 tiny | Good choice and support AVX2 |
-| intel | Broadwell | 5th Gen | LGA1150 | DDR3 | 32GB | 2014-2015 | | |
-| intel | Skylake | 6th Gen | LGA1151 | DDR4 | 64GB | 2015-2016 | M710q | |
-| intel | Kaby Lake | 7th Gen | LGA1151 | DDR4 | 64GB | 2016-2017 | M710q | HEVC/VP9 10-bit hardware decoding support |
-| intel | Coffee Lake | 8-9th Gen | LGA1151 | DDR4 | 64GB | 2017-2018 | M720q | |
-| intel | Comet Lake | 10th Gen | LGA1200 | DDR4 | 128GB | 2020-2021 | M70G gen 1 | |
-| intel | Rocket Lake | 11th Gen | LGA1200 | DDR4 | 128GB | 2021-2022 | M70G gen 2 | |
-| intel | Alder Lake | 12th Gen | LGA1700 | DDR5 | 128GB | 2021-2022 | M70G gen 3 | |
+| intel | Sandy Bridge | 2nd Gen | LGA1155 | DDR3 | 32GB | 2011-2012 | M71 tiny | Add AVX support and improve IPC |
+| intel | Ivy Bridge | 3rd Gen | LGA1155 | DDR3 | 32GB | 2012-2013 | M72 tiny | Same as Sandy Bridge but with better power efficiency |
+| intel | Haswell | 4th Gen | LGA1150 | DDR3 | 32GB | 2013-2014 | M73 tiny | Support AVX2 and FMA3, improve IPC |
+| intel | Broadwell | 5th Gen | LGA1150 | DDR3 | 32GB | 2014-2015 | | Very rare in SSF PCs, same as Haswell but with better power efficiency |
+| intel | Skylake | 6th Gen | LGA1151 | DDR4 | 64GB | 2015-2016 | M710q | HEVC/VP9 8-bit hardware encoding/decoding and official vulkan support |
+| intel | Kaby Lake | 7th Gen | LGA1151 | DDR4 | 64GB | 2016-2017 | M710q | HEVC/VP9 10-bit hardware encoding/decoding support |
+| intel | Coffee Lake | 8-9th Gen | LGA1151 | DDR4 | 64GB | 2017-2018 | M720q | Increase core count and remove hyperthreading on 9th gen CPUs |
+| intel | Comet Lake | 10th Gen | LGA1200 | DDR4 | 128GB | 2020-2021 | M70G gen 1 | Readd hyperthreading on most CPUs |
+| intel | Rocket Lake | 11th Gen | LGA1200 | DDR4 | 128GB | 2021-2022 | M70G gen 2 | Add AVX-512 support and better IPC |
+| intel | Alder Lake | 12th Gen | LGA1700 | DDR5 | 128GB | 2021-2022 | M70G gen 3 | Remove AVX-512, Pcore and ECore, AV1 hardware decoding support and improve IPC |
 | intel | Raptor Lake | 13-14th Gen | LGA1700 | DDR5 | 128GB | 2022-2023 | M70G gen 4 | |
-| AMD | Zen | 1st Gen | AM4 | DDR4 | 64GB | 2017-2018 | | |
+| AMD | Zen | 1st Gen | AM4 | DDR4 | 64GB | 2017-2018 | M715Q | |
 | AMD | Zen+ | 2nd Gen | AM4 | DDR4 | 64GB | 2018-2019 | | |
-| AMD | Zen 2 | 3rd Gen | AM4 | DDR4 | 128GB | 2019-2020 | | |
+| AMD | Zen 2 | 3rd Gen | AM4 | DDR4 | 128GB | 2019-2020 | | On pair with intel skylake CPUs |
 | AMD | Zen 3 | 4th Gen | AM4 | DDR4 | 128GB | 2020-2021 | | |
-| AMD | Zen 4 | 5th Gen | AM5 | DDR5 | 128GB | 2021-2022 | | |
+| AMD | Zen 4 | 5th Gen | AM5 | DDR5 | 128GB | 2021-2022 | | Add AVX-512 support and better IPC |
 | AMD | Zen 5 | 6th Gen | AM5 | DDR5 | 128GB | 2022-2023 | | |
+
+I recommend using **Intel Skylake**, **AMD Zen 2**, or newer CPUs, as they offer better power efficiency, performance, and support. They also feature more USB 3.0 ports and NVMe support. However, if you’re on a budget, Haswell remains a good option due to its AVX2 support and power efficiency.
 
 ### GPU (Graphics Processing Unit)
 
